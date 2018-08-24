@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{03A5B046-18FA-414D-8EC3-99C897CD5271}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SerieList.Infra.CrossCutting.Exceptions</RootNamespace>
+    <AssemblyName>SerieList.Infra.CrossCutting.Exceptions</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppServiceException\AppServiceException.cs" />
+    <Compile Include="Messges\AppServiceMessages\Token\TokenProviderAppServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\AccessControlServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\Episode\EpisodeServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\GenericServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\Product\ProductCategoryServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\Product\ProductServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\Profile\PermissionServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\Profile\ProfileServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\Season\SeasonServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\Token\TokenProviderServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\User\UserServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\User\UserStatusServiceMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceException\ServiceException.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0AE7B7F-D22C-4E87-BF9C-01B2A2FB0960}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SerieList.Application</RootNamespace>
+    <AssemblyName>SerieList.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppModels\Episode\EpisodeAppModel.cs" />
+    <Compile Include="AppModels\Episode\EpisodeStatusAppModel.cs" />
+    <Compile Include="AppModels\Product\ProductAppModel.cs" />
+    <Compile Include="AppModels\Product\ProductCategoryAppModel.cs" />
+    <Compile Include="AppModels\Product\ProductInfoAppModel.cs" />
+    <Compile Include="AppModels\Product\ProductProductCategoryAppModel.cs" />
+    <Compile Include="AppModels\Product\ProductStatusAppModel.cs" />
+    <Compile Include="AppModels\Product\ProductTypeAppModel.cs" />
+    <Compile Include="AppModels\Profile\ProfileAppModel.cs" />
+    <Compile Include="AppModels\Profile\ProfilePermissionAppModel.cs" />
+    <Compile Include="AppModels\Season\SeasonAppModel.cs" />
+    <Compile Include="AppModels\Season\SeasonStatusAppModel.cs" />
+    <Compile Include="AppModels\Product\VisibilityAppModel.cs" />
+    <Compile Include="AppModels\Profile\PermissionAppModel.cs" />
+    <Compile Include="AppModels\Profile\PermissionGroupAppModel.cs" />
+    <Compile Include="AppModels\Profile\PermissionTypeAppModel.cs" />
+    <Compile Include="AppModels\User\UserAppModel.cs" />
+    <Compile Include="AppModels\User\UserInfoAppModel.cs" />
+    <Compile Include="AppModels\User\UserStatusAppModel.cs" />
+    <Compile Include="CommonAppModels\PagingAppModel.cs" />
+    <Compile Include="CommonAppModels\PagingResultAppModel.cs" />
+    <Compile Include="Concrete\AccessControlAppService.cs" />
+    <Compile Include="Concrete\AppServiceBase.cs" />
+    <Compile Include="Concrete\Episode\EpisodeAppService.cs" />
+    <Compile Include="Concrete\Episode\EpisodeStatusAppService.cs" />
+    <Compile Include="Concrete\Product\ProductAppService.cs" />
+    <Compile Include="Concrete\Product\ProductCategoryAppService.cs" />
+    <Compile Include="Concrete\Product\ProductStatusAppService.cs" />
+    <Compile Include="Concrete\Product\ProductTypeAppService.cs" />
+    <Compile Include="Concrete\Profile\ProfileAppService.cs" />
+    <Compile Include="Concrete\Season\SeasonAppService.cs" />
+    <Compile Include="Concrete\Season\SeasonStatusAppService.cs" />
+    <Compile Include="Concrete\Product\VisibilityAppService.cs" />
+    <Compile Include="Concrete\Profile\PermissionAppService.cs" />
+    <Compile Include="Concrete\Profile\PermissionTypeAppService.cs" />
+    <Compile Include="Concrete\Profile\PermissionGroupAppService.cs" />
+    <Compile Include="Concrete\User\UserAppService.cs" />
+    <Compile Include="Concrete\User\UserStatusAppService.cs" />
+    <Compile Include="Extensions\Episode\EpisodeExtension.cs" />
+    <Compile Include="Extensions\Episode\EpisodeStatusExtension.cs" />
+    <Compile Include="Extensions\Product\ProductCategoryExtension.cs" />
+    <Compile Include="Extensions\Product\ProductExtension.cs" />
+    <Compile Include="Extensions\Product\ProductInfoExtension.cs" />
+    <Compile Include="Extensions\Product\ProductProductCategoryExtension.cs" />
+    <Compile Include="Extensions\Product\ProductStatusExtension.cs" />
+    <Compile Include="Extensions\Product\ProductTypeExtension.cs" />
+    <Compile Include="Extensions\Profile\ProfileExtension.cs" />
+    <Compile Include="Extensions\Profile\ProfilePermissionExtension.cs" />
+    <Compile Include="Extensions\Season\SeasonExtension.cs" />
+    <Compile Include="Extensions\Season\SeasonStatusExtension.cs" />
+    <Compile Include="Extensions\Product\VisibilityExtension.cs" />
+    <Compile Include="Extensions\Profile\PermissionExtension.cs" />
+    <Compile Include="Extensions\Profile\PermissionGroupExtension.cs" />
+    <Compile Include="Extensions\Profile\PermissionTypeExtension.cs" />
+    <Compile Include="Extensions\User\UserExtension.cs" />
+    <Compile Include="Extensions\User\UserInfoExtension.cs" />
+    <Compile Include="Extensions\User\UserStatusExtension.cs" />
+    <Compile Include="Interfaces\IAccessControlAppService.cs" />
+    <Compile Include="Interfaces\IAppServiceBase.cs" />
+    <Compile Include="Interfaces\Episode\IEpisodeAppService.cs" />
+    <Compile Include="Interfaces\Episode\IEpisodeStatusAppService.cs" />
+    <Compile Include="Interfaces\Product\IProductAppService.cs" />
+    <Compile Include="Interfaces\Product\IProductStatusAppService.cs" />
+    <Compile Include="Interfaces\Product\IProductTypeAppService.cs" />
+    <Compile Include="Interfaces\Product\IProductCategoryAppService.cs" />
+    <Compile Include="Interfaces\Product\IVisibilityAppService.cs" />
+    <Compile Include="Interfaces\Profile\IProfileAppService.cs" />
+    <Compile Include="Interfaces\Season\ISeasonAppService.cs" />
+    <Compile Include="Interfaces\Season\ISeasonStatusAppService.cs" />
+    <Compile Include="Interfaces\Profile\IPermissionAppService.cs" />
+    <Compile Include="Interfaces\Profile\IPermissionGroupAppService.cs" />
+    <Compile Include="Interfaces\Profile\IPermissionTypeAppService.cs" />
+    <Compile Include="Interfaces\User\IUserAppService.cs" />
+    <Compile Include="Interfaces\User\IUserStatusAppService.cs" />
+    <Compile Include="Mail\Interfaces\IMailTemplate.cs" />
+    <Compile Include="Mail\MailTemplate\MailTemplate.cs" />
+    <Compile Include="Mapper\ConfigProfileApplication.cs" />
+    <Compile Include="Mapper\EpisodeProfileApplication.cs" />
+    <Compile Include="Mapper\ProductProfileApplication.cs" />
+    <Compile Include="Mapper\ProfileProfileApplication.cs" />
+    <Compile Include="Mapper\SeasonProfileApplication.cs" />
+    <Compile Include="Mapper\UserProfileApplication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SerieList.Domain\SerieList.Domain.csproj">
+      <Project>{1276cd85-78e6-4de9-be77-635a9a138cb2}</Project>
+      <Name>SerieList.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerieList.Infra.CrossCutting.Exceptions\SerieList.Infra.CrossCutting.Exceptions.csproj">
+      <Project>{03A5B046-18FA-414D-8EC3-99C897CD5271}</Project>
+      <Name>SerieList.Infra.CrossCutting.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerieList.Extras.Util\SerieList.Extras.Util.csproj">
+      <Project>{9736A406-5165-4D92-831F-E4B9945B2E77}</Project>
+      <Name>SerieList.Extras.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mail\MailTemplate\css\MailTemplate.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mail\MailTemplate\html\MailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mail\MailTemplate\img\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mail\MailTemplate\html\FooterTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mail\MailTemplate\html\RegisterTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mail\MailTemplate\html\ForgotPasswordTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

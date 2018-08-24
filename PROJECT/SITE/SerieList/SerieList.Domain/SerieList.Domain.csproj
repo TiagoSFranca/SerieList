@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1276CD85-78E6-4DE9-BE77-635A9A138CB2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SerieList.Domain</RootNamespace>
+    <AssemblyName>SerieList.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BusinessEntities\Episode\EpisodeModel.cs" />
+    <Compile Include="BusinessEntities\Product\ProductCategoryModel.cs" />
+    <Compile Include="BusinessEntities\Product\ProductModel.cs" />
+    <Compile Include="BusinessEntities\Profile\ProfileModel.cs" />
+    <Compile Include="BusinessEntities\Season\SeasonModel.cs" />
+    <Compile Include="BusinessEntities\Token\TokenProviderModel.cs" />
+    <Compile Include="BusinessEntities\User\UserModel.cs" />
+    <Compile Include="CommonEntities\PagingModel.cs" />
+    <Compile Include="CommonEntities\PagingResultModel.cs" />
+    <Compile Include="Entitites\ConfigurationModel.cs" />
+    <Compile Include="Entitites\LogEvent.cs" />
+    <Compile Include="Entitites\Episode\EpisodeModel.cs" />
+    <Compile Include="Entitites\Episode\EpisodeStatusModel.cs" />
+    <Compile Include="Entitites\Product\ProductProductCategoryModel.cs" />
+    <Compile Include="Entitites\Product\ProductInfoModel.cs" />
+    <Compile Include="Entitites\Product\ProductModel.cs" />
+    <Compile Include="Entitites\Product\ProductCategoryModel.cs" />
+    <Compile Include="Entitites\Product\ProductStatusModel.cs" />
+    <Compile Include="Entitites\Product\ProductTypeModel.cs" />
+    <Compile Include="Entitites\Profile\ProfileModel.cs" />
+    <Compile Include="Entitites\Profile\ProfilePermissionModel.cs" />
+    <Compile Include="Entitites\Season\SeasonModel.cs" />
+    <Compile Include="Entitites\Season\SeasonStatusModel.cs" />
+    <Compile Include="Entitites\Product\VisibilityModel.cs" />
+    <Compile Include="Entitites\Profile\PermissionGroupModel.cs" />
+    <Compile Include="Entitites\Profile\PermissionModel.cs" />
+    <Compile Include="Entitites\Profile\PermissionTypeModel.cs" />
+    <Compile Include="Entitites\Token\TokenProviderModel.cs" />
+    <Compile Include="Entitites\Token\TokenProviderTypeModel.cs" />
+    <Compile Include="Entitites\User\PasswordHistoryModel.cs" />
+    <Compile Include="Entitites\User\UserInfoModel.cs" />
+    <Compile Include="Entitites\User\UserModel.cs" />
+    <Compile Include="Entitites\User\UserStatusModel.cs" />
+    <Compile Include="Interfaces\IAssociation.cs" />
+    <Compile Include="Interfaces\IExcluded.cs" />
+    <Compile Include="Interfaces\Repositories\Episode\IEpisodeRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Episode\IEpisodeStatusRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IConfigurationRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Product\IProductCategoryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Product\IProductRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Product\IProductStatusRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Product\IProductTypeRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\Product\IVisibilityRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Profile\IProfileRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Season\ISeasonRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Season\ISeasonStatusRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Profile\IPermissionGroupRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Profile\IPermissionRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Profile\IPermissionTypeRepository.cs" />
+    <Compile Include="Interfaces\Repositories\Token\ITokenProviderRepository.cs" />
+    <Compile Include="Interfaces\Repositories\User\IPasswordHistoryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\User\IUserRepository.cs" />
+    <Compile Include="Interfaces\Repositories\User\IUserStatusRepository.cs" />
+    <Compile Include="Interfaces\Services\IAccessControlService.cs" />
+    <Compile Include="Interfaces\Services\IConfigurationService.cs" />
+    <Compile Include="Interfaces\Services\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\Episode\IEpisodeService.cs" />
+    <Compile Include="Interfaces\Services\Episode\IEpisodeStatusService.cs" />
+    <Compile Include="Interfaces\Services\Product\IProductCategoryService.cs" />
+    <Compile Include="Interfaces\Services\Product\IProductService.cs" />
+    <Compile Include="Interfaces\Services\Product\IProductStatusService.cs" />
+    <Compile Include="Interfaces\Services\Product\IProductTypeService.cs" />
+    <Compile Include="Interfaces\Services\Product\IVisibilityService.cs" />
+    <Compile Include="Interfaces\Services\Profile\IProfileService.cs" />
+    <Compile Include="Interfaces\Services\Season\ISeasonService.cs" />
+    <Compile Include="Interfaces\Services\Season\ISeasonStatusService.cs" />
+    <Compile Include="Interfaces\Services\Profile\IPermissionGroupService.cs" />
+    <Compile Include="Interfaces\Services\Profile\IPermissionService.cs" />
+    <Compile Include="Interfaces\Services\Profile\IPermissionTypeService.cs" />
+    <Compile Include="Interfaces\Services\Token\ITokenProviderService.cs" />
+    <Compile Include="Interfaces\Services\User\IUserService.cs" />
+    <Compile Include="Interfaces\Services\User\IUserStatusService.cs" />
+    <Compile Include="Mail\Entities\MailModel.cs" />
+    <Compile Include="Mail\Entities\MultipleDestinationMailModel.cs" />
+    <Compile Include="Mail\Entities\SingleDestinationMailModel.cs" />
+    <Compile Include="Mail\Interfaces\IMailService.cs" />
+    <Compile Include="Mail\Services\MailService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seed\ConfigurationSeed.cs" />
+    <Compile Include="Seed\Episode\EpisodeStatusSeed.cs" />
+    <Compile Include="Seed\Product\ProductStatusSeed.cs" />
+    <Compile Include="Seed\Product\ProductTypeSeed.cs" />
+    <Compile Include="Seed\Profile\ProfilePermissionSeed.cs" />
+    <Compile Include="Seed\Profile\ProfileSeed.cs" />
+    <Compile Include="Seed\Season\SeasonStatusSeed.cs" />
+    <Compile Include="Seed\Product\VisibilitySeed.cs" />
+    <Compile Include="Seed\Profile\PermissionGroupSeed.cs" />
+    <Compile Include="Seed\Profile\PermissionSeed.cs" />
+    <Compile Include="Seed\Profile\PermissionTypeSeed.cs" />
+    <Compile Include="Seed\Token\TokenProviderTypeSeed.cs" />
+    <Compile Include="Seed\User\UserStatusSeed.cs" />
+    <Compile Include="Services\AccessControlService.cs" />
+    <Compile Include="Services\ConfigurationService.cs" />
+    <Compile Include="Services\Episode\EpisodeService.cs" />
+    <Compile Include="Services\Episode\EpisodeStatusService.cs" />
+    <Compile Include="Services\Product\ProductCategoryService.cs" />
+    <Compile Include="Services\Product\ProductService.cs" />
+    <Compile Include="Services\Product\ProductStatusService.cs" />
+    <Compile Include="Services\Product\ProductTypeService.cs" />
+    <Compile Include="Services\Profile\ProfileService.cs" />
+    <Compile Include="Services\Season\SeasonService.cs" />
+    <Compile Include="Services\Season\SeasonStatusService.cs" />
+    <Compile Include="Services\Product\VisibilityService.cs" />
+    <Compile Include="Services\Profile\PermissionGroupService.cs" />
+    <Compile Include="Services\Profile\PermissionService.cs" />
+    <Compile Include="Services\Profile\PermissionTypeService.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\Token\TokenProviderService.cs" />
+    <Compile Include="Services\User\UserService.cs" />
+    <Compile Include="Services\User\UserStatusService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SerieList.Infra.CrossCutting.Exceptions\SerieList.Infra.CrossCutting.Exceptions.csproj">
+      <Project>{03A5B046-18FA-414D-8EC3-99C897CD5271}</Project>
+      <Name>SerieList.Infra.CrossCutting.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerieList.Extras.Util\SerieList.Extras.Util.csproj">
+      <Project>{9736A406-5165-4D92-831F-E4B9945B2E77}</Project>
+      <Name>SerieList.Extras.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

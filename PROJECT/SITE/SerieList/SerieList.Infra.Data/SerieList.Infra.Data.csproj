@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{991BEE4E-ED9E-40F8-A453-EA562E41B635}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SerieList.Infra.Data</RootNamespace>
+    <AssemblyName>SerieList.Infra.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.8\lib\net452\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.10.8\lib\net452\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\SerieListContext.cs" />
+    <Compile Include="EntityConfig\ConfigurationConfiguration.cs" />
+    <Compile Include="EntityConfig\LogEventConfiguration.cs" />
+    <Compile Include="EntityConfig\Episode\EpisodeConfiguration.cs" />
+    <Compile Include="EntityConfig\Episode\EpisodeStatusConfiguration.cs" />
+    <Compile Include="EntityConfig\Product\ProductProductCategoryConfiguration.cs" />
+    <Compile Include="EntityConfig\Product\ProductCategoryConfiguration.cs" />
+    <Compile Include="EntityConfig\Product\ProductConfiguration.cs" />
+    <Compile Include="EntityConfig\Product\ProductInfoConfiguration.cs" />
+    <Compile Include="EntityConfig\Product\ProductStatusConfiguration.cs" />
+    <Compile Include="EntityConfig\Product\ProductTypeConfiguration.cs" />
+    <Compile Include="EntityConfig\Profile\ProfileConfiguration.cs" />
+    <Compile Include="EntityConfig\Profile\ProfilePermissionConfiguration.cs" />
+    <Compile Include="EntityConfig\Season\SeasonConfiguration.cs" />
+    <Compile Include="EntityConfig\Season\SeasonStatusConfiguration.cs" />
+    <Compile Include="EntityConfig\Product\VisibilityConfiguration.cs" />
+    <Compile Include="EntityConfig\Profile\PermissionConfiguration.cs" />
+    <Compile Include="EntityConfig\Profile\PermissionGroupConfiguration.cs" />
+    <Compile Include="EntityConfig\Profile\PermissionTypeConfiguration.cs" />
+    <Compile Include="EntityConfig\Token\TokenProviderConfiguration.cs" />
+    <Compile Include="EntityConfig\Token\TokenProviderTypeConfiguration.cs" />
+    <Compile Include="EntityConfig\User\PasswordHistoryConfiguration.cs" />
+    <Compile Include="EntityConfig\User\UserConfiguration.cs" />
+    <Compile Include="EntityConfig\User\UserInfoConfiguration.cs" />
+    <Compile Include="EntityConfig\User\UserStatusConfiguration.cs" />
+    <Compile Include="Migrations\201808241612199_FIRST COMMIT.cs" />
+    <Compile Include="Migrations\201808241612199_FIRST COMMIT.Designer.cs">
+      <DependentUpon>201808241612199_FIRST COMMIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ConfigurationRepository.cs" />
+    <Compile Include="Repositories\Episode\EpisodeRepository.cs" />
+    <Compile Include="Repositories\Episode\EpisodeStatusRepository.cs" />
+    <Compile Include="Repositories\Product\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\Product\ProductRepository.cs" />
+    <Compile Include="Repositories\Product\ProductStatusRepository.cs" />
+    <Compile Include="Repositories\Product\ProductTypeRepository.cs" />
+    <Compile Include="Repositories\Profile\ProfileRepository.cs" />
+    <Compile Include="Repositories\Season\SeasonRepository.cs" />
+    <Compile Include="Repositories\Season\SeasonStatusRepository.cs" />
+    <Compile Include="Repositories\Product\VisibilityRepository.cs" />
+    <Compile Include="Repositories\Profile\PermissionGroupRepository.cs" />
+    <Compile Include="Repositories\Profile\PermissionRepository.cs" />
+    <Compile Include="Repositories\Profile\PermissionTypeRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\Token\TokenProviderRepository.cs" />
+    <Compile Include="Repositories\User\PasswordHistoryRepository.cs" />
+    <Compile Include="Repositories\User\UserRepository.cs" />
+    <Compile Include="Repositories\User\UserStatusRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SerieList.Domain\SerieList.Domain.csproj">
+      <Project>{1276cd85-78e6-4de9-be77-635a9a138cb2}</Project>
+      <Name>SerieList.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerieList.Extras.Util\SerieList.Extras.Util.csproj">
+      <Project>{9736A406-5165-4D92-831F-E4B9945B2E77}</Project>
+      <Name>SerieList.Extras.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808241612199_FIRST COMMIT.resx">
+      <DependentUpon>201808241612199_FIRST COMMIT.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
