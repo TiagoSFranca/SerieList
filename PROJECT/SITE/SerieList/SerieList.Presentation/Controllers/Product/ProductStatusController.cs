@@ -5,6 +5,7 @@ using System.Web.Http;
 using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Product;
 using SerieList.Presentation.Models.Search.Product;
+using SerieList.Presentation.Extensions;
 
 namespace SerieList.Presentation.Controllers.Product
 {
@@ -62,14 +63,15 @@ namespace SerieList.Presentation.Controllers.Product
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<ProductStatusAppModel> Search([FromBody]ProductStatusSearch filter)
+        public ResponseSearchResult<ProductStatusAppModel> Search([FromBody]ProductStatusSearch filter)
         {
-            var response = new ResponseMultipleResult<ProductStatusAppModel>(productStatusMessage.MethodGetAll);
+            var response = new ResponseSearchResult<ProductStatusAppModel>(productStatusMessage.MethodGetAll);
             if (filter == null)
                 filter = new ProductStatusSearch();
             try
             {
-                response.Results = _psAppService.Query(filter.IdList, filter.Description, filter.Excluded);
+                var result = _psAppService.Query(filter.IdList, filter.Description, filter.Excluded, filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = productStatusMessage.SuccessSearch;
             }

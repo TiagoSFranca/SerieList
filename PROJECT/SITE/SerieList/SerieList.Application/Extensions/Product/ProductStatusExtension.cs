@@ -1,4 +1,6 @@
 ﻿using SerieList.Application.AppModels.Product;
+using SerieList.Application.CommonAppModels;
+using SerieList.Domain.CommonEntities;
 using SerieList.Domain.Entitites.Product;
 
 namespace SerieList.Application.Extensions.Product
@@ -13,6 +15,11 @@ namespace SerieList.Application.Extensions.Product
         public static ProductStatusAppModel MapperToAppModel(this ProductStatusModel obj)
         {
             return AutoMapper.Mapper.Map<ProductStatusAppModel>(obj);
+        }
+
+        public static PagingResultAppModel<ProductStatusAppModel> MapperToAppModel(this PagingResultModel<ProductStatusModel> obj)
+        {
+            return AutoMapper.Mapper.Map<PagingResultAppModel<ProductStatusAppModel>>(obj);
         }
     }
 }

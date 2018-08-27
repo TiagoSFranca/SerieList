@@ -62,9 +62,9 @@ namespace SerieList.Domain.Services
         protected PagingResultModel<TEntity> Paginate(IEnumerable<TEntity> query, PagingModel paging)
         {
             var pagingModel = GetPagingModel(paging.ActualPage, paging.ItemsPerPage);
-            var result = new PagingResultModel<TEntity>(paging);
+            var result = new PagingResultModel<TEntity>(pagingModel);
             result.TotalItems = query.Count();
-            result.Items = query.Skip((paging.ActualPage == 1 ? 0 : paging.ActualPage - 1) * paging.ItemsPerPage).Take(paging.ItemsPerPage).ToList();
+            result.Items = query.Skip((pagingModel.ActualPage == 1 ? 0 : pagingModel.ActualPage - 1) * pagingModel.ItemsPerPage).Take(pagingModel.ItemsPerPage).ToList();
             return result;
         }
 
