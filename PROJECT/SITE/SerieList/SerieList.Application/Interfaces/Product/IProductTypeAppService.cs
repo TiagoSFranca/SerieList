@@ -1,10 +1,11 @@
 ﻿using SerieList.Application.AppModels.Product;
+using SerieList.Application.CommonAppModels;
 using System.Collections.Generic;
 
 namespace SerieList.Application.Interfaces.Product
 {
     public interface IProductTypeAppService : IAppServiceBase<ProductTypeAppModel>
     {
-        IEnumerable<ProductTypeAppModel> Query(IEnumerable<int> idList, string description, bool? excluded);
+        PagingResultAppModel<ProductTypeAppModel> Query(IEnumerable<int> idList, string description, bool? excluded, int actualPage, int itemsPerPage);
     }
 }
