@@ -237,7 +237,6 @@
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Controllers\User\UserStatusController.cs" />
     <Compile Include="Extensions\EpisodeExtension.cs" />
-    <Compile Include="Extensions\ProductCategoryExtension.cs" />
     <Compile Include="Extensions\ProductExtension.cs" />
     <Compile Include="Extensions\ProfileExtension.cs" />
     <Compile Include="Extensions\SeasonExtension.cs" />

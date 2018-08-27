@@ -8,6 +8,8 @@ using System.Linq;
 using SerieList.Application.Extensions.Product;
 using SerieList.Domain.Interfaces.Services.Token;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.CommonEntities;
+using SerieList.Application.CommonAppModels;
 
 namespace SerieList.Application.Concrete.Product
 {
@@ -51,11 +53,13 @@ namespace SerieList.Application.Concrete.Product
             }
         }
 
-        public IEnumerable<ProductCategoryAppModel> Query(IEnumerable<int> idList, string description, bool? excluded)
+        public PagingResultAppModel<ProductCategoryAppModel> Query(IEnumerable<int> idList, string description, bool? excluded, int actualPage, int itemsPerPage)
         {
             try
             {
-                return _productCategoryService.Query(idList, description, excluded).Select(e => e.MapperToAppModel()).ToList();
+                var paging = new PagingModel(actualPage, itemsPerPage);
+                var result = _productCategoryService.Query(idList, description, excluded, paging);
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {

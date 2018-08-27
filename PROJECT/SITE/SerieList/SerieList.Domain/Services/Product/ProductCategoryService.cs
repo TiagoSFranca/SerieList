@@ -1,4 +1,5 @@
-﻿using SerieList.Domain.Entitites.Product;
+﻿using SerieList.Domain.CommonEntities;
+using SerieList.Domain.Entitites.Product;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Product;
@@ -34,7 +35,7 @@ namespace SerieList.Domain.Services.Product
             productMessage = new ProductCategoryServiceMessage();
         }
 
-        public IEnumerable<ProductCategoryModel> Query(IEnumerable<int> idList, string description, bool? excluded)
+        public PagingResultModel<ProductCategoryModel> Query(IEnumerable<int> idList, string description, bool? excluded, PagingModel paging)
         {
             var query = _productCategoryRepo.Query();
 
@@ -47,7 +48,9 @@ namespace SerieList.Domain.Services.Product
             if (!String.IsNullOrEmpty(description))
                 query = query.Where(pt => pt.Description.ToLower().Contains(description.ToLower()));
 
-            return query.ToList();
+            query = query.OrderBy(e => e.Description);
+
+            return Paginate(query, paging);
         }
 
         public void Add(ProductCategoryModel obj, UserModel userCredentials)
