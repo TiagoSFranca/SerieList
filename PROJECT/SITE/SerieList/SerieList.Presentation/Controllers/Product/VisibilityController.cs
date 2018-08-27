@@ -5,6 +5,7 @@ using System.Web.Http;
 using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Product;
 using SerieList.Presentation.Models.Search.Product;
+using SerieList.Presentation.Extensions;
 
 namespace SerieList.Presentation.Controllers.Product
 {
@@ -62,14 +63,15 @@ namespace SerieList.Presentation.Controllers.Product
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<VisibilityAppModel> Search([FromBody]VisibilitySearch filter)
+        public ResponseSearchResult<VisibilityAppModel> Search([FromBody]VisibilitySearch filter)
         {
-            var response = new ResponseMultipleResult<VisibilityAppModel>(visibilityMessage.MethodGetAll);
+            var response = new ResponseSearchResult<VisibilityAppModel>(visibilityMessage.MethodGetAll);
             if (filter == null)
                 filter = new VisibilitySearch();
             try
             {
-                response.Results = _vAppService.Query(filter.IdList, filter.Description, filter.Excluded);
+                var result = _vAppService.Query(filter.IdList, filter.Description, filter.Excluded, filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = visibilityMessage.SuccessSearch;
             }

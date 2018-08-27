@@ -9,6 +9,7 @@ using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
 using SerieList.Domain.Interfaces.Repositories;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Domain.Services.Product
 {
@@ -27,7 +28,7 @@ namespace SerieList.Domain.Services.Product
             _accessControlService = accessControlService;
         }
 
-        public IEnumerable<VisibilityModel> Query(IEnumerable<int> idList, string description, bool? excluded)
+        public PagingResultModel<VisibilityModel> Query(IEnumerable<int> idList, string description, bool? excluded, PagingModel paging)
         {
             var query = _visibilityRepo.Query();
 
@@ -40,7 +41,9 @@ namespace SerieList.Domain.Services.Product
             if (!String.IsNullOrEmpty(description))
                 query = query.Where(pt => pt.Description.ToLower().Contains(description.ToLower()));
 
-            return query.ToList();
+            query = query.OrderBy(e => e.Description);
+
+            return Paginate(query, paging);
         }
 
         public void Remove(VisibilityModel obj, UserModel userCredentials)

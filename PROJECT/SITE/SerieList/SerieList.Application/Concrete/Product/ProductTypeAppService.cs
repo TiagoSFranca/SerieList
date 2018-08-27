@@ -1,13 +1,11 @@
 ﻿using SerieList.Application.Interfaces.Product;
 using SerieList.Domain.Entitites.Product;
 using System.Collections.Generic;
-using System.Linq;
 using SerieList.Application.AppModels.Product;
 using SerieList.Domain.Interfaces.Services.Product;
 using SerieList.Application.Extensions.Product;
 using System;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.Interfaces.Services;
 using SerieList.Application.CommonAppModels;
 using SerieList.Domain.CommonEntities;
 
