@@ -16,9 +16,8 @@ namespace SerieList.Application.Concrete.Episode
         private readonly IEpisodeService _episodeService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public EpisodeAppService(IEpisodeService episodeService, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(episodeService, tokenProviderService, configurationService)
+        public EpisodeAppService(IEpisodeService episodeService, ITokenProviderService tokenProviderService)
+            : base(episodeService, tokenProviderService)
         {
             _episodeService = episodeService;
             _tokenProviderService = tokenProviderService;

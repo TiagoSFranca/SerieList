@@ -1,5 +1,6 @@
 ﻿using SerieList.Domain.Entitites.Season;
 using SerieList.Domain.Entitites.User;
+using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Season;
 using SerieList.Domain.Interfaces.Repositories.Token;
 using SerieList.Domain.Interfaces.Services;
@@ -22,8 +23,9 @@ namespace SerieList.Domain.Services.Season
 
         private SeasonServiceMessage seasonMessage;
 
-        public SeasonService(ISeasonRepository seasonRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(seasonRepo, tokenProviderRepo)
+        public SeasonService(ISeasonRepository seasonRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService,
+            IConfigurationRepository configurationRepo)
+            : base(seasonRepo, tokenProviderRepo, configurationRepo)
         {
             _seasonRepo = seasonRepo;
             _tokenProviderRepo = tokenProviderRepo;

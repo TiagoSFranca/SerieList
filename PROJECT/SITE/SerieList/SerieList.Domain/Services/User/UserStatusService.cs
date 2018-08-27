@@ -1,4 +1,5 @@
 ﻿using SerieList.Domain.Entitites.User;
+using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Token;
 using SerieList.Domain.Interfaces.Repositories.User;
 using SerieList.Domain.Interfaces.Services;
@@ -17,8 +18,9 @@ namespace SerieList.Domain.Services.User
 
         private readonly IAccessControlService _accessControlService;
 
-        public UserStatusService(IUserStatusRepository userStatusRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(userStatusRepo, tokenProviderRepo)
+        public UserStatusService(IUserStatusRepository userStatusRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService,
+            IConfigurationRepository configurationRepo)
+            : base(userStatusRepo, tokenProviderRepo, configurationRepo)
         {
             _userStatusRepo = userStatusRepo;
             _tokenProviderRepo = tokenProviderRepo;
@@ -40,7 +42,7 @@ namespace SerieList.Domain.Services.User
 
             return query.ToList();
         }
-        
+
         public void Remove(UserStatusModel obj, UserModel userCredentials)
         {
             _accessControlService.Authorize(userCredentials, PermissionSeed.Admin.IdPermission);

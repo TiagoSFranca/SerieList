@@ -9,6 +9,7 @@ using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
 using SerieList.Domain.CommonEntities;
+using SerieList.Domain.Interfaces.Repositories;
 
 namespace SerieList.Domain.Services.Episode
 {
@@ -19,8 +20,9 @@ namespace SerieList.Domain.Services.Episode
 
         private readonly IAccessControlService _accessControlService;
 
-        public EpisodeStatusService(IEpisodeStatusRepository episodeStatusRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(episodeStatusRepo, tokenProviderRepo)
+        public EpisodeStatusService(IEpisodeStatusRepository episodeStatusRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService,
+            IConfigurationRepository configurationRepo)
+            : base(episodeStatusRepo, tokenProviderRepo, configurationRepo)
         {
             _episodeStatusRepo = episodeStatusRepo;
             _tokenProviderRepo = tokenProviderRepo;
@@ -42,10 +44,7 @@ namespace SerieList.Domain.Services.Episode
 
             query = query.OrderBy(e => e.Description);
 
-            var result = new PagingResultModel<EpisodeStatusModel>(paging);
-            result.TotalItems = query.Count();
-            result.Items = query.Skip((paging.ActualPage == 1 ? 0 : paging.ActualPage - 1) * paging.ItemsPerPage).Take(paging.ItemsPerPage).ToList();
-            return result;
+            return Paginate(query, paging);
         }
 
         public void Remove(EpisodeStatusModel obj, UserModel userCredentials)

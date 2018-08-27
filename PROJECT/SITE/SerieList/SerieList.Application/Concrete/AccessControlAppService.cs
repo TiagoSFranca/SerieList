@@ -20,20 +20,20 @@ namespace SerieList.Application.Concrete
         private readonly IAccessControlService _accessControlService;
         private readonly IMailService _mailService;
         private readonly ITokenProviderService _tokenProviderService;
-        private readonly IConfigurationService _configService;
+        private readonly IConfigurationService _configurationService;
         private readonly IUserService _userService;
 
         private readonly IMailTemplate _mailTemplate;
 
         public AccessControlAppService(IAccessControlService accessControlService, IMailService mailService, IMailTemplate mailTemplate, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService, IUserService userService)
-            : base(userService, tokenProviderService, configurationService)
+            IUserService userService, IConfigurationService configurationService)
+            : base(userService, tokenProviderService)
         {
             _accessControlService = accessControlService;
             _mailService = mailService;
             _mailTemplate = mailTemplate;
             _tokenProviderService = tokenProviderService;
-            _configService = configurationService;
+            _configurationService = configurationService;
             _userService = userService;
         }
 
@@ -73,7 +73,7 @@ namespace SerieList.Application.Concrete
 
                 SingleDestinationMailModel mailModel = new SingleDestinationMailModel(obj.UserInfo.Email);
                 mailModel.Body = _mailTemplate.GetRegisterTemplate(obj.UserInfo.FirstName, obj.UserInfo.UserName, MD5Crypt.Encrypt(token));
-                mailModel.Subject = _configService.GetValueByKey(ConfigurationSeed.MailTitleRegister.Key);
+                mailModel.Subject = _configurationService.GetValueByKey(ConfigurationSeed.MailTitleRegister.Key);
                 Task.Factory.StartNew(() => _mailService.SendSingleDestinationMail(mailModel));
             }
             catch (Exception ex)
@@ -144,7 +144,7 @@ namespace SerieList.Application.Concrete
                 var user = _userService.GetById((int)tokenProvider.IdUser);
                 SingleDestinationMailModel mailModel = new SingleDestinationMailModel(email);
                 mailModel.Body = _mailTemplate.GetForgotPasswordTemplate(user.UserInfo.FirstName, MD5Crypt.Encrypt(token));
-                mailModel.Subject = _configService.GetValueByKey(ConfigurationSeed.MailTitleForgotPassword.Key);
+                mailModel.Subject = _configurationService.GetValueByKey(ConfigurationSeed.MailTitleForgotPassword.Key);
                 Task.Factory.StartNew(() => _mailService.SendSingleDestinationMail(mailModel));
             }
             catch (Exception ex)

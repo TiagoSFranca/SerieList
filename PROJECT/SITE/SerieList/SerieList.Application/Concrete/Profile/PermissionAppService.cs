@@ -16,9 +16,8 @@ namespace SerieList.Application.Concrete.Profile
         private readonly IPermissionService _permissionService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public PermissionAppService(IPermissionService permissionService, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(permissionService, tokenProviderService, configurationService)
+        public PermissionAppService(IPermissionService permissionService, ITokenProviderService tokenProviderService)
+            : base(permissionService, tokenProviderService)
         {
             _permissionService = permissionService;
             _tokenProviderService = tokenProviderService;

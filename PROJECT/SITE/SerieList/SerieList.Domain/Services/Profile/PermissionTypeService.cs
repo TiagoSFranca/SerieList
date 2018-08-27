@@ -8,6 +8,7 @@ using System.Linq;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.Interfaces.Repositories;
 
 namespace SerieList.Domain.Services.Profile
 {
@@ -18,14 +19,15 @@ namespace SerieList.Domain.Services.Profile
 
         private readonly IAccessControlService _accessControlService;
 
-        public PermissionTypeService(IPermissionTypeRepository permissionTypeRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(permissionTypeRepo, tokenProviderRepo)
+        public PermissionTypeService(IPermissionTypeRepository permissionTypeRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService,
+            IConfigurationRepository configurationRepo)
+            : base(permissionTypeRepo, tokenProviderRepo, configurationRepo)
         {
             _permissionTypeRepo = permissionTypeRepo;
             _tokenProviderRepo = tokenProviderRepo;
             _accessControlService = accessControlService;
         }
-        
+
         public IEnumerable<PermissionTypeModel> Query(IEnumerable<int> idList, string description, bool? excluded)
         {
             var query = _permissionTypeRepo.Query();
@@ -47,6 +49,6 @@ namespace SerieList.Domain.Services.Profile
             _accessControlService.Authorize(userCredentials, PermissionSeed.Admin.IdPermission);
             _permissionTypeRepo.Remove(obj);
         }
-        
+
     }
 }

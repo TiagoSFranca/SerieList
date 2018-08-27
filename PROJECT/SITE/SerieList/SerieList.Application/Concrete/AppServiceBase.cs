@@ -16,17 +16,15 @@ namespace SerieList.Application.Concrete
     {
         private readonly IServiceBase<TEntity> _serviceBase;
         private readonly ITokenProviderService _tokenProviderService;
-        private readonly IConfigurationService _configurationService;
 
         private readonly TokenProviderAppServiceMessage tokenProviderAppServiceMessage;
 
         protected readonly ILog logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public AppServiceBase(IServiceBase<TEntity> serviceBase, ITokenProviderService tokenProviderService, IConfigurationService configurationService)
+        public AppServiceBase(IServiceBase<TEntity> serviceBase, ITokenProviderService tokenProviderService)
         {
             _serviceBase = serviceBase;
             _tokenProviderService = tokenProviderService;
-            _configurationService = configurationService;
             tokenProviderAppServiceMessage = new TokenProviderAppServiceMessage();
         }
 
@@ -68,29 +66,6 @@ namespace SerieList.Application.Concrete
                 throw new AppServiceException(tokenProviderAppServiceMessage.TokenNotFound);
 
             return tokenUser;
-        }
-
-        protected PagingModel GetPagingModel(int actualPage, int itemsPerPage)
-        {
-            var minPagination = _configurationService.GetValueByKey(ConfigurationSeed.MinItemsPerPage.Key);
-            if (minPagination != null)
-            {
-                int minItemsPerPage = 0;
-                Int32.TryParse(minPagination, out minItemsPerPage);
-                if (minItemsPerPage > 0 && itemsPerPage < minItemsPerPage)
-                    return new PagingModel(actualPage, minItemsPerPage);
-            }
-
-            var maxPagination = _configurationService.GetValueByKey(ConfigurationSeed.MaxItemsPerPage.Key);
-            if (maxPagination != null)
-            {
-                int maxItemsPerPage = 0;
-                Int32.TryParse(maxPagination, out maxItemsPerPage);
-                if (maxItemsPerPage > 0 && itemsPerPage > maxItemsPerPage)
-                    return new PagingModel(actualPage, maxItemsPerPage);
-            }
-
-            return new PagingModel(actualPage, itemsPerPage);
         }
     }
 }

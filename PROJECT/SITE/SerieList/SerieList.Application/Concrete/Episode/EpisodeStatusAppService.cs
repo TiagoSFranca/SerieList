@@ -8,6 +8,7 @@ using SerieList.Application.Extensions.Episode;
 using SerieList.Domain.Interfaces.Services.Token;
 using SerieList.Application.CommonAppModels;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Application.Concrete.Episode
 {
@@ -16,9 +17,8 @@ namespace SerieList.Application.Concrete.Episode
         private readonly IEpisodeStatusService _episodeStatusService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public EpisodeStatusAppService(IEpisodeStatusService episodeStatusService, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(episodeStatusService, tokenProviderService, configurationService)
+        public EpisodeStatusAppService(IEpisodeStatusService episodeStatusService, ITokenProviderService tokenProviderService)
+            : base(episodeStatusService, tokenProviderService)
         {
             _episodeStatusService = episodeStatusService;
             _tokenProviderService = tokenProviderService;
@@ -56,7 +56,7 @@ namespace SerieList.Application.Concrete.Episode
         {
             try
             {
-                var paging = GetPagingModel(actualPage, itemsPerPage);
+                var paging = new PagingModel(actualPage, itemsPerPage);
                 var result = _episodeStatusService.Query(idList, description, excluded, paging);
                 return result.MapperToAppModel();
             }

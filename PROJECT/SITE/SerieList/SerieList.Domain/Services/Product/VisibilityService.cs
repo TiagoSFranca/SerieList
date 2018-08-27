@@ -8,6 +8,7 @@ using System.Linq;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.Interfaces.Repositories;
 
 namespace SerieList.Domain.Services.Product
 {
@@ -18,8 +19,8 @@ namespace SerieList.Domain.Services.Product
 
         private readonly IAccessControlService _accessControlService;
 
-        public VisibilityService(IVisibilityRepository visibilityRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(visibilityRepo, tokenProviderRepo)
+        public VisibilityService(IVisibilityRepository visibilityRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService, IConfigurationRepository configurationRepo)
+            : base(visibilityRepo, tokenProviderRepo, configurationRepo)
         {
             _visibilityRepo = visibilityRepo;
             _tokenProviderRepo = tokenProviderRepo;
@@ -41,7 +42,7 @@ namespace SerieList.Domain.Services.Product
 
             return query.ToList();
         }
-                
+
         public void Remove(VisibilityModel obj, UserModel userCredentials)
         {
             _accessControlService.Authorize(userCredentials, PermissionSeed.Admin.IdPermission);

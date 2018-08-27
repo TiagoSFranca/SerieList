@@ -8,6 +8,7 @@ using SerieList.Domain.Interfaces.Repositories.Token;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.Interfaces.Repositories;
 
 namespace SerieList.Domain.Services.Product
 {
@@ -18,14 +19,15 @@ namespace SerieList.Domain.Services.Product
 
         private readonly IAccessControlService _accessControlService;
 
-        public ProductTypeService(IProductTypeRepository prductTypeRepository, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(prductTypeRepository, tokenProviderRepo)
+        public ProductTypeService(IProductTypeRepository prductTypeRepository, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService,
+            IConfigurationRepository configurationRepo)
+            : base(prductTypeRepository, tokenProviderRepo, configurationRepo)
         {
             _productTypeRepo = prductTypeRepository;
             _tokenProviderRepo = tokenProviderRepo;
             _accessControlService = accessControlService;
         }
-        
+
         public IEnumerable<ProductTypeModel> Query(IEnumerable<int> idList, string description, bool? excluded)
         {
             var query = _productTypeRepo.Query();
@@ -47,6 +49,6 @@ namespace SerieList.Domain.Services.Product
             _accessControlService.Authorize(userCredentials, PermissionSeed.Admin.IdPermission);
             _productTypeRepo.Remove(obj);
         }
-        
+
     }
 }

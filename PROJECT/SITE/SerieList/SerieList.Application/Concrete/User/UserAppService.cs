@@ -18,19 +18,18 @@ namespace SerieList.Application.Concrete.User
         private readonly IUserService _userService;
         private readonly IMailService _mailService;
         private readonly ITokenProviderService _tokenProviderService;
-        private readonly IConfigurationService _configService;
+        private readonly IConfigurationService _configurationService;
 
         private readonly IMailTemplate _mailTemplate;
 
-        public UserAppService(IUserService userService, IMailService mailService, IMailTemplate mailTemplate, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(userService, tokenProviderService, configurationService)
+        public UserAppService(IUserService userService, IMailService mailService, IMailTemplate mailTemplate, ITokenProviderService tokenProviderService, IConfigurationService configurationService)
+            : base(userService, tokenProviderService)
         {
             _userService = userService;
             _mailService = mailService;
             _mailTemplate = mailTemplate;
             _tokenProviderService = tokenProviderService;
-            _configService = configurationService;
+            _configurationService = configurationService;
         }
 
         public void Add(UserAppModel obj, string token)

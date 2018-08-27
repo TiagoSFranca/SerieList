@@ -1,5 +1,6 @@
 ﻿using SerieList.Domain.Entitites.Product;
 using SerieList.Domain.Entitites.User;
+using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Product;
 using SerieList.Domain.Interfaces.Repositories.Token;
 using SerieList.Domain.Interfaces.Services;
@@ -23,8 +24,9 @@ namespace SerieList.Domain.Services.Product
 
         private ProductCategoryServiceMessage productMessage;
 
-        public ProductCategoryService(IProductCategoryRepository productCategoryRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(productCategoryRepo, tokenProviderRepo)
+        public ProductCategoryService(IProductCategoryRepository productCategoryRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService,
+            IConfigurationRepository configurationRepo)
+            : base(productCategoryRepo, tokenProviderRepo, configurationRepo)
         {
             _productCategoryRepo = productCategoryRepo;
             _tokenProviderRepo = tokenProviderRepo;

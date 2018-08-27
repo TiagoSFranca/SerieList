@@ -16,9 +16,8 @@ namespace SerieList.Application.Concrete.Profile
         private readonly IProfileService _profileService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public ProfileAppService(IProfileService ProfileService, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(ProfileService, tokenProviderService, configurationService)
+        public ProfileAppService(IProfileService ProfileService, ITokenProviderService tokenProviderService)
+            : base(ProfileService, tokenProviderService)
         {
             _profileService = ProfileService;
             _tokenProviderService = tokenProviderService;

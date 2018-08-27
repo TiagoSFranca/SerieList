@@ -12,6 +12,7 @@ using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
 using SerieList.Infra.Data.CrossCutting.Exceptions.Messges.ServiceMessages.Episode;
+using SerieList.Domain.Interfaces.Repositories;
 
 namespace SerieList.Domain.Services.Episode
 {
@@ -27,8 +28,8 @@ namespace SerieList.Domain.Services.Episode
         private EpisodeServiceMessage episodeMessage;
 
         public EpisodeService(IEpisodeRepository episodeRepo, ITokenProviderRepository tokenProviderRepo, ISeasonRepository seasonRepo,
-            IAccessControlService accessControlService)
-            : base(episodeRepo, tokenProviderRepo)
+            IAccessControlService accessControlService, IConfigurationRepository configurationRepo)
+            : base(episodeRepo, tokenProviderRepo, configurationRepo)
         {
             _episodeRepo = episodeRepo;
             _tokenProviderRepo = tokenProviderRepo;

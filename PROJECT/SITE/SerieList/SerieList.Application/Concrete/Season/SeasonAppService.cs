@@ -16,9 +16,8 @@ namespace SerieList.Application.Concrete.Season
         private readonly ISeasonService _seasonService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public SeasonAppService(ISeasonService seasonService, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(seasonService, tokenProviderService, configurationService)
+        public SeasonAppService(ISeasonService seasonService, ITokenProviderService tokenProviderService)
+            : base(seasonService, tokenProviderService)
         {
             _seasonService = seasonService;
             _tokenProviderService = tokenProviderService;

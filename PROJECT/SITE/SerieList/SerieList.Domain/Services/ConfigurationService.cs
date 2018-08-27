@@ -13,8 +13,9 @@ namespace SerieList.Domain.Services
         private readonly IConfigurationRepository _configurationRepo;
         private readonly ITokenProviderRepository _tokenProviderRepo;
 
-        public ConfigurationService(IConfigurationRepository episodeRepo, ITokenProviderRepository tokenProviderRepo)
-            : base(episodeRepo, tokenProviderRepo)
+        public ConfigurationService(IConfigurationRepository episodeRepo, ITokenProviderRepository tokenProviderRepo,
+            IConfigurationRepository configurationRepo)
+            : base(episodeRepo, tokenProviderRepo, configurationRepo)
         {
             _configurationRepo = episodeRepo;
             _tokenProviderRepo = tokenProviderRepo;

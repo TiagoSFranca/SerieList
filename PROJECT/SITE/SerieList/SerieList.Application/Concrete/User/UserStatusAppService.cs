@@ -16,9 +16,8 @@ namespace SerieList.Application.Concrete.User
         private readonly IUserStatusService _userStatusService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public UserStatusAppService(IUserStatusService userStatusService, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(userStatusService, tokenProviderService, configurationService)
+        public UserStatusAppService(IUserStatusService userStatusService, ITokenProviderService tokenProviderService)
+            : base(userStatusService, tokenProviderService)
         {
             _userStatusService = userStatusService;
             _tokenProviderService = tokenProviderService;

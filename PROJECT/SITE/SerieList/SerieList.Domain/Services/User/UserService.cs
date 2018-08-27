@@ -1,4 +1,5 @@
 ﻿using SerieList.Domain.Entitites.User;
+using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Profile;
 using SerieList.Domain.Interfaces.Repositories.Token;
 using SerieList.Domain.Interfaces.Repositories.User;
@@ -30,8 +31,8 @@ namespace SerieList.Domain.Services.User
 
         public UserService(IUserRepository UserRepo, IConfigurationService configService,
             ITokenProviderService tokenProviderService, ITokenProviderRepository tokenProviderRepo, IPermissionRepository permisionRepository,
-            IAccessControlService accessControlService)
-            : base(UserRepo, tokenProviderRepo)
+            IAccessControlService accessControlService, IConfigurationRepository configurationRepo)
+            : base(UserRepo, tokenProviderRepo, configurationRepo)
         {
             _configService = configService;
             _tokenProviderService = tokenProviderService;

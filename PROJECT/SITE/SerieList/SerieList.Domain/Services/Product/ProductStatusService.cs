@@ -9,6 +9,7 @@ using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services.User;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.Interfaces.Repositories;
 
 namespace SerieList.Domain.Services.Product
 {
@@ -19,8 +20,9 @@ namespace SerieList.Domain.Services.Product
 
         private readonly IAccessControlService _accessControlService;
 
-        public ProductStatusService(IProductStatusRepository prductStatusRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(prductStatusRepo, tokenProviderRepo)
+        public ProductStatusService(IProductStatusRepository prductStatusRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService,
+            IConfigurationRepository configurationRepo)
+            : base(prductStatusRepo, tokenProviderRepo, configurationRepo)
         {
             _productStatusRepo = prductStatusRepo;
             _tokenProviderRepo = tokenProviderRepo;

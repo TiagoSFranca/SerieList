@@ -16,9 +16,8 @@ namespace SerieList.Application.Concrete.Product
         private readonly IProductStatusService _productStatusService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public ProductStatusAppService(IProductStatusService productStatusService, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(productStatusService, tokenProviderService, configurationService)
+        public ProductStatusAppService(IProductStatusService productStatusService, ITokenProviderService tokenProviderService)
+            : base(productStatusService, tokenProviderService)
         {
             _productStatusService = productStatusService;
             _tokenProviderService = tokenProviderService;

@@ -1,5 +1,6 @@
 ﻿using SerieList.Domain.Entitites.Profile;
 using SerieList.Domain.Entitites.User;
+using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Profile;
 using SerieList.Domain.Interfaces.Repositories.Token;
 using SerieList.Domain.Interfaces.Services;
@@ -24,8 +25,8 @@ namespace SerieList.Domain.Services.Profile
         private ProfileServiceMessage profileMessage;
 
         public ProfileService(IProfileRepository profileRepo, IPermissionRepository permissionRepo, ITokenProviderRepository tokenProviderRepo,
-            IAccessControlService accessControlService)
-            : base(profileRepo, tokenProviderRepo)
+            IAccessControlService accessControlService, IConfigurationRepository configurationRepo)
+            : base(profileRepo, tokenProviderRepo, configurationRepo)
         {
             _profileRepo = profileRepo;
             _tokenProviderRepo = tokenProviderRepo;

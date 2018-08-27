@@ -16,9 +16,8 @@ namespace SerieList.Application.Concrete.Product
         private readonly IVisibilityService _visibilityService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public VisibilityAppService(IVisibilityService visibilityService, ITokenProviderService tokenProviderService,
-            IConfigurationService configurationService)
-            : base(visibilityService, tokenProviderService, configurationService)
+        public VisibilityAppService(IVisibilityService visibilityService, ITokenProviderService tokenProviderService)
+            : base(visibilityService, tokenProviderService)
         {
             _visibilityService = visibilityService;
             _tokenProviderService = tokenProviderService;

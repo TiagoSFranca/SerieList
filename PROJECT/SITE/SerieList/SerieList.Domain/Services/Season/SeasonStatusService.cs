@@ -8,6 +8,7 @@ using System.Linq;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.Interfaces.Repositories;
 
 namespace SerieList.Domain.Services.Season
 {
@@ -18,14 +19,15 @@ namespace SerieList.Domain.Services.Season
 
         private readonly IAccessControlService _accessControlService;
 
-        public SeasonStatusService(ISeasonStatusRepository seasonStatusRepo, ITokenProviderRepository tokenProviderRepo, IAccessControlService accessControlService)
-            : base(seasonStatusRepo, tokenProviderRepo)
+        public SeasonStatusService(ISeasonStatusRepository seasonStatusRepo, ITokenProviderRepository tokenProviderRepo,
+            IAccessControlService accessControlService, IConfigurationRepository configurationRepo)
+            : base(seasonStatusRepo, tokenProviderRepo, configurationRepo)
         {
             _seasonStatusRepo = seasonStatusRepo;
             _tokenProviderRepo = tokenProviderRepo;
             _accessControlService = accessControlService;
         }
-        
+
         public IEnumerable<SeasonStatusModel> Query(IEnumerable<int> idList, string description, bool? excluded)
         {
             var query = _seasonStatusRepo.Query();

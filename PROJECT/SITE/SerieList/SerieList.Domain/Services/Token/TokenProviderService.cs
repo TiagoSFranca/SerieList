@@ -7,6 +7,7 @@ using SerieList.Extras.Util.Crypt;
 using System.Linq;
 using SerieList.Domain.Seed.Token;
 using SerieList.Domain.Entitites.User;
+using SerieList.Domain.Interfaces.Repositories;
 
 namespace SerieList.Domain.Services.Token
 {
@@ -16,7 +17,8 @@ namespace SerieList.Domain.Services.Token
 
         private TokenProviderServiceMessage tokenProviderMessage;
 
-        public TokenProviderService(ITokenProviderRepository tokenProviderRepo) : base(tokenProviderRepo, tokenProviderRepo)
+        public TokenProviderService(ITokenProviderRepository tokenProviderRepo, IConfigurationRepository configurationRepo)
+            : base(tokenProviderRepo, tokenProviderRepo, configurationRepo)
         {
             _tokenProviderRepo = tokenProviderRepo;
             tokenProviderMessage = new TokenProviderServiceMessage();
