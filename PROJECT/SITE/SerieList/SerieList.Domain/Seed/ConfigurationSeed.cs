@@ -19,6 +19,8 @@ namespace SerieList.Domain.Seed
         public static ConfigurationModel ConfirmMailRoute { get { return new ConfigurationModel() { IdConfiguration = 11, Key = "ConfirmMailRoute", Value = "http://localhost:49812/api/AccessControl/ConfirmMail/", Excluded = false }; } }
         public static ConfigurationModel MailTitleForgotPassword { get { return new ConfigurationModel() { IdConfiguration = 12, Key = "MailTitleForgotPassword", Value = "Redefinir Senha", Excluded = false }; } }
         public static ConfigurationModel ForgotPasswordRoute { get { return new ConfigurationModel() { IdConfiguration = 13, Key = "ForgotPasswordRoute", Value = "http://localhost:49812/api/AccessControl/ResetPassword/", Excluded = false }; } }
+        public static ConfigurationModel MaxItemsPerPage { get { return new ConfigurationModel() { IdConfiguration = 14, Key = "MaxItemsPerPage", Value = "60", Excluded = false }; } }
+        public static ConfigurationModel MinItemsPerPage { get { return new ConfigurationModel() { IdConfiguration = 15, Key = "MinItemsPerPage", Value = "10", Excluded = false }; } }
 
         public static List<ConfigurationModel> Seeds
         {
@@ -38,7 +40,9 @@ namespace SerieList.Domain.Seed
                     MailTitleRegister,
                     ConfirmMailRoute,
                     MailTitleForgotPassword,
-                    ForgotPasswordRoute
+                    ForgotPasswordRoute,
+                    MaxItemsPerPage,
+                    MinItemsPerPage
                 };
             }
         }

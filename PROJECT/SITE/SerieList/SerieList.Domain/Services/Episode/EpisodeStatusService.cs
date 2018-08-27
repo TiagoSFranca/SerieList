@@ -40,6 +40,8 @@ namespace SerieList.Domain.Services.Episode
             if (!String.IsNullOrEmpty(description))
                 query = query.Where(pt => pt.Description.ToLower().Contains(description.ToLower()));
 
+            query = query.OrderBy(e => e.Description);
+
             var result = new PagingResultModel<EpisodeStatusModel>(paging);
             result.TotalItems = query.Count();
             result.Items = query.Skip((paging.ActualPage == 1 ? 0 : paging.ActualPage - 1) * paging.ItemsPerPage).Take(paging.ItemsPerPage).ToList();

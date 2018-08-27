@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SerieList.Application.Extensions.Season;
 using SerieList.Domain.Interfaces.Services.Token;
+using SerieList.Domain.Interfaces.Services;
 
 namespace SerieList.Application.Concrete.Season
 {
@@ -15,8 +16,9 @@ namespace SerieList.Application.Concrete.Season
         private readonly ISeasonService _seasonService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public SeasonAppService(ISeasonService seasonService, ITokenProviderService tokenProviderService)
-            : base(seasonService, tokenProviderService)
+        public SeasonAppService(ISeasonService seasonService, ITokenProviderService tokenProviderService,
+            IConfigurationService configurationService)
+            : base(seasonService, tokenProviderService, configurationService)
         {
             _seasonService = seasonService;
             _tokenProviderService = tokenProviderService;

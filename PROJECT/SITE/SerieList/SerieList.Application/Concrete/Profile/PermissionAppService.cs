@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SerieList.Application.Extensions.Profile;
 using SerieList.Domain.Interfaces.Services.Token;
+using SerieList.Domain.Interfaces.Services;
 
 namespace SerieList.Application.Concrete.Profile
 {
@@ -15,8 +16,9 @@ namespace SerieList.Application.Concrete.Profile
         private readonly IPermissionService _permissionService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public PermissionAppService(IPermissionService permissionService, ITokenProviderService tokenProviderService)
-            : base(permissionService, tokenProviderService)
+        public PermissionAppService(IPermissionService permissionService, ITokenProviderService tokenProviderService,
+            IConfigurationService configurationService)
+            : base(permissionService, tokenProviderService, configurationService)
         {
             _permissionService = permissionService;
             _tokenProviderService = tokenProviderService;

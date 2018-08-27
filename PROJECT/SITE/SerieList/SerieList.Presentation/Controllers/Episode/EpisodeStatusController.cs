@@ -5,6 +5,7 @@ using System.Web.Http;
 using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Episode;
 using SerieList.Presentation.Models.Search.Episode;
+using SerieList.Presentation.Extensions;
 
 namespace SerieList.Presentation.Controllers.Episode
 {
@@ -62,15 +63,15 @@ namespace SerieList.Presentation.Controllers.Episode
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<EpisodeStatusAppModel> Search([FromBody]EpisodeStatusSearch filter)
+        public ResponseSearchResult<EpisodeStatusAppModel> Search([FromBody]EpisodeStatusSearch filter)
         {
-            var response = new ResponseMultipleResult<EpisodeStatusAppModel>(episodeStatusMessage.MethodGetAll);
+            var response = new ResponseSearchResult<EpisodeStatusAppModel>(episodeStatusMessage.MethodGetAll);
             if (filter == null)
                 filter = new EpisodeStatusSearch();
             try
             {
-                //response.Results = 
-                var p = _esAppService.Query(filter.IdList, filter.Description, filter.Excluded, filter.ActualPage, filter.ItemsPerPage);
+                var result = _esAppService.Query(filter.IdList, filter.Description, filter.Excluded, filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = episodeStatusMessage.SuccessSearch;
             }

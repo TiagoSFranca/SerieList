@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SerieList.Application.Extensions.Product;
 using SerieList.Domain.Interfaces.Services.Token;
+using SerieList.Domain.Interfaces.Services;
 
 namespace SerieList.Application.Concrete.Product
 {
@@ -15,8 +16,9 @@ namespace SerieList.Application.Concrete.Product
         private readonly IVisibilityService _visibilityService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public VisibilityAppService(IVisibilityService visibilityService, ITokenProviderService tokenProviderService)
-            : base(visibilityService, tokenProviderService)
+        public VisibilityAppService(IVisibilityService visibilityService, ITokenProviderService tokenProviderService,
+            IConfigurationService configurationService)
+            : base(visibilityService, tokenProviderService, configurationService)
         {
             _visibilityService = visibilityService;
             _tokenProviderService = tokenProviderService;

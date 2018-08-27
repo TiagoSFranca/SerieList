@@ -4,11 +4,10 @@ using SerieList.Domain.Entitites.Episode;
 using SerieList.Domain.Interfaces.Services.Episode;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SerieList.Application.Extensions.Episode;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.CommonEntities;
 using SerieList.Application.CommonAppModels;
+using SerieList.Domain.Interfaces.Services;
 
 namespace SerieList.Application.Concrete.Episode
 {
@@ -17,8 +16,9 @@ namespace SerieList.Application.Concrete.Episode
         private readonly IEpisodeStatusService _episodeStatusService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public EpisodeStatusAppService(IEpisodeStatusService episodeStatusService, ITokenProviderService tokenProviderService)
-            : base(episodeStatusService, tokenProviderService)
+        public EpisodeStatusAppService(IEpisodeStatusService episodeStatusService, ITokenProviderService tokenProviderService,
+            IConfigurationService configurationService)
+            : base(episodeStatusService, tokenProviderService, configurationService)
         {
             _episodeStatusService = episodeStatusService;
             _tokenProviderService = tokenProviderService;
@@ -56,12 +56,9 @@ namespace SerieList.Application.Concrete.Episode
         {
             try
             {
-                var paging = new PagingModel(actualPage, itemsPerPage);
+                var paging = GetPagingModel(actualPage, itemsPerPage);
                 var result = _episodeStatusService.Query(idList, description, excluded, paging);
-                var t = result.MapperToAppModel();
-                //var t = AutoMapper.Mapper.Map<PagingResultAppModel<EpisodeStatusAppModel>>(result);
-                throw new NotImplementedException();
-                //return .Select(e => e.MapperToAppModel()).ToList();
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {

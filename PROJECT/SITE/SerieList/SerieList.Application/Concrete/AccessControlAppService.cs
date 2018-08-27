@@ -26,14 +26,14 @@ namespace SerieList.Application.Concrete
         private readonly IMailTemplate _mailTemplate;
 
         public AccessControlAppService(IAccessControlService accessControlService, IMailService mailService, IMailTemplate mailTemplate, ITokenProviderService tokenProviderService,
-            IConfigurationService configService, IUserService userService)
-            : base(userService, tokenProviderService)
+            IConfigurationService configurationService, IUserService userService)
+            : base(userService, tokenProviderService, configurationService)
         {
             _accessControlService = accessControlService;
             _mailService = mailService;
             _mailTemplate = mailTemplate;
             _tokenProviderService = tokenProviderService;
-            _configService = configService;
+            _configService = configurationService;
             _userService = userService;
         }
 

@@ -5,8 +5,6 @@ namespace SerieList.Domain.Seed.Profile
 {
     public class PermissionTypeSeed
     {
-        //public static PermissionTypeModel List { get { return new PermissionTypeModel() { IdPermissionType = 1, Description = "Listar", Excluded = false }; } }
-        //public static PermissionTypeModel Get { get { return new PermissionTypeModel() { IdPermissionType = 2, Description = "Obter", Excluded = false }; } }
         public static PermissionTypeModel Add { get { return new PermissionTypeModel() { IdPermissionType = 3, Description = "Salvar", Excluded = false }; } }
         public static PermissionTypeModel Update { get { return new PermissionTypeModel() { IdPermissionType = 4, Description = "Atualizar", Excluded = false }; } }
         public static PermissionTypeModel Remove { get { return new PermissionTypeModel() { IdPermissionType = 5, Description = "Excluir", Excluded = false }; } }
@@ -18,8 +16,6 @@ namespace SerieList.Domain.Seed.Profile
             {
                 return new List<PermissionTypeModel>()
                 {
-                    //List,
-                    //Get,
                     Add,
                     Update,
                     Remove,

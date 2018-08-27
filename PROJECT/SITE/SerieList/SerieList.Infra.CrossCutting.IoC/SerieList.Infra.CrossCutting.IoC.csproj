@@ -44,9 +44,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SerieList.Application\SerieList.Application.csproj">
       <Project>{D0AE7B7F-D22C-4E87-BF9C-01B2A2FB0960}</Project>
       <Name>SerieList.Application</Name>
@@ -60,7 +57,9 @@
       <Name>SerieList.Infra.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

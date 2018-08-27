@@ -7,6 +7,7 @@ using SerieList.Domain.Entitites.Episode;
 using SerieList.Domain.Interfaces.Services.Episode;
 using SerieList.Application.AppModels.Episode;
 using SerieList.Domain.Interfaces.Services.Token;
+using SerieList.Domain.Interfaces.Services;
 
 namespace SerieList.Application.Concrete.Episode
 {
@@ -15,8 +16,9 @@ namespace SerieList.Application.Concrete.Episode
         private readonly IEpisodeService _episodeService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public EpisodeAppService(IEpisodeService episodeService, ITokenProviderService tokenProviderService)
-            : base(episodeService, tokenProviderService)
+        public EpisodeAppService(IEpisodeService episodeService, ITokenProviderService tokenProviderService,
+            IConfigurationService configurationService)
+            : base(episodeService, tokenProviderService, configurationService)
         {
             _episodeService = episodeService;
             _tokenProviderService = tokenProviderService;

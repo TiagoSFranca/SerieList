@@ -61,4 +61,23 @@ namespace SerieList.Extras.Util
         public IEnumerable<TEntity> Results { get; set; }
     }
 
+    public class ResponseSearchResult<TEntity> : Response<TEntity> where TEntity : class
+    {
+        public ResponseSearchResult(string method) : base(method)
+        {
+        }
+        
+        public PagingResultSearchModel<TEntity> ResultPaged { get; set; }
+    }
+
+    public class PagingResultSearchModel<TEntity>
+        where TEntity : class
+    {
+        public IEnumerable<TEntity> Items { get; set; }
+        public int ActualPage { get; set; }
+        public int ItemsPerPage { get; set; }
+        public int TotalItems { get; set; }
+        public int TotalPages { get; set; }
+    }
+
 }

@@ -18,7 +18,7 @@ namespace SerieList.Domain.CommonEntities
 
         public PagingModel(int actualPage, int itemsPerPage)
         {
-            ActualPage = actualPage;
+            ActualPage = actualPage > 0 ? actualPage : 1;
             ItemsPerPage = itemsPerPage;
         }
     }

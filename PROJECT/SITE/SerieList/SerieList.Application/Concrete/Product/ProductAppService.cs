@@ -7,6 +7,7 @@ using System.Linq;
 using SerieList.Application.AppModels.Product;
 using SerieList.Application.Extensions.Product;
 using SerieList.Domain.Interfaces.Services.Token;
+using SerieList.Domain.Interfaces.Services;
 
 namespace SerieList.Application.Concrete.Product
 {
@@ -15,8 +16,9 @@ namespace SerieList.Application.Concrete.Product
         private readonly IProductService _productService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public ProductAppService(IProductService productService, ITokenProviderService tokenProviderService)
-            : base(productService, tokenProviderService)
+        public ProductAppService(IProductService productService, ITokenProviderService tokenProviderService,
+            IConfigurationService configurationService)
+            : base(productService, tokenProviderService, configurationService)
         {
             _productService = productService;
             _tokenProviderService = tokenProviderService;

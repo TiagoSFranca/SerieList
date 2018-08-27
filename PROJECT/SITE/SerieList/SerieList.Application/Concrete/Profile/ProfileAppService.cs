@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SerieList.Application.Extensions.Profile;
 using SerieList.Domain.Interfaces.Services.Token;
+using SerieList.Domain.Interfaces.Services;
 
 namespace SerieList.Application.Concrete.Profile
 {
@@ -15,8 +16,9 @@ namespace SerieList.Application.Concrete.Profile
         private readonly IProfileService _profileService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public ProfileAppService(IProfileService ProfileService, ITokenProviderService tokenProviderService)
-            : base(ProfileService, tokenProviderService)
+        public ProfileAppService(IProfileService ProfileService, ITokenProviderService tokenProviderService,
+            IConfigurationService configurationService)
+            : base(ProfileService, tokenProviderService, configurationService)
         {
             _profileService = ProfileService;
             _tokenProviderService = tokenProviderService;

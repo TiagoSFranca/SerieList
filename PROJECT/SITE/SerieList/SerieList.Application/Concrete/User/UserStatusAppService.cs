@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SerieList.Application.Extensions.User;
 using SerieList.Domain.Interfaces.Services.Token;
+using SerieList.Domain.Interfaces.Services;
 
 namespace SerieList.Application.Concrete.User
 {
@@ -15,8 +16,9 @@ namespace SerieList.Application.Concrete.User
         private readonly IUserStatusService _userStatusService;
         private readonly ITokenProviderService _tokenProviderService;
 
-        public UserStatusAppService(IUserStatusService userStatusService, ITokenProviderService tokenProviderService)
-            : base(userStatusService, tokenProviderService)
+        public UserStatusAppService(IUserStatusService userStatusService, ITokenProviderService tokenProviderService,
+            IConfigurationService configurationService)
+            : base(userStatusService, tokenProviderService, configurationService)
         {
             _userStatusService = userStatusService;
             _tokenProviderService = tokenProviderService;

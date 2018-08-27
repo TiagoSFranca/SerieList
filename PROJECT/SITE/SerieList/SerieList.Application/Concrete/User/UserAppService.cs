@@ -7,14 +7,9 @@ using System.Linq;
 using SerieList.Application.AppModels.User;
 using SerieList.Application.Extensions.User;
 using SerieList.Domain.Mail.Interfaces;
-using SerieList.Domain.Mail.Entities;
 using SerieList.Application.Mail.Interfaces;
-using SerieList.Extras.Util.Crypt;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.Seed.Token;
 using SerieList.Domain.Interfaces.Services;
-using SerieList.Domain.Seed;
-using System.Threading.Tasks;
 
 namespace SerieList.Application.Concrete.User
 {
@@ -28,14 +23,14 @@ namespace SerieList.Application.Concrete.User
         private readonly IMailTemplate _mailTemplate;
 
         public UserAppService(IUserService userService, IMailService mailService, IMailTemplate mailTemplate, ITokenProviderService tokenProviderService,
-            IConfigurationService configService)
-            : base(userService, tokenProviderService)
+            IConfigurationService configurationService)
+            : base(userService, tokenProviderService, configurationService)
         {
             _userService = userService;
             _mailService = mailService;
             _mailTemplate = mailTemplate;
             _tokenProviderService = tokenProviderService;
-            _configService = configService;
+            _configService = configurationService;
         }
 
         public void Add(UserAppModel obj, string token)
@@ -52,7 +47,7 @@ namespace SerieList.Application.Concrete.User
                 throw;
             }
         }
-        
+
         public UserAppModel GetById(int id)
         {
             try
@@ -65,7 +60,7 @@ namespace SerieList.Application.Concrete.User
                 throw;
             }
         }
-        
+
         public IEnumerable<UserAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProfileList, IEnumerable<int> idUserStatusList, string firstName, string lastName, string email, string userName, bool? excluded, bool? associatedExcluded)
         {
             try
@@ -80,7 +75,7 @@ namespace SerieList.Application.Concrete.User
                 throw;
             }
         }
-        
+
         public void Remove(int id, string token)
         {
             try
@@ -110,6 +105,6 @@ namespace SerieList.Application.Concrete.User
                 throw;
             }
         }
-        
+
     }
 }
