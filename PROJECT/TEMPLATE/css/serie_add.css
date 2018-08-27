@@ -1,0 +1,102 @@
+span{
+	cursor: pointer;
+}
+#dv_serie_new, #form_cadastro_serie{
+	/*background-color: red;*/
+	height: 88%;
+}
+#dv_serie_new_superior{
+	height: 30%;
+	width: 90%;
+	margin-left: 3%;
+	/*background-color: green;*/
+}
+#dv_serie_new_meio{
+	height: 20%;
+	width: 90%;
+	margin-left: 3%;
+	margin-top: 2%;
+}
+#dv_serie_new_base{
+	height: 30%;
+	width: 90%;
+	margin-left: 3%;
+}
+#dv_serie_new_superior > div{
+	height: 98%;
+	margin-top: 0%;
+	margin-left: 0%;
+	float: left;
+	margin-right: 2%;
+	display: inline-block;
+}
+#dv_serie_new_superior > #dv_serie_imagem{
+	width: 16%;
+	height: 100%;
+}
+#dv_serie_new_superior > #dv_serie_nome{
+	width: 40%;
+}
+#dv_serie_new_superior > #dv_serie_descricao{
+	width: 40%;
+	float: right;
+	margin-right: 0%;
+}
+#dv_serie_imagem img{
+	margin-top: -12%;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	float: left;
+}
+#dv_serie_nome input{
+	width: 99%;
+	font-size: 120%;
+	margin-bottom: 2.5%;
+}
+#dv_serie_nome > #btn_serie_new_ano{
+	width: 40%;
+}
+#dv_serie_nome > #btn_serie_new_imagem{
+	width: 56%;
+	display: inline-block;
+	float: right;
+}
+#btn_serie_new_descricao{
+	width: 99%;
+	resize:none;
+	overflow: none;
+	height: 102%;
+}
+h3{
+	border-bottom: 1px solid;
+	border-color: yellow;
+	color: #12727b;
+	display: block;
+}
+#dv_lista_categoria{
+	width: 98%;
+	/*background-color: blue;*/
+	height: 60%;
+	display: inline-block;
+	float: left;
+	margin-top: 0%;
+}
+#btn_cancelar{
+	display: inline-block;
+}
+#dv_serie_new_confirm input{
+	font-size: 120%;
+	display: inline-block;
+	float: right;
+	position: relative;
+	margin-left: 1%;
+}
+
+#dv_serie_new_confirm input:hover{
+	color: yellow;
+}
+#dv_serie_new_confirm{
+	margin-right: 7%;
+}

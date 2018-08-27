@@ -1,0 +1,44 @@
+
+#dv_categoria_imagem{
+	margin: 2% auto;
+	height: 60%;
+	width: 18%;
+	/*background-color: green;*/
+	float: none;
+	position: relative;
+	display: block;
+}
+#dv_categoria_imagem img{
+	height: 100%;
+	width: 100%;
+}
+#dv_categoria_btn{
+	margin: 1% auto;
+	height: 20%;
+	width: 18%;
+	/*background-color: blue;*/
+	float: none;
+	position: relative;
+	margin-top: -1%;
+	display: block;
+}
+#dv_categoria_btn input{
+	display: inline-block;
+	position: relative;
+	margin-bottom: 1.5%;
+	font-size: 100%;
+	border: none;
+}
+input[type="submit"]{
+	float: right;
+}
+#btn_categoria_nome{
+	width: 100%;
+}
+#btn_categoria_imagem{
+	width: 100%;
+}
+span:hover{
+	cursor: pointer;
+	color: #757449;
+}

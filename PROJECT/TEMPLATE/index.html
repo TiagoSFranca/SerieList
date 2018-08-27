@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/global.css">
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <title>Index</title>
+</head>
+
+<body>
+<div class="container">
+	<div id="dv_topo">
+	<div id="dv_marca">
+		<img src="img/marca.png">
+	</div>
+	<div id="dv_login">
+	<form id="form_entrar">
+		<input type="text" placeholder="Login" id="btn_login">
+		<input type="password" placeholder="Senha" id="btn_senha">
+		<input type="submit" id="btn_entrar" value="Entrar">
+	</form>
+	</div>
+	</div>
+	<div id="dv_corpo">
+	<div id="dv_corpo_img">
+		<img src="img/corpo.png">
+	</div>
+	<div id="dv_cadastro">
+	<fieldset id="fs_cadastro">
+		<legend>
+			Cadastro
+		</legend>
+		<h6 id="h_sub">
+			Organize suas séries gratuitamente
+		</h6>
+		<form method="post" id="form_cadastro_usuario">
+			<input id="btn_cadastro_login" type="text" placeholder="Login" maxlength="15" required><br>
+			<input id="btn_cadastro_email" type="email" placeholder="Email" required><br>
+			<input id="btn_cadastro_senha" type="password" placeholder="Senha" maxlength="12" required><br>
+			<input id="btn_cadastro_senha_cofirm" type="password" placeholder="Confirmar senha" maxlength="12" required><br>
+			<input id="btn_cadastro_submit" type="submit" value="Cadastre-se">
+		</form>
+	</fieldset>
+	</div>
+	</div>
+
+</div>
+  <script src="js/script.js"></script>
+</body>
+</html>

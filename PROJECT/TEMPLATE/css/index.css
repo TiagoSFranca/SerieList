@@ -1,0 +1,110 @@
+#dv_topo{
+	width: 100%;
+	margin-left: 0%;
+	margin-top:0%;
+	height: 10%;
+	position: relative;
+	background-color: #12727b;
+}
+#dv_marca{
+	float: left;
+	margin-top: .5%;
+	margin-left: 7%;
+	margin-bottom: .5%;
+	width: 40%;
+	height: 100%;
+	display: inline-block;
+}
+#dv_marca img{
+	margin-top: -1%;
+	height: 100%;
+	width: auto;
+}
+#dv_login{
+	margin-top: 2%;
+	float: right;
+	position: relative;
+	display: inline-block;
+	width: 50%;
+	height: auto;
+	margin-right: 0%;
+}
+#btn_login{
+	font-size: 100%;
+	width: 30%;
+	position: static;
+	display: inline-block;
+	float: left;
+}
+#btn_senha{
+	font-size: 100%;
+	width: 30%;
+	margin-left: 1%;
+	position: static;
+	display: inline-block;
+	float: left;
+}
+#btn_entrar{
+	font-size: 120%;
+	margin-left: 2%;
+	position: static;
+	display: inline-block;
+	background-color: #0B486B;
+	border:none;
+	color: white;
+
+}
+
+#dv_corpo{
+	margin-top: -1%;
+	width: 100%;
+	margin-left: 0%;
+	height: 90%;
+	float: left;
+	position: relative;
+	display: block;
+  background-color: #E0E05A;
+}
+
+#dv_corpo_img{
+	margin-top: 0%;
+	width: 100%;
+	margin-left: 0%;
+	height: 60%;
+	float: left;
+	position: relative;
+	display: block;
+}
+#dv_corpo_img img{
+	width: 100%;
+	height: 100%;
+}
+#dv_cadastro{
+	width: 20%;
+	height: 40%;
+	margin: 0 auto;
+	margin-bottom: -2%;
+	display: block;
+	font-family: arial;
+	text-align: center;
+}
+#fs_cadastro legend{
+	font-size: 200%;
+}
+#fs_cadastro{
+	border-radius: 10px;
+}
+
+#h_sub{
+	margin-top: -2%;
+}
+#fs_cadastro input{
+	margin-bottom: 1%;
+	font-size: 100%;
+}
+#btn_cadastro_submit{
+	margin-top: 2%;
+	background-color: #0B486B;
+	border:none;
+	color: white;
+}

@@ -1,0 +1,115 @@
+
+#dv_home_topo{
+	height: 6%;
+	margin-top: 0%;
+	margin-left: 0%;
+	display: inline-block;
+	position: relative;
+	background-color: #12727b;
+}
+.menu{
+	width: 100%;
+	/*background-color: green;*/
+	height: 20%;
+	float: left;
+	display: block;
+}
+#dv_imagem_marca{
+	margin-left: 3%;
+	margin-top: 0%;
+	margin-right: 2%;
+	padding-right: 2%;
+	display: block;
+	position: static;
+	float: left;
+	width: 10%;
+	height: 100%;
+	/*background-color: red;*/
+}
+#dv_imagem_marca img{
+	height: 100%;
+	width: auto;
+}
+
+#dv_menu {
+	width: 65%;
+	display: inline-block;
+	height: 70%;
+	margin-top: .5%;
+	margin-left: 2%;
+	float:left;
+	/*background-color: red;*/
+	position: absolute;
+	
+}
+#dv_menu input{
+    display: inline-block;
+	border:none;
+	font-size: 120%;
+	position: static;
+	height: 100%;
+	margin-right: 2%;
+	background-color: transparent;
+	color: white;
+}
+#dv_menu > #btn_pesquisar{
+	float: right;
+	height: 100%;
+	font-size: 100%;
+	margin-right: 20%;
+	background-color: #f2f2f2;
+	border-radius: 10px;
+	color: #0B486B;
+	cursor: inherit;
+}
+#dv_menu input:hover{
+	color: yellow;
+}
+#dv_usuario{
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	margin-top: 0%;
+	right: 6%;
+	width: 20%;
+	/*background-color: red;*/
+	float: right;
+}
+#dv_usuario_imagem{
+	display: inline-block;
+	position: relative;
+	margin-left: 0%;
+	height: 100%;
+	width: auto;
+	margin-top: 0%;
+	float: left;
+}
+#dv_usuario_imagem img{
+	width: auto;
+	height: 100%;
+}
+#dv_usuario_inf{
+	display: inline-block;
+	position: relative;
+	width: 70%;
+	margin: 5% auto;
+	margin-left: 1%;
+}
+#btn_sair{
+	border:none;
+	font-size: 80%;
+	border-radius: 5px;
+	background-color: #0B486B;
+	color: #f2f2f2;
+	margin-left: 2%;
+	display: inline-block;
+	position: relative;
+	float: right;
+}
+#spn_usuario{
+	font-size: 100%;
+	display: inline-block;
+	position: relative;
+	float: left;
+	color: white;
+}

@@ -1,0 +1,101 @@
+span{
+	cursor: pointer;
+}
+#dv_serie_edit, #form_edit_serie{
+	/*background-color: red;*/
+	height: 88%;
+}
+#dv_serie_edit_superior{
+	height: 30%;
+	width: 90%;
+	margin-left: 3%;
+	/*background-color: green;*/
+}
+#dv_serie_edit_meio{
+	height: 20%;
+	width: 90%;
+	margin-left: 3%;
+	margin-top: 2%;
+}
+#dv_serie_edit_base{
+	height: 30%;
+	width: 90%;
+	margin-left: 3%;
+}
+#dv_serie_edit_superior > div{
+	height: 98%;
+	margin-top: 0%;
+	margin-left: 0%;
+	float: left;
+	margin-right: 2%;
+	display: inline-block;
+}
+#dv_serie_edit_superior > #dv_serie_imagem{
+	width: 16%;
+	height: 100%;
+}
+#dv_serie_edit_superior > #dv_serie_nome{
+	width: 40%;
+}
+#dv_serie_edit_superior > #dv_serie_descricao{
+	width: 40%;
+	float: right;
+	height: 100%;
+	margin-right: 0%;
+}
+#dv_serie_imagem img{
+	position: static;
+	display: inline-block;
+	height: 100%;
+	margin-left: 15%;
+}
+#dv_serie_nome input{
+	width: 99%;
+	font-size: 120%;
+	margin-bottom: 2.5%;
+}
+#dv_serie_nome > #btn_serie_edit_ano{
+	width: 40%;
+}
+#dv_serie_nome > #btn_serie_edit_imagem{
+	width: 56%;
+	display: inline-block;
+	float: right;
+}
+#btn_serie_edit_descricao{
+	width: 99%;
+	resize:none;
+	overflow: none;
+	height: 102%;
+}
+h3{
+	border-bottom: 1px solid;
+	border-color: yellow;
+	color: #12727b;
+	display: block;
+}
+#dv_lista_categoria{
+	width: 98%;
+	/*background-color: blue;*/
+	height: 60%;
+	display: inline-block;
+	float: left;
+	margin-top: 0%;
+}
+#btn_cancelar{
+	display: inline-block;
+}
+#dv_serie_edit_confirm input{
+	font-size: 120%;
+	display: inline-block;
+	float: right;
+	position: relative;
+	margin-left: 1%;
+}
+
+#dv_serie_edit_confirm input:hover{
+	color: yellow;
+}
+#dv_serie_edit_confirm{
+	margin-right: 7%;
+}

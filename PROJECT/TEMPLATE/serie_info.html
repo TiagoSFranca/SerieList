@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="css/serie.css">
+  <link rel="stylesheet" href="css/serie_inicio.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/global.css">
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<title>Séries</title>
+</head>
+<body>
+<div class="container">
+	<div class="menu" id="dv_home_topo">
+	<div id="dv_imagem_marca">
+		<img id="imagem_marca" src="img/marca.png">
+	</div>
+	<div id="dv_menu">
+		<input id="btn_inicio" type="button" value="Inicio">
+		<input id="btn_categoria" type="button" value="Categorias">
+		<input id="btn_serie" type="button" value="Séries">	
+	</div>
+		<div id="dv_usuario">
+		<div id="dv_usuario_imagem">
+			<img id="imagem_usuario" src="img/usuario.jpg">				
+		</div>
+		<div id="dv_usuario_inf">
+			<span id="spn_usuario">Usuario</span>
+			<input id="btn_sair" type="button" value="Sair">
+		</div>
+		</div>
+	</div>
+	<div id="dv_home_corpo">
+		<div class="serie" id="dv_serie">
+		<input id="btn_serie_return" type="button" value="Retornar">
+		<input id="btn_serie_edit" type="button" value="Editar">
+		<input id="btn_serie_delete" type="button" value="Deletar">
+		<h2><span id="spn_serie_list">Serie </span>> <span id="spn_serie_nome"></span></h2>
+				<div class="serie" id="dv_serie_view">
+					<div id="dv_serie_img">
+					</div>
+					<div id="dv_serie_texto">
+						<div id="dv_serie_descricao">
+							<fieldset>
+								<legend><h4>Descrição</h4></legend>
+								<span id="spn_serie_descricao">
+								</span>
+							</fieldset>
+						</div>
+						<div id="dv_serie_inf">
+							<fieldset>
+								<legend><h4>Diretor</h4></legend>
+								<span id="spn_serie_diretor">
+								</span>
+							</fieldset>
+							<fieldset>
+								<legend><h4>Ano de Lançamento</h4></legend>
+								<span id="spn_serie_lancamento">
+								</span>
+							</fieldset>
+							<fieldset>
+								<legend><h4>Categoria</h4></legend>
+								<span id="spn_serie_categoria">
+								</span>
+							</fieldset>
+							<fieldset>
+								<legend><h4>Link Externo</h4></legend>
+								<span id="spn_serie_link">
+								</span>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+  <script src="js/script.js"></script>
+</body>
+</html>

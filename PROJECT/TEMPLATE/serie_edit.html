@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/serie.css">
+  <link rel="stylesheet" href="css/serie_edit.css">
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<title>Séries</title>
+</head>
+<body>
+<div class="container">
+	<div class="menu" id="dv_home_topo">
+	<div id="dv_imagem_marca">
+		<img id="imagem_marca" src="img/marca.png">
+	</div>
+	<div id="dv_menu">
+		<input id="btn_inicio" type="button" value="Inicio">
+		<input id="btn_categoria" type="button" value="Categorias">
+		<input id="btn_serie" type="button" value="Séries">
+	</div>
+		<div id="dv_usuario">
+		<div id="dv_usuario_imagem">
+			<img id="imagem_usuario" src="img/usuario.jpg">				
+		</div>
+		<div id="dv_usuario_inf">
+			<span id="spn_usuario">Usuario</span>
+			<input id="btn_sair" type="button" value="Sair">
+		</div>
+		</div>
+	</div>
+	<div id="dv_home_corpo">
+		<div class="serie" id="dv_serie">
+		<h2 id="serie_edit">Séries > Editar</h2>
+			<form id="form_edit_serie" >
+				<div class="serie" id="dv_serie_edit">
+						<div id="dv_serie_edit_superior">
+							<div id="dv_serie_imagem">
+							</div>
+							<div id="dv_serie_nome">
+								<input id="btn_serie_edit_titulo" type="text" placeholder="Titulo" required>
+								<input id="btn_serie_edit_diretor" type="text" placeholder="Diretor">
+								<input id="btn_serie_edit_link" type="text" placeholder="Link">
+								<input id="btn_serie_edit_ano" min="1960" type="number" placeholder="Ano">
+								<input id="btn_serie_edit_imagem" type="url" placeholder="Imagem Url">
+							</div>
+							<div id="dv_serie_descricao">
+								<textarea id="btn_serie_edit_descricao" placeholder="Descricao"></textarea>
+							</div>
+						</div>
+						<div id="dv_serie_edit_meio">
+							<h3>Categoria</h3>
+							<div id="dv_lista_categoria">
+							</div>
+						</div>
+						<div id="dv_serie_edit_confirm">
+							<input type="submit" value="Editar">
+							<input id="serie_cancel" type="button" class="cancelar" value="Cancelar">
+						</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+  <script src="js/script.js"></script>
+</body>
+</html>

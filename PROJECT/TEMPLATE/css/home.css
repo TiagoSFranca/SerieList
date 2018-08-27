@@ -1,0 +1,64 @@
+#dv_home_corpo h2{
+	margin-top: 2.5%;
+	margin-left: 4%;
+	border-bottom: 1px solid;
+	border-color: yellow;
+	color: #12727b;
+}
+#dv_serie, #dv_categoria{
+	width: 100%;
+	margin-left: 0%;
+	margin-top: 0%;
+	margin-bottom: 1%;
+	height: 47%;
+	float: left;
+	display: block;
+	/*background-color: green;*/
+}
+#dv_serie_all, #dv_categoria_all{
+	margin-left: 0%;
+	margin-top: -1%;
+	width: 100%;
+	height: 75%;
+	display: block;
+	float: left;
+	/*background-color: yellow;*/
+}
+#dv_serie_all  div,#dv_categoria_all div{
+	margin-left: 4%;
+	margin-right: -2%;
+	margin-top: 0%;
+	margin-bottom: 1%;
+	width: 20%;
+	height: 100%;
+	display: inline-block;
+	position: relative;
+	float: left;
+	/*background-color: blue;*/
+	text-align: center;
+	vertical-align: center;
+	cursor: pointer;
+}
+#dv_serie_add{
+	margin-left: 5%;
+	position: relative;
+}
+#dv_menu > #btn_inicio{
+	color: #e0e05a;
+}
+#dv_serie_all  div:hover,#dv_categoria_all div:hover{
+	background-color: #E0E02A;
+	color: #0B486B;
+}
+.recente img, .categoria img{
+	margin-top: 5%;
+	height: 70%;
+}
+.categoriaList img{
+	margin-top: 5%;
+	height: 70%;
+}
+.serieList img{
+	margin-top: 5%;
+	height: 70%;
+}
