@@ -8,6 +8,8 @@ using SerieList.Domain.Interfaces.Services.Episode;
 using SerieList.Application.AppModels.Episode;
 using SerieList.Domain.Interfaces.Services.Token;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.CommonEntities;
+using SerieList.Application.CommonAppModels;
 
 namespace SerieList.Application.Concrete.Episode
 {
@@ -51,14 +53,15 @@ namespace SerieList.Application.Concrete.Episode
             }
         }
 
-        public IEnumerable<EpisodeAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
+        public PagingResultAppModel<EpisodeAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
             IEnumerable<int> idEpisodeStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idSeasonList,
-            IEnumerable<int> idUserList, string title, bool? excluded, bool? associatedExcluded)
+            IEnumerable<int> idUserList, string title, bool? excluded, bool? associatedExcluded, int actualPage, int itemsPerPage)
         {
             try
             {
-                return _episodeService.Query(idList, idProductList, idEpisodeStatusList, idVisibilityList, idSeasonList, idUserList, title, excluded, associatedExcluded)
-                    .Select(e => e.MapperToAppModel()).ToList();
+                var paging = new PagingModel(actualPage, itemsPerPage);
+                var result = _episodeService.Query(idList, idProductList, idEpisodeStatusList, idVisibilityList, idSeasonList, idUserList, title, excluded, associatedExcluded, paging);
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {

@@ -1,8 +1,6 @@
 ﻿using SerieList.Application.AppModels.Episode;
 using AutoMapper;
 using SerieList.Domain.Entitites.Episode;
-using SerieList.Application.CommonAppModels;
-using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Application.Mapper
 {
@@ -18,8 +16,6 @@ namespace SerieList.Application.Mapper
                 .ForMember(dest => dest.Visibility, src => src.Ignore())
                 .ForMember(dest => dest.EpisodeStatus, src => src.Ignore())
                 .ForMember(dest => dest.Season, src => src.Ignore());
-
-            CreateMap<PagingResultModel<EpisodeStatusModel>, PagingResultAppModel<EpisodeStatusAppModel>>();
 
         }
     }

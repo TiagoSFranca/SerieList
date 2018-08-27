@@ -13,6 +13,7 @@ using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
 using SerieList.Infra.Data.CrossCutting.Exceptions.Messges.ServiceMessages.Episode;
 using SerieList.Domain.Interfaces.Repositories;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Domain.Services.Episode
 {
@@ -39,9 +40,9 @@ namespace SerieList.Domain.Services.Episode
             episodeMessage = new EpisodeServiceMessage();
         }
 
-        public IEnumerable<EpisodeModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
+        public PagingResultModel<EpisodeModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
             IEnumerable<int> idEpisodeStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idSeasonList,
-            IEnumerable<int> idUserList, string title, bool? excluded, bool? associatedExcluded)
+            IEnumerable<int> idUserList, string title, bool? excluded, bool? associatedExcluded, PagingModel paging)
         {
             var query = _episodeRepo.Query();
 
@@ -74,7 +75,7 @@ namespace SerieList.Domain.Services.Episode
             if (associatedExcluded != null)
                 dataResult = dataResult.Where(e => e.AssociationExcluded((bool)associatedExcluded) != null).ToList();
 
-            return dataResult;
+            return Paginate(dataResult, paging);
         }
 
         public void Add(EpisodeModel obj, UserModel userCredentials)

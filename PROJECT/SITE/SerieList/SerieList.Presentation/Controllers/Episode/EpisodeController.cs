@@ -87,15 +87,17 @@ namespace SerieList.Presentation.Controllers.Episode
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<EpisodeAppModel> Search([FromBody]EpisodeSearch filter)
+        public ResponseSearchResult<EpisodeAppModel> Search([FromBody]EpisodeSearch filter)
         {
-            var response = new ResponseMultipleResult<EpisodeAppModel>(episodeMessage.MethodGetAll);
+            var response = new ResponseSearchResult<EpisodeAppModel>(episodeMessage.MethodGetAll);
             if (filter == null)
                 filter = new EpisodeSearch();
             try
             {
-                response.Results = _eAppService.Query(filter.IdList, filter.IdProductList, filter.IdEpisodeStatusList,
-                    filter.IdVisibilityList, filter.IdSeasonList, filter.IdUserList, filter.Title, filter.Excluded, filter.AssociatedExcluded);
+                var result = _eAppService.Query(filter.IdList, filter.IdProductList, filter.IdEpisodeStatusList,
+                    filter.IdVisibilityList, filter.IdSeasonList, filter.IdUserList, filter.Title, filter.Excluded, filter.AssociatedExcluded,
+                    filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = episodeMessage.SuccessSearch;
             }

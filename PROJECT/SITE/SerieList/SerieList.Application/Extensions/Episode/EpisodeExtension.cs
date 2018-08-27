@@ -1,4 +1,6 @@
 ﻿using SerieList.Application.AppModels.Episode;
+using SerieList.Application.CommonAppModels;
+using SerieList.Domain.CommonEntities;
 using SerieList.Domain.Entitites.Episode;
 
 namespace SerieList.Application.Extensions.Episode
@@ -13,6 +15,11 @@ namespace SerieList.Application.Extensions.Episode
         public static EpisodeAppModel MapperToAppModel(this EpisodeModel obj)
         {
             return AutoMapper.Mapper.Map<EpisodeAppModel>(obj);
+        }
+
+        public static PagingResultAppModel<EpisodeAppModel> MapperToAppModel(this PagingResultModel<EpisodeModel> obj)
+        {
+            return AutoMapper.Mapper.Map<PagingResultAppModel<EpisodeAppModel>>(obj);
         }
     }
 }

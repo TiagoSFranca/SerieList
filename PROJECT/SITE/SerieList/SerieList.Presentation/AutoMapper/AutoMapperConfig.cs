@@ -12,6 +12,8 @@ namespace SerieList.Presentation.AutoMapper
             {
                 x.AddProfile(new ConfigProfileApplication());
 
+                x.AddProfile(new PagingProfileApplication());
+
                 x.AddProfile(new ProductProfileApplication());
                 x.AddProfile(new ProductProfilePresentation());
 

@@ -128,6 +128,7 @@
     <Compile Include="Mail\MailTemplate\MailTemplate.cs" />
     <Compile Include="Mapper\ConfigProfileApplication.cs" />
     <Compile Include="Mapper\EpisodeProfileApplication.cs" />
+    <Compile Include="Mapper\PagingProfileApplication.cs" />
     <Compile Include="Mapper\ProductProfileApplication.cs" />
     <Compile Include="Mapper\ProfileProfileApplication.cs" />
     <Compile Include="Mapper\SeasonProfileApplication.cs" />

@@ -8,6 +8,7 @@ using SerieList.Infra.Data.CrossCutting.Exceptions.Messges.ServiceMessages;
 using System.Linq;
 using SerieList.Domain.CommonEntities;
 using SerieList.Domain.Seed;
+using System.Collections.Generic;
 
 namespace SerieList.Domain.Services
 {
@@ -54,6 +55,11 @@ namespace SerieList.Domain.Services
         }
 
         protected PagingResultModel<TEntity> Paginate(IQueryable<TEntity> query, PagingModel paging)
+        {
+            return Paginate(query.ToList(), paging);
+        }
+
+        protected PagingResultModel<TEntity> Paginate(IEnumerable<TEntity> query, PagingModel paging)
         {
             var pagingModel = GetPagingModel(paging.ActualPage, paging.ItemsPerPage);
             var result = new PagingResultModel<TEntity>(paging);
