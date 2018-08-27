@@ -4,10 +4,8 @@ using SerieList.Domain.Entitites.Product;
 using SerieList.Domain.Interfaces.Services.Product;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SerieList.Application.Extensions.Product;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.Interfaces.Services;
 using SerieList.Domain.CommonEntities;
 using SerieList.Application.CommonAppModels;
 

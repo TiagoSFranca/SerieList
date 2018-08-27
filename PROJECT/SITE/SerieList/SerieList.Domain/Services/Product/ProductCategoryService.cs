@@ -6,7 +6,6 @@ using SerieList.Domain.Interfaces.Repositories.Product;
 using SerieList.Domain.Interfaces.Repositories.Token;
 using SerieList.Domain.Interfaces.Services;
 using SerieList.Domain.Interfaces.Services.Product;
-using SerieList.Domain.Interfaces.Services.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Infra.Data.CrossCutting.Exceptions.Messges.ServiceMessages.Product;
 using SerieList.Infra.Data.CrossCutting.Exceptions.ServiceException;

@@ -1,4 +1,5 @@
-﻿using SerieList.Domain.Entitites.Product;
+﻿using SerieList.Domain.CommonEntities;
+using SerieList.Domain.Entitites.Product;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Product;
@@ -37,8 +38,9 @@ namespace SerieList.Domain.Services.Product
             productMessage = new ProductServiceMessage();
         }
 
-        public IEnumerable<ProductModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductTypeList,
-            IEnumerable<int> idProductStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title, bool? excluded, bool? associatedExcluded)
+        public PagingResultModel<ProductModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductTypeList,
+            IEnumerable<int> idProductStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title, 
+            bool? excluded, bool? associatedExcluded, PagingModel paging)
         {
             var query = _productRepo.Query();
 
@@ -68,7 +70,7 @@ namespace SerieList.Domain.Services.Product
             if (associatedExcluded != null)
                 dataResult = dataResult.Where(p => p.AssociationExcluded((bool)associatedExcluded) != null).ToList();
 
-            return dataResult;
+            return Paginate(dataResult, paging);
         }
 
         public void Add(ProductModel obj, UserModel userCredentials)
@@ -107,7 +109,6 @@ namespace SerieList.Domain.Services.Product
             if (product.IdUser != userCredentials.IdUser && !isAdmin)
                 throw new ServiceException(productMessage.UserInvalid);
         }
-
 
         private void ValidateCategories(ProductModel obj)
         {

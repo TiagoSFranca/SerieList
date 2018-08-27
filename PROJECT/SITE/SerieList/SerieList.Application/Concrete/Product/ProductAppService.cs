@@ -3,11 +3,11 @@ using SerieList.Domain.Entitites.Product;
 using SerieList.Domain.Interfaces.Services.Product;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SerieList.Application.AppModels.Product;
 using SerieList.Application.Extensions.Product;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.Interfaces.Services;
+using SerieList.Application.CommonAppModels;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Application.Concrete.Product
 {
@@ -51,14 +51,15 @@ namespace SerieList.Application.Concrete.Product
             }
         }
 
-        public IEnumerable<ProductAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductTypeList,
-            IEnumerable<int> idProductStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title, bool? excluded, bool? associatedExcluded)
+        public PagingResultAppModel<ProductAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductTypeList,
+            IEnumerable<int> idProductStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title, bool? excluded, 
+            bool? associatedExcluded, int actualPage, int itemsPerPage)
         {
             try
             {
-                return _productService
-                    .Query(idList, idProductTypeList, idProductStatusList, idVisibilityList, idUserList, title, excluded, associatedExcluded)
-                    .Select(e => e.MapperToAppModel()).ToList();
+                var paging = new PagingModel(actualPage, itemsPerPage);
+                var result = _productService.Query(idList, idProductTypeList, idProductStatusList, idVisibilityList, idUserList, title, excluded, associatedExcluded, paging);
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {

@@ -87,14 +87,17 @@ namespace SerieList.Presentation.Controllers.Product
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<ProductAppModel> Search([FromBody]ProductSearch filter)
+        public ResponseSearchResult<ProductAppModel> Search([FromBody]ProductSearch filter)
         {
-            var response = new ResponseMultipleResult<ProductAppModel>(productMessage.MethodGetAll);
+            var response = new ResponseSearchResult<ProductAppModel>(productMessage.MethodGetAll);
             if (filter == null)
                 filter = new ProductSearch();
             try
             {
-                response.Results = _pAppService.Query(filter.IdList, filter.IdProductTypeList, filter.IdProductStatusList, filter.IdVisibilityList, filter.IdUserList, filter.Title, filter.Excluded, filter.AssociatedExcluded);
+
+                var result = _pAppService.Query(filter.IdList, filter.IdProductTypeList, filter.IdProductStatusList, filter.IdVisibilityList, 
+                    filter.IdUserList, filter.Title, filter.Excluded, filter.AssociatedExcluded, filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = productMessage.SuccessSearch;
             }

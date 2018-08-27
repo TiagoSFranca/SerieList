@@ -2,7 +2,7 @@
 
 namespace SerieList.Presentation.Models.Search.Product
 {
-    public class ProductSearch
+    public class ProductSearch : PagingSearch
     {
         public List<int> IdList { get; set; }
         public List<int> IdProductTypeList { get; set; }
