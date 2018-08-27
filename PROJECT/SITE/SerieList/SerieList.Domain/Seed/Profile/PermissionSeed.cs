@@ -13,42 +13,12 @@ namespace SerieList.Domain.Seed.Profile
             {
                 return new List<PermissionModel>()
                 {
-                    //ProductList,
-                    //ProductGet,
                     ProductAdd,
                     ProductUpdate,
                     ProductRemove,
                 };
             }
         }
-
-        //public static PermissionModel ProductList
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 1,
-        //            IdPermissionGroup = PermissionGroupSeed.Product.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.List.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
-
-        //public static PermissionModel ProductGet
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 2,
-        //            IdPermissionGroup = PermissionGroupSeed.Product.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.Get.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
 
         public static PermissionModel ProductAdd
         {
@@ -102,42 +72,12 @@ namespace SerieList.Domain.Seed.Profile
             {
                 return new List<PermissionModel>()
                 {
-                    //SeasonList,
-                    //SeasonGet,
                     SeasonAdd,
                     SeasonUpdate,
                     SeasonRemove,
                 };
             }
         }
-
-        //public static PermissionModel SeasonList
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 11,
-        //            IdPermissionGroup = PermissionGroupSeed.Season.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.List.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
-
-        //public static PermissionModel SeasonGet
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 12,
-        //            IdPermissionGroup = PermissionGroupSeed.Season.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.Get.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
 
         public static PermissionModel SeasonAdd
         {
@@ -191,42 +131,12 @@ namespace SerieList.Domain.Seed.Profile
             {
                 return new List<PermissionModel>()
                 {
-                    //EpisodeList,
-                    //EpisodeGet,
                     EpisodeAdd,
                     EpisodeUpdate,
                     EpisodeRemove,
                 };
             }
         }
-
-        //public static PermissionModel EpisodeList
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 21,
-        //            IdPermissionGroup = PermissionGroupSeed.Episode.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.List.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
-
-        //public static PermissionModel EpisodeGet
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 22,
-        //            IdPermissionGroup = PermissionGroupSeed.Episode.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.Get.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
 
         public static PermissionModel EpisodeAdd
         {
@@ -280,42 +190,12 @@ namespace SerieList.Domain.Seed.Profile
             {
                 return new List<PermissionModel>()
                 {
-                    //ProductCategoryList,
-                    //ProductCategoryGet,
                     ProductCategoryAdd,
                     ProductCategoryUpdate,
                     ProductCategoryRemove,
                 };
             }
         }
-
-        //public static PermissionModel ProductCategoryList
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 31,
-        //            IdPermissionGroup = PermissionGroupSeed.ProductCategory.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.List.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
-
-        //public static PermissionModel ProductCategoryGet
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 32,
-        //            IdPermissionGroup = PermissionGroupSeed.ProductCategory.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.Get.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
 
         public static PermissionModel ProductCategoryAdd
         {
@@ -369,42 +249,12 @@ namespace SerieList.Domain.Seed.Profile
             {
                 return new List<PermissionModel>()
                 {
-                    //ProfileList,
-                    //ProfileGet,
                     ProfileAdd,
                     ProfileUpdate,
                     ProfileRemove,
                 };
             }
         }
-
-        //public static PermissionModel ProfileList
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 41,
-        //            IdPermissionGroup = PermissionGroupSeed.Profile.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.List.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
-
-        //public static PermissionModel ProfileGet
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 42,
-        //            IdPermissionGroup = PermissionGroupSeed.Profile.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.Get.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
 
         public static PermissionModel ProfileAdd
         {
@@ -458,56 +308,11 @@ namespace SerieList.Domain.Seed.Profile
             {
                 return new List<PermissionModel>()
                 {
-                    //UserList,
-                    //UserGet,
-                    //UserAdd,
                     UserUpdate,
                     UserRemove,
                 };
             }
         }
-
-        //public static PermissionModel UserList
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 51,
-        //            IdPermissionGroup = PermissionGroupSeed.User.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.List.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
-
-        //public static PermissionModel UserGet
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 52,
-        //            IdPermissionGroup = PermissionGroupSeed.User.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.Get.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
-
-        //public static PermissionModel UserAdd
-        //{
-        //    get
-        //    {
-        //        return new PermissionModel()
-        //        {
-        //            IdPermission = 53,
-        //            IdPermissionGroup = PermissionGroupSeed.User.IdPermissionGroup,
-        //            IdPermissionType = PermissionTypeSeed.Add.IdPermissionType,
-        //            Excluded = false
-        //        };
-        //    }
-        //}
 
         public static PermissionModel UserUpdate
         {

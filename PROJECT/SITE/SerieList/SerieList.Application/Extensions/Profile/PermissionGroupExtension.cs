@@ -1,4 +1,6 @@
 ﻿using SerieList.Application.AppModels.Profile;
+using SerieList.Application.CommonAppModels;
+using SerieList.Domain.CommonEntities;
 using SerieList.Domain.Entitites.Profile;
 
 namespace SerieList.Application.Extensions.Profile
@@ -13,6 +15,11 @@ namespace SerieList.Application.Extensions.Profile
         public static PermissionGroupAppModel MapperToAppModel(this PermissionGroupModel obj)
         {
             return AutoMapper.Mapper.Map<PermissionGroupAppModel>(obj);
+        }
+
+        public static PagingResultAppModel<PermissionGroupAppModel> MapperToAppModel(this PagingResultModel<PermissionGroupModel> obj)
+        {
+            return AutoMapper.Mapper.Map<PagingResultAppModel<PermissionGroupAppModel>>(obj);
         }
     }
 }

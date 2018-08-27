@@ -19,16 +19,6 @@ namespace SerieList.Domain.Seed.Profile
 
                     #region Product
 
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.ProductList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.ProductGet.IdPermission
-                    //},
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.Admin.IdProfile,
@@ -48,17 +38,7 @@ namespace SerieList.Domain.Seed.Profile
                     #endregion
                     
                     #region Season
-
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.SeasonList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.SeasonGet.IdPermission
-                    //},
+                    
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.Admin.IdProfile,
@@ -79,16 +59,6 @@ namespace SerieList.Domain.Seed.Profile
 
                     #region Episode
 
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.EpisodeList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.EpisodeGet.IdPermission
-                    //},
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.Admin.IdProfile,
@@ -108,17 +78,7 @@ namespace SerieList.Domain.Seed.Profile
                     #endregion
                     
                     #region ProductCategory
-
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.ProductCategoryList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.ProductCategoryGet.IdPermission
-                    //},
+                    
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.Admin.IdProfile,
@@ -138,17 +98,7 @@ namespace SerieList.Domain.Seed.Profile
                     #endregion
 
                     #region Profile
-
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.ProfileList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.ProfileGet.IdPermission
-                    //},
+                    
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.Admin.IdProfile,
@@ -168,22 +118,7 @@ namespace SerieList.Domain.Seed.Profile
                     #endregion
                     
                     #region User
-
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.UserList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.UserGet.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.Admin.IdProfile,
-                    //    IdPermission = PermissionSeed.UserAdd.IdPermission
-                    //},
+                    
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.Admin.IdProfile,
@@ -207,17 +142,7 @@ namespace SerieList.Domain.Seed.Profile
                 return new List<ProfilePermissionModel>()
                 {
                     #region Product
-
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.CommomUser.IdProfile,
-                    //    IdPermission = PermissionSeed.ProductList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.CommomUser.IdProfile,
-                    //    IdPermission = PermissionSeed.ProductGet.IdPermission
-                    //},
+                    
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.CommomUser.IdProfile,
@@ -237,17 +162,7 @@ namespace SerieList.Domain.Seed.Profile
                     #endregion
                     
                     #region Season
-
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.CommomUser.IdProfile,
-                    //    IdPermission = PermissionSeed.SeasonList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.CommomUser.IdProfile,
-                    //    IdPermission = PermissionSeed.SeasonGet.IdPermission
-                    //},
+                    
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.CommomUser.IdProfile,
@@ -267,17 +182,7 @@ namespace SerieList.Domain.Seed.Profile
                     #endregion
 
                     #region Episode
-
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.CommomUser.IdProfile,
-                    //    IdPermission = PermissionSeed.EpisodeList.IdPermission
-                    //},
-                    //new ProfilePermissionModel()
-                    //{
-                    //    IdProfile = ProfileSeed.CommomUser.IdProfile,
-                    //    IdPermission = PermissionSeed.EpisodeGet.IdPermission
-                    //},
+                    
                     new ProfilePermissionModel()
                     {
                         IdProfile = ProfileSeed.CommomUser.IdProfile,

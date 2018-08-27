@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using SerieList.Application.AppModels.Episode;
 using SerieList.Application.AppModels.Product;
+using SerieList.Application.AppModels.Profile;
 using SerieList.Application.CommonAppModels;
 using SerieList.Domain.CommonEntities;
 using SerieList.Domain.Entitites.Episode;
 using SerieList.Domain.Entitites.Product;
+using SerieList.Domain.Entitites.Profile;
 
 namespace SerieList.Application.Mapper
 {
@@ -19,6 +21,7 @@ namespace SerieList.Application.Mapper
             CreateMap<PagingResultModel<ProductStatusModel>, PagingResultAppModel<ProductStatusAppModel>>();
             CreateMap<PagingResultModel<ProductTypeModel>, PagingResultAppModel<ProductTypeAppModel>>();
             CreateMap<PagingResultModel<VisibilityModel>, PagingResultAppModel<VisibilityAppModel>>();
+            CreateMap<PagingResultModel<PermissionGroupModel>, PagingResultAppModel<PermissionGroupAppModel>>();
         }
     }
 }

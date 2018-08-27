@@ -5,6 +5,7 @@ using System.Web.Http;
 using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Profile;
 using SerieList.Presentation.Models.Search.Profile;
+using SerieList.Presentation.Extensions;
 
 namespace SerieList.Presentation.Controllers.Profile
 {
@@ -62,14 +63,15 @@ namespace SerieList.Presentation.Controllers.Profile
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<PermissionGroupAppModel> Search([FromBody]PermissionGroupSearch filter)
+        public ResponseSearchResult<PermissionGroupAppModel> Search([FromBody]PermissionGroupSearch filter)
         {
-            var response = new ResponseMultipleResult<PermissionGroupAppModel>(permissionGroupMessage.MethodGetAll);
+            var response = new ResponseSearchResult<PermissionGroupAppModel>(permissionGroupMessage.MethodGetAll);
             if (filter == null)
                 filter = new PermissionGroupSearch();
             try
             {
-                response.Results = _pgAppService.Query(filter.IdList, filter.Description, filter.Excluded);
+                var result = _pgAppService.Query(filter.IdList, filter.Description, filter.Excluded, filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = permissionGroupMessage.SuccessSearch;
             }

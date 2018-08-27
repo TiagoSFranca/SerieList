@@ -61,30 +61,6 @@ namespace SerieList.Presentation.Controllers.User
             return response;
         }
 
-        //public ResponseSingleResult<UserPostModel> Post([FromBody]UserPostModel User)
-        //{
-        //    bool create = User.IdUser <= 0;
-        //    var response = new ResponseSingleResult<UserPostModel>(create ? UserMessage.MethodPost : UserMessage.MethodPut);
-        //    try
-        //    {
-        //        var UserMapped = User.MapperToAppModel();
-        //        if (create)
-        //            _eAppService.Add(UserMapped);
-        //        else
-        //            _eAppService.Update(UserMapped);
-        //        response.Success = true;
-        //        response.Message = create ? UserMessage.SuccessPost : UserMessage.SuccessPut;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        response.Success = false;
-        //        response.ErrorMessage = e.Message;
-        //        response.Message = create ? UserMessage.ErrorPost : UserMessage.ErrorPut;
-        //        response.StackTrace = e.StackTrace;
-        //    }
-        //    return response;
-        //}
-
         [HttpPost]
         [Route("Search")]
         public ResponseMultipleResult<UserAppModel> Search([FromBody]UserSearch filter)

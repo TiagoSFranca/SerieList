@@ -9,6 +9,7 @@ using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
 using SerieList.Domain.Interfaces.Repositories;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Domain.Services.Profile
 {
@@ -28,7 +29,7 @@ namespace SerieList.Domain.Services.Profile
             _accessControlService = accessControlService;
         }
 
-        public IEnumerable<PermissionGroupModel> Query(IEnumerable<int> idList, string description, bool? excluded)
+        public PagingResultModel<PermissionGroupModel> Query(IEnumerable<int> idList, string description, bool? excluded, PagingModel paging)
         {
             var query = _permissionGroupRepo.Query();
 
@@ -41,7 +42,9 @@ namespace SerieList.Domain.Services.Profile
             if (!String.IsNullOrEmpty(description))
                 query = query.Where(pt => pt.Description.ToLower().Contains(description.ToLower()));
 
-            return query.ToList();
+            query = query.OrderBy(e => e.Description);
+
+            return Paginate(query, paging);
         }
 
         public void Remove(PermissionGroupModel obj, UserModel userCredentials)

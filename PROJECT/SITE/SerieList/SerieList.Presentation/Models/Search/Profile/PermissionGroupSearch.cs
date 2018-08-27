@@ -2,7 +2,7 @@
 
 namespace SerieList.Presentation.Models.Search.Profile
 {
-    public class PermissionGroupSearch
+    public class PermissionGroupSearch : PagingSearch
     {
         public List<int> IdList { get; set; }
         public string Description { get; set; }
