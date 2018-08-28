@@ -4,10 +4,10 @@ using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Services.User;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SerieList.Application.Extensions.User;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.CommonEntities;
+using SerieList.Application.CommonAppModels;
 
 namespace SerieList.Application.Concrete.User
 {
@@ -51,11 +51,13 @@ namespace SerieList.Application.Concrete.User
             }
         }
 
-        public IEnumerable<UserStatusAppModel> Query(IEnumerable<int> idList, string description, bool? excluded)
+        public PagingResultAppModel<UserStatusAppModel> Query(IEnumerable<int> idList, string description, bool? excluded, int actualPage, int itemsPerPage)
         {
             try
             {
-                return _userStatusService.Query(idList, description, excluded).Select(e => e.MapperToAppModel()).ToList();
+                var paging = new PagingModel(actualPage, itemsPerPage);
+                var result = _userStatusService.Query(idList, description, excluded, paging);
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {

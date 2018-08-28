@@ -2,7 +2,7 @@
 
 namespace SerieList.Presentation.Models.Search.User
 {
-    public class UserStatusSearch
+    public class UserStatusSearch : PagingSearch
     {
         public List<int> IdList { get; set; }
         public string Description { get; set; }
