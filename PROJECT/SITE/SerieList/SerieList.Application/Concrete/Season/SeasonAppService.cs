@@ -4,10 +4,10 @@ using SerieList.Domain.Entitites.Season;
 using SerieList.Domain.Interfaces.Services.Season;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SerieList.Application.Extensions.Season;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.CommonEntities;
+using SerieList.Application.CommonAppModels;
 
 namespace SerieList.Application.Concrete.Season
 {
@@ -51,13 +51,15 @@ namespace SerieList.Application.Concrete.Season
             }
         }
 
-        public IEnumerable<SeasonAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
-            IEnumerable<int> idSeasonStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title, bool? excluded, bool? associatedExcluded)
+        public PagingResultAppModel<SeasonAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
+            IEnumerable<int> idSeasonStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title,
+            bool? excluded, bool? associatedExcluded, int actualPage, int itemsPerPage)
         {
             try
             {
-                return _seasonService.Query(idList, idProductList, idSeasonStatusList, idVisibilityList, idUserList, title, excluded, associatedExcluded)
-                    .Select(e => e.MapperToAppModel()).ToList();
+                var paging = new PagingModel(actualPage, itemsPerPage);
+                var result = _seasonService.Query(idList, idProductList, idSeasonStatusList, idVisibilityList, idUserList, title, excluded, associatedExcluded, paging);
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {

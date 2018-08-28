@@ -2,7 +2,7 @@
 
 namespace SerieList.Presentation.Models.Search.Season
 {
-    public class SeasonSearch
+    public class SeasonSearch : PagingSearch
     {
         public int[] IdList { get; set; }
         public List<int> IdProductList { get; set; }

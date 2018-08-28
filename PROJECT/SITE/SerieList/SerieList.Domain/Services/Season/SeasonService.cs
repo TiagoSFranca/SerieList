@@ -1,4 +1,5 @@
-﻿using SerieList.Domain.Entitites.Season;
+﻿using SerieList.Domain.CommonEntities;
+using SerieList.Domain.Entitites.Season;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Season;
@@ -33,8 +34,9 @@ namespace SerieList.Domain.Services.Season
             seasonMessage = new SeasonServiceMessage();
         }
 
-        public IEnumerable<SeasonModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
-            IEnumerable<int> idSeasonStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title, bool? excluded, bool? associatedExcluded)
+        public PagingResultModel<SeasonModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
+            IEnumerable<int> idSeasonStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, 
+            string title, bool? excluded, bool? associatedExcluded, PagingModel paging)
         {
             var query = _seasonRepo.Query();
 
@@ -64,7 +66,7 @@ namespace SerieList.Domain.Services.Season
             if (associatedExcluded != null)
                 dataResult = dataResult.Where(s => s.AssociationExcluded((bool)associatedExcluded) != null).ToList();
 
-            return dataResult;
+            return Paginate(dataResult, paging);
         }
 
         public void Add(SeasonModel obj, UserModel userCredentials)

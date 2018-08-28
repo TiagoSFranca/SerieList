@@ -87,14 +87,17 @@ namespace SerieList.Presentation.Controllers.Season
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<SeasonAppModel> Search([FromBody]SeasonSearch filter)
+        public ResponseSearchResult<SeasonAppModel> Search([FromBody]SeasonSearch filter)
         {
-            var response = new ResponseMultipleResult<SeasonAppModel>(seasonMessage.MethodGetAll);
+            var response = new ResponseSearchResult<SeasonAppModel>(seasonMessage.MethodGetAll);
             if (filter == null)
                 filter = new SeasonSearch();
             try
             {
-                response.Results = _sAppService.Query(filter.IdList, filter.IdProductList, filter.IdSeasonStatusList, filter.IdVisibilityList, filter.IdUserList, filter.Title, filter.Excluded, filter.AssociatedExcluded);
+                var result = _sAppService.Query(filter.IdList, filter.IdProductList, filter.IdSeasonStatusList, filter.IdVisibilityList,
+                    filter.IdUserList, filter.Title, filter.Excluded, filter.AssociatedExcluded,
+                    filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = seasonMessage.SuccessSearch;
             }
