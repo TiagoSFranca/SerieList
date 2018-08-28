@@ -63,6 +63,32 @@ namespace SerieList.Application.Concrete
             }
         }
 
+        public string ValidateUserName(string userName)
+        {
+            try
+            {
+                return _accessControlService.ValidateUserName(userName);
+            }
+            catch (Exception ex)
+            {
+                LogExceptions(ex);
+                throw;
+            }
+        }
+
+        public string ValidateEmail(string email)
+        {
+            try
+            {
+                return _accessControlService.ValidateEmail(email);
+            }
+            catch (Exception ex)
+            {
+                LogExceptions(ex);
+                throw;
+            }
+        }
+
         public void Register(UserAppModel obj)
         {
             try

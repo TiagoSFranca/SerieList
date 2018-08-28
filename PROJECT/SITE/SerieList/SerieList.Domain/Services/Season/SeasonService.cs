@@ -35,7 +35,7 @@ namespace SerieList.Domain.Services.Season
         }
 
         public PagingResultModel<SeasonModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductList,
-            IEnumerable<int> idSeasonStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, 
+            IEnumerable<int> idSeasonStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList,
             string title, bool? excluded, bool? associatedExcluded, PagingModel paging)
         {
             var query = _seasonRepo.Query();
@@ -99,8 +99,7 @@ namespace SerieList.Domain.Services.Season
             if (season == null)
                 throw new ServiceException(seasonMessage.NotFound);
             _accessControlService.Authorize(userCredentials, idPermission);
-            bool isAdmin = userCredentials.Profile.Permissions.Any(e => e.IdPermission == PermissionSeed.Admin.IdPermission);
-            if (season.IdUser != userCredentials.IdUser && !isAdmin)
+            if (season.IdUser != userCredentials.IdUser && !IsAdmin(userCredentials))
                 throw new ServiceException(seasonMessage.UserInvalid);
         }
     }

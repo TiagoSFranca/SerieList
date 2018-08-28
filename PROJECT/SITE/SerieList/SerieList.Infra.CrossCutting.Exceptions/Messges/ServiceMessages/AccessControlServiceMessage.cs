@@ -22,10 +22,17 @@
             return string.Format("O tamanho mínimo da senha é [{0}] caracteres.", length);
         }
 
+        public string EmailInvalid(string email)
+        {
+            return string.Format("O email [{0}] é inválido.", email);
+        }
+
         public string LoginInvalid { get { return "Usuário ou senha inválidos."; } }
 
-        public string PasswordError{ get { return "Senhas não coincidem."; } }
+        public string PasswordError { get { return "Senhas não coincidem."; } }
 
         public string PasswordHasUsed { get { return "Senha já foi utilizada em outro momento."; } }
+
+        public string UserNameWithWhiteSpace { get { return "Login não pode conter espaços em branco."; } }
     }
 }

@@ -39,7 +39,7 @@ namespace SerieList.Domain.Services.Product
         }
 
         public PagingResultModel<ProductModel> Query(IEnumerable<int> idList, IEnumerable<int> idProductTypeList,
-            IEnumerable<int> idProductStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title, 
+            IEnumerable<int> idProductStatusList, IEnumerable<int> idVisibilityList, IEnumerable<int> idUserList, string title,
             bool? excluded, bool? associatedExcluded, PagingModel paging)
         {
             var query = _productRepo.Query();
@@ -105,8 +105,7 @@ namespace SerieList.Domain.Services.Product
             if (product == null)
                 throw new ServiceException(productMessage.NotFound);
             _accessControlService.Authorize(userCredentials, idPermission);
-            bool isAdmin = userCredentials.Profile.Permissions.Any(e => e.IdPermission == PermissionSeed.Admin.IdPermission);
-            if (product.IdUser != userCredentials.IdUser && !isAdmin)
+            if (product.IdUser != userCredentials.IdUser && !IsAdmin(userCredentials))
                 throw new ServiceException(productMessage.UserInvalid);
         }
 

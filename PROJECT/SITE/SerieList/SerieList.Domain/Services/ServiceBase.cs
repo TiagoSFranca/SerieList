@@ -9,6 +9,7 @@ using System.Linq;
 using SerieList.Domain.CommonEntities;
 using SerieList.Domain.Seed;
 using System.Collections.Generic;
+using SerieList.Domain.Seed.Profile;
 
 namespace SerieList.Domain.Services
 {
@@ -97,6 +98,11 @@ namespace SerieList.Domain.Services
             if (obj != null)
                 return obj.Value;
             return null;
+        }
+
+        protected bool IsAdmin(UserModel userCredentials)
+        {
+            return userCredentials?.Profile?.Permissions?.Where(e => e.IdPermission == PermissionSeed.Admin.IdPermission).Count() > 0;
         }
     }
 }

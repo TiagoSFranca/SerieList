@@ -12,6 +12,10 @@ namespace SerieList.Application.Interfaces
 
         string ValidatePassword(string password);
 
+        string ValidateUserName(string userName);
+
+        string ValidateEmail(string email);
+
         void ConfirmMail(string token);
 
         string Authenticate(string login, string password, bool keep);

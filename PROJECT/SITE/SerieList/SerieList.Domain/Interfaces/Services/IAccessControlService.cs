@@ -13,6 +13,10 @@ namespace SerieList.Domain.Interfaces.Services
 
         string ValidatePassword(string password);
 
+        string ValidateUserName(string userName);
+
+        string ValidateEmail(string email);
+
         void ConfirmMail(string token);
 
         string Authenticate(string username, string password, bool keep);

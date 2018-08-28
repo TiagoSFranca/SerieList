@@ -13,6 +13,7 @@ using SerieList.Domain.Seed.Token;
 using SerieList.Extras.Util.Crypt;
 using SerieList.Infra.Data.CrossCutting.Exceptions.Messges.ServiceMessages;
 using SerieList.Domain.Entitites.Token;
+using System.Net.Mail;
 
 namespace SerieList.Domain.Services
 {
@@ -74,15 +75,43 @@ namespace SerieList.Domain.Services
             return error;
         }
 
+        public string ValidateEmail(string email)
+        {
+            string error = string.Empty;
+            try
+            {
+                var addr = new MailAddress(email);
+            }
+            catch
+            {
+                error += accessControlServiceMessage.EmailInvalid(email);
+            }
+            return error;
+        }
+
+        public string ValidateUserName(string userName)
+        {
+            string error = string.Empty;
+            if (userName.Contains(" "))
+                error += accessControlServiceMessage.UserNameWithWhiteSpace;
+            return error;
+        }
+
         public string Register(UserModel user)
         {
-            string passwordError = string.Empty;
+            string error = string.Empty;
+
+            if ((error = this.ValidateEmail(user.UserInfo.Email)).Length > 0)
+                throw new ServiceException(error);
+            if ((error = this.ValidateUserName(user.UserInfo.UserName)).Length > 0)
+                throw new ServiceException(error);
             if (this.EmailExists(user.UserInfo.Email))
                 throw new ServiceException(accessControlServiceMessage.EmailExists(user.UserInfo.Email));
             if (this.UserNameExists(user.UserInfo.UserName))
                 throw new ServiceException(accessControlServiceMessage.UserNameExists(user.UserInfo.UserName));
-            if ((passwordError = this.ValidatePassword(user.UserInfo.PasswordHash)).Length > 0)
-                throw new ServiceException(passwordError);
+            if ((error = this.ValidatePassword(user.UserInfo.PasswordHash)).Length > 0)
+                throw new ServiceException(error);
+
             string password = SHA1Crypt.Encrypt(user.UserInfo.PasswordHash);
             user.UserInfo.PasswordHash = password;
             user.UserInfo.SecurityStamp = Guid.NewGuid().ToString();

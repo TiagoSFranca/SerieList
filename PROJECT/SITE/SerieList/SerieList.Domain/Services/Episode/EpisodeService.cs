@@ -121,8 +121,7 @@ namespace SerieList.Domain.Services.Episode
             if (episode == null)
                 throw new ServiceException(episodeMessage.NotFound);
             _accessControlService.Authorize(userCredentials, idPermission);
-            bool isAdmin = userCredentials.Profile.Permissions.Any(e => e.IdPermission == PermissionSeed.Admin.IdPermission);
-            if (episode.IdUser != userCredentials.IdUser && !isAdmin)
+            if (episode.IdUser != userCredentials.IdUser && !IsAdmin(userCredentials))
                 throw new ServiceException(episodeMessage.UserInvalid);
         }
     }

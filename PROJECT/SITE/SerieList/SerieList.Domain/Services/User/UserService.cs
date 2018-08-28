@@ -51,21 +51,14 @@ namespace SerieList.Domain.Services.User
             if (user == null)
                 throw new ServiceException(userMessage.NotFound);
             user.ValidateExcluded();
-            ValidateUser(userCredentials, PermissionSeed.UserUpdate.IdPermission);
+            ValidateUser(userCredentials, PermissionSeed.UserUpdate.IdPermission, obj);
             _userRepo.Update(obj);
         }
 
         public void Remove(UserModel obj, UserModel userCredentials)
         {
-            ValidateUser(userCredentials, PermissionSeed.UserRemove.IdPermission);
+            ValidateUser(userCredentials, PermissionSeed.UserRemove.IdPermission, obj);
             _userRepo.Remove(obj);
-        }
-
-        private void ValidateUser(UserModel userCredentials, int idPermission)
-        {
-            _accessControlService.Authorize(userCredentials, idPermission);
-            //TODO:
-
         }
 
         public PagingResultModel<UserModel> Query(IEnumerable<int> idList, IEnumerable<int> idProfileList,
@@ -106,5 +99,14 @@ namespace SerieList.Domain.Services.User
             return Paginate(dataResult, paging);
         }
 
+        private void ValidateUser(UserModel userCredentials, int idPermission, UserModel obj)
+        {
+            var user = _userRepo.GetById(obj.IdUser, true);
+            if (user == null)
+                throw new ServiceException(userMessage.NotFound);
+            _accessControlService.Authorize(userCredentials, idPermission);
+            if (user.IdUser != userCredentials.IdUser && !IsAdmin(userCredentials))
+                throw new ServiceException(userMessage.UserInvalid);
+        }
     }
 }
