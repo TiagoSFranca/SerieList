@@ -22,6 +22,7 @@ namespace SerieList.Application.Mapper
             CreateMap<PagingResultModel<ProductTypeModel>, PagingResultAppModel<ProductTypeAppModel>>();
             CreateMap<PagingResultModel<VisibilityModel>, PagingResultAppModel<VisibilityAppModel>>();
             CreateMap<PagingResultModel<PermissionGroupModel>, PagingResultAppModel<PermissionGroupAppModel>>();
+            CreateMap<PagingResultModel<PermissionModel>, PagingResultAppModel<PermissionAppModel>>();
         }
     }
 }

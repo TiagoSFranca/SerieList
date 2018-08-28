@@ -2,7 +2,7 @@
 
 namespace SerieList.Presentation.Models.Search.Profile
 {
-    public class PermissionSearch
+    public class PermissionSearch : PagingSearch
     {
         public List<int> IdList { get; set; }
         public List<int> IdPermissionTypeList { get; set; }

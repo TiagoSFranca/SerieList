@@ -8,6 +8,7 @@ using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
 using SerieList.Domain.Interfaces.Repositories;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Domain.Services.Profile
 {
@@ -27,8 +28,8 @@ namespace SerieList.Domain.Services.Profile
             _accessControlService = accessControlService;
         }
 
-        public IEnumerable<PermissionModel> Query(IEnumerable<int> idList, IEnumerable<int> idPermissionTypeList,
-            IEnumerable<int> idPermissionGroupList, bool? excluded, bool? associatedExcluded)
+        public PagingResultModel<PermissionModel> Query(IEnumerable<int> idList, IEnumerable<int> idPermissionTypeList,
+            IEnumerable<int> idPermissionGroupList, bool? excluded, bool? associatedExcluded, PagingModel paging)
         {
             var query = _permissionRepo.Query();
 
@@ -49,7 +50,7 @@ namespace SerieList.Domain.Services.Profile
             if (associatedExcluded != null)
                 dataResult = dataResult.Where(p => p.AssociationExcluded((bool)associatedExcluded) != null).ToList();
 
-            return dataResult;
+            return Paginate(dataResult, paging);
         }
 
         public void Remove(PermissionModel obj, UserModel userCredentials)

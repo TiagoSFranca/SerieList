@@ -4,10 +4,10 @@ using SerieList.Domain.Entitites.Profile;
 using SerieList.Domain.Interfaces.Services.Profile;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SerieList.Application.Extensions.Profile;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.Interfaces.Services;
+using SerieList.Application.CommonAppModels;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Application.Concrete.Profile
 {
@@ -51,13 +51,14 @@ namespace SerieList.Application.Concrete.Profile
             }
         }
 
-        public IEnumerable<PermissionAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idPermissionTypeList,
-            IEnumerable<int> idPermissionGroupList, bool? excluded, bool? associatedExcluded)
+        public PagingResultAppModel<PermissionAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idPermissionTypeList,
+            IEnumerable<int> idPermissionGroupList, bool? excluded, bool? associatedExcluded, int actualPage, int itemsPerPage)
         {
             try
             {
-                return _permissionService.Query(idList, idPermissionTypeList, idPermissionGroupList, excluded, associatedExcluded)
-                    .Select(e => e.MapperToAppModel()).ToList();
+                var paging = new PagingModel(actualPage, itemsPerPage);
+                var result = _permissionService.Query(idList, idPermissionTypeList, idPermissionGroupList, excluded, associatedExcluded, paging);
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {

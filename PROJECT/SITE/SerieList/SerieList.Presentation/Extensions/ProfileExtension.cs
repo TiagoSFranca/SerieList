@@ -17,5 +17,10 @@ namespace SerieList.Presentation.Extensions
         {
             return Mapper.Map<PagingResultSearchModel<PermissionGroupAppModel>>(obj);
         }
+
+        public static PagingResultSearchModel<PermissionAppModel> MapperToView(this PagingResultAppModel<PermissionAppModel> obj)
+        {
+            return Mapper.Map<PagingResultSearchModel<PermissionAppModel>>(obj);
+        }
     }
 }
