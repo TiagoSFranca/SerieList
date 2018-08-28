@@ -1,4 +1,5 @@
-﻿using SerieList.Domain.Entitites.Profile;
+﻿using SerieList.Domain.CommonEntities;
+using SerieList.Domain.Entitites.Profile;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Profile;
@@ -35,7 +36,7 @@ namespace SerieList.Domain.Services.Profile
             profileMessage = new ProfileServiceMessage();
         }
 
-        public IEnumerable<ProfileModel> Query(IEnumerable<int> idList, string description, bool? excluded)
+        public PagingResultModel<ProfileModel> Query(IEnumerable<int> idList, string description, bool? excluded, PagingModel paging)
         {
             var query = _profileRepo.Query();
 
@@ -48,7 +49,9 @@ namespace SerieList.Domain.Services.Profile
             if (!String.IsNullOrEmpty(description))
                 query = query.Where(pt => pt.Description.ToLower().Contains(description.ToLower()));
 
-            return query.ToList();
+            query = query.OrderBy(e => e.Description);
+
+            return Paginate(query, paging);
         }
 
         public void Add(ProfileModel obj, UserModel userCredentials)

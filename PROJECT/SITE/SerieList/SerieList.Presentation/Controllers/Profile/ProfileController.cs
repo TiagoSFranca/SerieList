@@ -87,14 +87,15 @@ namespace SerieList.Presentation.Controllers.Profile
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<ProfileAppModel> Search([FromBody]ProfileSearch filter)
+        public ResponseSearchResult<ProfileAppModel> Search([FromBody]ProfileSearch filter)
         {
-            var response = new ResponseMultipleResult<ProfileAppModel>(profileMessage.MethodGetAll);
+            var response = new ResponseSearchResult<ProfileAppModel>(profileMessage.MethodGetAll);
             if (filter == null)
                 filter = new ProfileSearch();
             try
             {
-                response.Results = _pAppService.Query(filter.IdList, filter.Description, filter.Excluded);
+                var result = _pAppService.Query(filter.IdList, filter.Description, filter.Excluded, filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = profileMessage.SuccessSearch;
             }
