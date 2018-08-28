@@ -42,7 +42,7 @@ namespace SerieList.Application.Mail.MailTemplate
             var confirmMailRoute = _configService.GetValueByKey(ConfigurationSeed.ConfirmMailRoute.Key);
             confirmMailRoute = string.Format("{0}?code={1}", confirmMailRoute, confirmationCodeEncrypted);
 
-            content = content.Replace(GetKey("CONFIRMATION_CODE"), confirmMailRoute);
+            content = content.Replace(GetKey("CONFIRMATION_CODE"), confirmMailRoute.ToString());
 
             template = template.Replace(GetKey("CONTENT"), content);
 

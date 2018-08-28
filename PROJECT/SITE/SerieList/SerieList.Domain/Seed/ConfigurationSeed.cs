@@ -14,7 +14,7 @@ namespace SerieList.Domain.Seed
         public static ConfigurationModel SMTPDisplayName { get { return new ConfigurationModel() { IdConfiguration = 6, Key = "SMTPDisplayName", Value = "PROJETO", Excluded = false }; } }
         public static ConfigurationModel SiteName { get { return new ConfigurationModel() { IdConfiguration = 7, Key = "SiteName", Value = "PROJETO", Excluded = false }; } }
         public static ConfigurationModel SiteRoute { get { return new ConfigurationModel() { IdConfiguration = 8, Key = "SiteRoute", Value = "http://localhost:49812/", Excluded = false }; } }
-        public static ConfigurationModel SiteCopyriting { get { return new ConfigurationModel() { IdConfiguration = 9, Key = "SiteCopyriting", Value = "© Copyright 20018", Excluded = false }; } }
+        public static ConfigurationModel SiteCopyriting { get { return new ConfigurationModel() { IdConfiguration = 9, Key = "SiteCopyriting", Value = "© Copyright 2018", Excluded = false }; } }
         public static ConfigurationModel MailTitleRegister { get { return new ConfigurationModel() { IdConfiguration = 10, Key = "MailTitleRegister", Value = "Registro de Novo Usuário", Excluded = false }; } }
         public static ConfigurationModel ConfirmMailRoute { get { return new ConfigurationModel() { IdConfiguration = 11, Key = "ConfirmMailRoute", Value = "http://localhost:49812/api/AccessControl/ConfirmMail/", Excluded = false }; } }
         public static ConfigurationModel MailTitleForgotPassword { get { return new ConfigurationModel() { IdConfiguration = 12, Key = "MailTitleForgotPassword", Value = "Redefinir Senha", Excluded = false }; } }
