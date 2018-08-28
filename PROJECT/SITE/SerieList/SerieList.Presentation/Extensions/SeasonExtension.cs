@@ -17,5 +17,10 @@ namespace SerieList.Presentation.Extensions
         {
             return Mapper.Map<PagingResultSearchModel<SeasonAppModel>>(obj);
         }
+
+        public static PagingResultSearchModel<SeasonStatusAppModel> MapperToView(this PagingResultAppModel<SeasonStatusAppModel> obj)
+        {
+            return Mapper.Map<PagingResultSearchModel<SeasonStatusAppModel>>(obj);
+        }
     }
 }

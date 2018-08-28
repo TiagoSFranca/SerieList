@@ -5,6 +5,7 @@ using System.Web.Http;
 using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Season;
 using SerieList.Presentation.Models.Search.Season;
+using SerieList.Presentation.Extensions;
 
 namespace SerieList.Presentation.Controllers.Season
 {
@@ -62,14 +63,15 @@ namespace SerieList.Presentation.Controllers.Season
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<SeasonStatusAppModel> Search([FromBody]SeasonStatusSearch filter)
+        public ResponseSearchResult<SeasonStatusAppModel> Search([FromBody]SeasonStatusSearch filter)
         {
-            var response = new ResponseMultipleResult<SeasonStatusAppModel>(seasonStatusMessage.MethodGetAll);
+            var response = new ResponseSearchResult<SeasonStatusAppModel>(seasonStatusMessage.MethodGetAll);
             if (filter == null)
                 filter = new SeasonStatusSearch();
             try
             {
-                response.Results = _ssAppService.Query(filter.IdList, filter.Description, filter.Excluded);
+                var result = _ssAppService.Query(filter.IdList, filter.Description, filter.Excluded, filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = seasonStatusMessage.SuccessSearch;
             }

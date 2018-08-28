@@ -31,6 +31,7 @@ namespace SerieList.Application.Mapper
             CreateMap<PagingResultModel<ProfileModel>, PagingResultAppModel<ProfileAppModel>>();
 
             CreateMap<PagingResultModel<SeasonModel>, PagingResultAppModel<SeasonAppModel>>();
+            CreateMap<PagingResultModel<SeasonStatusModel>, PagingResultAppModel<SeasonStatusAppModel>>();
         }
     }
 }

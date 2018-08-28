@@ -9,6 +9,7 @@ using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Seed.Profile;
 using SerieList.Domain.Interfaces.Services;
 using SerieList.Domain.Interfaces.Repositories;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Domain.Services.Season
 {
@@ -28,7 +29,7 @@ namespace SerieList.Domain.Services.Season
             _accessControlService = accessControlService;
         }
 
-        public IEnumerable<SeasonStatusModel> Query(IEnumerable<int> idList, string description, bool? excluded)
+        public PagingResultModel<SeasonStatusModel> Query(IEnumerable<int> idList, string description, bool? excluded, PagingModel paging)
         {
             var query = _seasonStatusRepo.Query();
 
@@ -41,7 +42,9 @@ namespace SerieList.Domain.Services.Season
             if (!String.IsNullOrEmpty(description))
                 query = query.Where(pt => pt.Description.ToLower().Contains(description.ToLower()));
 
-            return query.ToList();
+            query = query.OrderBy(e => e.Description);
+
+            return Paginate(query, paging);
         }
 
         public void Remove(SeasonStatusModel obj, UserModel userCredentials)

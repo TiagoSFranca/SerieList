@@ -4,10 +4,10 @@ using SerieList.Domain.Entitites.Season;
 using SerieList.Domain.Interfaces.Services.Season;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using SerieList.Application.Extensions.Season;
 using SerieList.Domain.Interfaces.Services.Token;
-using SerieList.Domain.Interfaces.Services;
+using SerieList.Application.CommonAppModels;
+using SerieList.Domain.CommonEntities;
 
 namespace SerieList.Application.Concrete.Season
 {
@@ -51,11 +51,13 @@ namespace SerieList.Application.Concrete.Season
             }
         }
 
-        public IEnumerable<SeasonStatusAppModel> Query(IEnumerable<int> idList, string description, bool? excluded)
+        public PagingResultAppModel<SeasonStatusAppModel> Query(IEnumerable<int> idList, string description, bool? excluded, int actualPage, int itemsPerPage)
         {
             try
             {
-                return _seasonStatusService.Query(idList, description, excluded).Select(e => e.MapperToAppModel()).ToList();
+                var paging = new PagingModel(actualPage, itemsPerPage);
+                var result = _seasonStatusService.Query(idList, description, excluded, paging);
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {
