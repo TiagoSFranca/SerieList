@@ -6,5 +6,7 @@
         {
             this.Name = "Usuário";
         }
+
+        public string MailNotConfirmed { get { return "Email não confirmado."; } }
     }
 }

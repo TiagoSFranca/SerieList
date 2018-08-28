@@ -149,7 +149,7 @@ namespace SerieList.Domain.Services
             var user = _userRepo.Query().FirstOrDefault(e => (e.UserInfo.UserName.Equals(login) || e.UserInfo.Email.Equals(login)) && e.UserInfo.PasswordHash.Equals(passwordEncrypted));
             if (user == null)
                 throw new ServiceException(accessControlServiceMessage.LoginInvalid);
-            user.IsGranted();
+            user.IsGranted(true);
             var token = _tokenProviderService.CreateToken(TokenProviderTypeSeed.Authentication.IdTokenProviderType, user, keep);
             return token;
         }

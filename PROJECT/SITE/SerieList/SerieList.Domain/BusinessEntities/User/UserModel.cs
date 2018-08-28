@@ -11,7 +11,7 @@ namespace SerieList.Domain.Entitites.User
 {
     partial class UserModel : IExcluded
     {
-        public virtual void IsGranted()
+        public virtual void IsGranted(bool authentication = false)
         {
             UserServiceMessage userMessage = new UserServiceMessage();
             ProfileServiceMessage profileMessage = new ProfileServiceMessage();
@@ -24,6 +24,8 @@ namespace SerieList.Domain.Entitites.User
                 throw new ServiceException(userStatusMessage.Excluded);
             if (IdUserStatus == UserStatusSeed.Blocked.IdUserStatus || IdUserStatus == UserStatusSeed.Inactive.IdUserStatus || IdUserStatus == UserStatusSeed.Suspended.IdUserStatus)
                 throw new ServiceException(userStatusMessage.HasStatus(UserStatus.Description));
+            if (!UserInfo.EmailConfirmed && !authentication)
+                throw new ServiceException(userMessage.MailNotConfirmed);
         }
 
         public virtual void HasPermission(PermissionModel permission)
