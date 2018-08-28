@@ -4,8 +4,8 @@ using System;
 using System.Web.Http;
 using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.User;
-using SerieList.Presentation.Models.Post;
 using SerieList.Presentation.Models.Search.User;
+using SerieList.Presentation.Extensions;
 
 namespace SerieList.Presentation.Controllers.User
 {
@@ -63,15 +63,17 @@ namespace SerieList.Presentation.Controllers.User
 
         [HttpPost]
         [Route("Search")]
-        public ResponseMultipleResult<UserAppModel> Search([FromBody]UserSearch filter)
+        public ResponseSearchResult<UserAppModel> Search([FromBody]UserSearch filter)
         {
-            var response = new ResponseMultipleResult<UserAppModel>(userMessage.MethodGetAll);
+            var response = new ResponseSearchResult<UserAppModel>(userMessage.MethodGetAll);
             if (filter == null)
                 filter = new UserSearch();
             try
             {
-                response.Results = _uAppService.Query(filter.IdList, filter.IdProfileList, filter.IdUserStatusList,
-            filter.FirstName, filter.LastName, filter.Email, filter.UserName, filter.Excluded, filter.AssociatedExcluded);
+                var result = _uAppService.Query(filter.IdList, filter.IdProfileList, filter.IdUserStatusList,
+                    filter.FirstName, filter.LastName, filter.Email, filter.UserName, filter.Excluded, filter.AssociatedExcluded,
+                    filter.ActualPage, filter.ItemsPerPage);
+                response.ResultPaged = result.MapperToView();
                 response.Success = true;
                 response.Message = userMessage.SuccessSearch;
             }

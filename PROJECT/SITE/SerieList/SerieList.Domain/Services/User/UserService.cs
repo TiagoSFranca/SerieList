@@ -1,4 +1,5 @@
-﻿using SerieList.Domain.Entitites.User;
+﻿using SerieList.Domain.CommonEntities;
+using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Repositories;
 using SerieList.Domain.Interfaces.Repositories.Profile;
 using SerieList.Domain.Interfaces.Repositories.Token;
@@ -67,8 +68,9 @@ namespace SerieList.Domain.Services.User
 
         }
 
-        public IEnumerable<UserModel> Query(IEnumerable<int> idList, IEnumerable<int> idProfileList,
-            IEnumerable<int> idUserStatusList, string firstName, string lastName, string email, string userName, bool? excluded, bool? associatedExcluded)
+        public PagingResultModel<UserModel> Query(IEnumerable<int> idList, IEnumerable<int> idProfileList,
+            IEnumerable<int> idUserStatusList, string firstName, string lastName, string email,
+            string userName, bool? excluded, bool? associatedExcluded, PagingModel paging)
         {
             var query = _userRepo.Query();
 
@@ -101,9 +103,8 @@ namespace SerieList.Domain.Services.User
             if (associatedExcluded != null)
                 dataResult = dataResult.Where(s => s.AssociationExcluded((bool)associatedExcluded) != null).ToList();
 
-            return dataResult;
+            return Paginate(dataResult, paging);
         }
-
 
     }
 }

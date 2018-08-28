@@ -10,6 +10,8 @@ using SerieList.Domain.Mail.Interfaces;
 using SerieList.Application.Mail.Interfaces;
 using SerieList.Domain.Interfaces.Services.Token;
 using SerieList.Domain.Interfaces.Services;
+using SerieList.Domain.CommonEntities;
+using SerieList.Application.CommonAppModels;
 
 namespace SerieList.Application.Concrete.User
 {
@@ -22,7 +24,8 @@ namespace SerieList.Application.Concrete.User
 
         private readonly IMailTemplate _mailTemplate;
 
-        public UserAppService(IUserService userService, IMailService mailService, IMailTemplate mailTemplate, ITokenProviderService tokenProviderService, IConfigurationService configurationService)
+        public UserAppService(IUserService userService, IMailService mailService, IMailTemplate mailTemplate, 
+            ITokenProviderService tokenProviderService, IConfigurationService configurationService)
             : base(userService, tokenProviderService)
         {
             _userService = userService;
@@ -60,13 +63,16 @@ namespace SerieList.Application.Concrete.User
             }
         }
 
-        public IEnumerable<UserAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProfileList, IEnumerable<int> idUserStatusList, string firstName, string lastName, string email, string userName, bool? excluded, bool? associatedExcluded)
+        public PagingResultAppModel<UserAppModel> Query(IEnumerable<int> idList, IEnumerable<int> idProfileList,
+            IEnumerable<int> idUserStatusList, string firstName, string lastName,
+            string email, string userName, bool? excluded, bool? associatedExcluded, int actualPage, int itemsPerPage)
         {
             try
             {
-                return _userService
-                    .Query(idList, idProfileList, idUserStatusList, firstName, lastName, email, userName, excluded, associatedExcluded)
-                    .Select(e => e.MapperToAppModel()).ToList();
+                var paging = new PagingModel(actualPage, itemsPerPage);
+                var result = _userService.Query(idList, idProfileList, idUserStatusList, firstName,
+                    lastName, email, userName, excluded, associatedExcluded, paging);
+                return result.MapperToAppModel();
             }
             catch (Exception ex)
             {

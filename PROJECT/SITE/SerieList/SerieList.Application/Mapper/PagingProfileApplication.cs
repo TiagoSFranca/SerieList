@@ -3,12 +3,14 @@ using SerieList.Application.AppModels.Episode;
 using SerieList.Application.AppModels.Product;
 using SerieList.Application.AppModels.Profile;
 using SerieList.Application.AppModels.Season;
+using SerieList.Application.AppModels.User;
 using SerieList.Application.CommonAppModels;
 using SerieList.Domain.CommonEntities;
 using SerieList.Domain.Entitites.Episode;
 using SerieList.Domain.Entitites.Product;
 using SerieList.Domain.Entitites.Profile;
 using SerieList.Domain.Entitites.Season;
+using SerieList.Domain.Entitites.User;
 
 namespace SerieList.Application.Mapper
 {
@@ -32,6 +34,8 @@ namespace SerieList.Application.Mapper
 
             CreateMap<PagingResultModel<SeasonModel>, PagingResultAppModel<SeasonAppModel>>();
             CreateMap<PagingResultModel<SeasonStatusModel>, PagingResultAppModel<SeasonStatusAppModel>>();
+
+            CreateMap<PagingResultModel<UserModel>, PagingResultAppModel<UserAppModel>>();
         }
     }
 }

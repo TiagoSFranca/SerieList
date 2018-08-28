@@ -1,4 +1,6 @@
 ﻿using SerieList.Application.AppModels.User;
+using SerieList.Application.CommonAppModels;
+using SerieList.Domain.CommonEntities;
 using SerieList.Domain.Entitites.User;
 
 namespace SerieList.Application.Extensions.User
@@ -13,6 +15,11 @@ namespace SerieList.Application.Extensions.User
         public static UserAppModel MapperToAppModel(this UserModel obj)
         {
             return AutoMapper.Mapper.Map<UserAppModel>(obj);
+        }
+
+        public static PagingResultAppModel<UserAppModel> MapperToAppModel(this PagingResultModel<UserModel> obj)
+        {
+            return AutoMapper.Mapper.Map<PagingResultAppModel<UserAppModel>>(obj);
         }
     }
 }
