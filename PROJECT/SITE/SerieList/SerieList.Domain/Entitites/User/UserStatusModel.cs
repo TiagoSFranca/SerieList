@@ -2,7 +2,7 @@
 
 namespace SerieList.Domain.Entitites.User
 {
-    public partial class UserStatusModel
+    public class UserStatusModel
     {
         public int IdUserStatus { get; set; }
         public string Description { get; set; }

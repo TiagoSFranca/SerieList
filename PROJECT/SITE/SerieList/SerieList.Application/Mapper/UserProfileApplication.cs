@@ -24,6 +24,8 @@ namespace SerieList.Application.Mapper
 
             CreateMap<UserModel, UserSimplifiedAppModel>().ReverseMap();
 
+            CreateMap<UserProductStatusModel, UserProductStatusAppModel>().ReverseMap();
+
         }
     }
 }

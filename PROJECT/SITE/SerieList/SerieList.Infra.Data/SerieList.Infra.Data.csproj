@@ -93,10 +93,15 @@
     <Compile Include="EntityConfig\User\PasswordHistoryConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserInfoConfiguration.cs" />
+    <Compile Include="EntityConfig\User\UserProductStatusConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserStatusConfiguration.cs" />
     <Compile Include="Migrations\201808241612199_FIRST COMMIT.cs" />
     <Compile Include="Migrations\201808241612199_FIRST COMMIT.Designer.cs">
       <DependentUpon>201808241612199_FIRST COMMIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808291613253_ADD USERPRODUCTSTATUS.cs" />
+    <Compile Include="Migrations\201808291613253_ADD USERPRODUCTSTATUS.Designer.cs">
+      <DependentUpon>201808291613253_ADD USERPRODUCTSTATUS.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +122,7 @@
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\Token\TokenProviderRepository.cs" />
     <Compile Include="Repositories\User\PasswordHistoryRepository.cs" />
+    <Compile Include="Repositories\User\UserProductStatusRepository.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
     <Compile Include="Repositories\User\UserStatusRepository.cs" />
   </ItemGroup>
@@ -142,6 +148,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808241612199_FIRST COMMIT.resx">
       <DependentUpon>201808241612199_FIRST COMMIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808291613253_ADD USERPRODUCTSTATUS.resx">
+      <DependentUpon>201808291613253_ADD USERPRODUCTSTATUS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

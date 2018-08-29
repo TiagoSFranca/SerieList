@@ -62,6 +62,7 @@
     <Compile Include="Entitites\User\PasswordHistoryModel.cs" />
     <Compile Include="Entitites\User\UserInfoModel.cs" />
     <Compile Include="Entitites\User\UserModel.cs" />
+    <Compile Include="Entitites\User\UserProductStatusModel.cs" />
     <Compile Include="Entitites\User\UserStatusModel.cs" />
     <Compile Include="Interfaces\IAssociation.cs" />
     <Compile Include="Interfaces\IExcluded.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Interfaces\Repositories\User\IPasswordHistoryRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserStatusRepository.cs" />
+    <Compile Include="Interfaces\Repositories\User\IUserProductStatusRepository.cs" />
     <Compile Include="Interfaces\Services\IAccessControlService.cs" />
     <Compile Include="Interfaces\Services\IConfigurationService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Interfaces\Services\Profile\IPermissionService.cs" />
     <Compile Include="Interfaces\Services\Profile\IPermissionTypeService.cs" />
     <Compile Include="Interfaces\Services\Token\ITokenProviderService.cs" />
+    <Compile Include="Interfaces\Services\User\IUserProductStatusService.cs" />
     <Compile Include="Interfaces\Services\User\IUserService.cs" />
     <Compile Include="Interfaces\Services\User\IUserStatusService.cs" />
     <Compile Include="Mail\Entities\MailModel.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Seed\Profile\PermissionSeed.cs" />
     <Compile Include="Seed\Profile\PermissionTypeSeed.cs" />
     <Compile Include="Seed\Token\TokenProviderTypeSeed.cs" />
+    <Compile Include="Seed\User\UserProductStatusSeed.cs" />
     <Compile Include="Seed\User\UserStatusSeed.cs" />
     <Compile Include="Services\AccessControlService.cs" />
     <Compile Include="Services\ConfigurationService.cs" />
@@ -139,6 +143,7 @@
     <Compile Include="Services\Profile\PermissionTypeService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\Token\TokenProviderService.cs" />
+    <Compile Include="Services\User\UserProductStatusService.cs" />
     <Compile Include="Services\User\UserService.cs" />
     <Compile Include="Services\User\UserStatusService.cs" />
   </ItemGroup>

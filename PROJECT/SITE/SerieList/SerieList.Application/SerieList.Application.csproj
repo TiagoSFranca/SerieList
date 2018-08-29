@@ -68,6 +68,7 @@
     <Compile Include="AppModels\Profile\PermissionTypeAppModel.cs" />
     <Compile Include="AppModels\User\UserAppModel.cs" />
     <Compile Include="AppModels\User\UserInfoAppModel.cs" />
+    <Compile Include="AppModels\User\UserProductStatusAppModel.cs" />
     <Compile Include="AppModels\User\UserStatusAppModel.cs" />
     <Compile Include="CommonAppModels\PagingAppModel.cs" />
     <Compile Include="CommonAppModels\PagingResultAppModel.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Concrete\Profile\PermissionTypeAppService.cs" />
     <Compile Include="Concrete\Profile\PermissionGroupAppService.cs" />
     <Compile Include="Concrete\User\UserAppService.cs" />
+    <Compile Include="Concrete\User\UserProductStatusAppModel.cs" />
     <Compile Include="Concrete\User\UserStatusAppService.cs" />
     <Compile Include="Extensions\Episode\EpisodeExtension.cs" />
     <Compile Include="Extensions\Episode\EpisodeStatusExtension.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Extensions\Profile\PermissionTypeExtension.cs" />
     <Compile Include="Extensions\User\UserExtension.cs" />
     <Compile Include="Extensions\User\UserInfoExtension.cs" />
+    <Compile Include="Extensions\User\UserProductStatusExtension.cs" />
     <Compile Include="Extensions\User\UserStatusExtension.cs" />
     <Compile Include="Interfaces\IAccessControlAppService.cs" />
     <Compile Include="Interfaces\IAppServiceBase.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="Interfaces\Profile\IPermissionGroupAppService.cs" />
     <Compile Include="Interfaces\Profile\IPermissionTypeAppService.cs" />
     <Compile Include="Interfaces\User\IUserAppService.cs" />
+    <Compile Include="Interfaces\User\IUserProductStatusAppService.cs" />
     <Compile Include="Interfaces\User\IUserStatusAppService.cs" />
     <Compile Include="Mail\Interfaces\IMailTemplate.cs" />
     <Compile Include="Mail\MailTemplate\MailTemplate.cs" />
