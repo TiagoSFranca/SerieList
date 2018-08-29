@@ -98,7 +98,7 @@ namespace SerieList.Application.Concrete
                 string token = _accessControlService.Register(user);
 
                 SingleDestinationMailModel mailModel = new SingleDestinationMailModel(obj.UserInfo.Email);
-                mailModel.Body = _mailTemplate.GetRegisterTemplate(obj.UserInfo.FirstName, obj.UserInfo.UserName, MD5Crypt.Encrypt(token));
+                mailModel.Body = _mailTemplate.GetRegisterTemplate(obj.UserInfo.FirstName, obj.UserInfo.UserName, Uri.EscapeDataString(token));
                 mailModel.Subject = _configurationService.GetValueByKey(ConfigurationSeed.MailTitleRegister.Key);
                 Task.Factory.StartNew(() => _mailService.SendSingleDestinationMail(mailModel));
             }
@@ -126,7 +126,7 @@ namespace SerieList.Application.Concrete
         {
             try
             {
-                _accessControlService.ConfirmMail(MD5Crypt.Decrypt(token));
+                _accessControlService.ConfirmMail(token);
             }
             catch (Exception ex)
             {
@@ -169,7 +169,7 @@ namespace SerieList.Application.Concrete
                 var tokenProvider = _tokenProviderService.GetByToken(token);
                 var user = _userService.GetById((int)tokenProvider.IdUser);
                 SingleDestinationMailModel mailModel = new SingleDestinationMailModel(email);
-                mailModel.Body = _mailTemplate.GetForgotPasswordTemplate(user.UserInfo.FirstName, MD5Crypt.Encrypt(token));
+                mailModel.Body = _mailTemplate.GetForgotPasswordTemplate(user.UserInfo.FirstName, Uri.EscapeDataString(token));
                 mailModel.Subject = _configurationService.GetValueByKey(ConfigurationSeed.MailTitleForgotPassword.Key);
                 Task.Factory.StartNew(() => _mailService.SendSingleDestinationMail(mailModel));
             }
@@ -184,7 +184,7 @@ namespace SerieList.Application.Concrete
         {
             try
             {
-                var tokenProvider = ValidateToken(MD5Crypt.Decrypt(token));
+                var tokenProvider = ValidateToken(token);
                 _accessControlService.ResetPassword(tokenProvider, newPassword, confirmPassword);
             }
             catch (Exception ex)

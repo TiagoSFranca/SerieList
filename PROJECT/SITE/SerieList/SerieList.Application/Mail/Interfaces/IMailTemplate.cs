@@ -2,7 +2,7 @@
 {
     public interface IMailTemplate
     {
-        string GetRegisterTemplate(string firstName, string userName, string confirmationCodeEncrypted);
-        string GetForgotPasswordTemplate(string firstName, string tokenEncrypted);
+        string GetRegisterTemplate(string firstName, string userName, string confirmationCodeEncoded);
+        string GetForgotPasswordTemplate(string firstName, string tokenEncoded);
     }
 }

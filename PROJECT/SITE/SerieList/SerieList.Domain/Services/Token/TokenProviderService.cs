@@ -76,7 +76,7 @@ namespace SerieList.Domain.Services.Token
 
         public TokenProviderModel GetByToken(string token)
         {
-            return _tokenProviderRepo.Query().FirstOrDefault(e => e.Token == token);
+            return _tokenProviderRepo.Query().FirstOrDefault(e => e.Token.Equals(token));
         }
 
     }

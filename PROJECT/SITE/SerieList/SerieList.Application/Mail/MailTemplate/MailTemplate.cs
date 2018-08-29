@@ -23,7 +23,7 @@ namespace SerieList.Application.Mail.MailTemplate
             _configService = configService;
         }
 
-        public string GetRegisterTemplate(string firstName, string userName, string confirmationCodeEncrypted)
+        public string GetRegisterTemplate(string firstName, string userName, string confirmationCodeEncoded)
         {
             var template = GetMailTemplate();
             var sheet = GetStyleSheet();
@@ -40,7 +40,7 @@ namespace SerieList.Application.Mail.MailTemplate
             content = content.Replace(GetKey("USERNAME"), userName);
 
             var confirmMailRoute = _configService.GetValueByKey(ConfigurationSeed.ConfirmMailRoute.Key);
-            confirmMailRoute = string.Format("{0}?code={1}", confirmMailRoute, confirmationCodeEncrypted);
+            confirmMailRoute = string.Format("{0}?code={1}", confirmMailRoute, confirmationCodeEncoded);
 
             content = content.Replace(GetKey("CONFIRMATION_CODE"), confirmMailRoute.ToString());
 
@@ -88,7 +88,7 @@ namespace SerieList.Application.Mail.MailTemplate
             return footer;
         }
 
-        public string GetForgotPasswordTemplate(string firstName, string tokenEncrypted)
+        public string GetForgotPasswordTemplate(string firstName, string tokenEncoded)
         {
             var template = GetMailTemplate();
             var sheet = GetStyleSheet();
@@ -104,7 +104,7 @@ namespace SerieList.Application.Mail.MailTemplate
             content = content.Replace(GetKey("FIRST_NAME"), firstName);
 
             var forgotPasswordRoute = _configService.GetValueByKey(ConfigurationSeed.ForgotPasswordRoute.Key);
-            forgotPasswordRoute = string.Format("{0}?code={1}", forgotPasswordRoute, tokenEncrypted);
+            forgotPasswordRoute = string.Format("{0}?code={1}", forgotPasswordRoute, tokenEncoded);
 
             content = content.Replace(GetKey("RESET_CODE"), forgotPasswordRoute);
 
