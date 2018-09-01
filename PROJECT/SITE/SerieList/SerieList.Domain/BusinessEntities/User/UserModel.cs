@@ -5,7 +5,9 @@ using SerieList.Domain.Seed.User;
 using SerieList.Infra.Data.CrossCutting.Exceptions.Messges.ServiceMessages.Profile;
 using SerieList.Infra.Data.CrossCutting.Exceptions.Messges.ServiceMessages.User;
 using SerieList.Infra.Data.CrossCutting.Exceptions.ServiceException;
+using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace SerieList.Domain.Entitites.User
 {
@@ -44,6 +46,14 @@ namespace SerieList.Domain.Entitites.User
             UserServiceMessage usm = new UserServiceMessage();
             if (Excluded)
                 throw new ServiceException(usm.Excluded);
+        }
+
+        public static Expression<Func<UserModel, bool>> AssociationExcludedExpression(bool excluded)
+        {
+            Expression<Func<UserModel, bool>> ex = u => u.UserStatus.Excluded == excluded
+            && u.Profile.Excluded == excluded;
+
+            return ex;
         }
     }
 }

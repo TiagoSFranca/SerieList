@@ -33,6 +33,7 @@
     <Compile Include="BusinessEntities\Episode\EpisodeModel.cs" />
     <Compile Include="BusinessEntities\Product\ProductCategoryModel.cs" />
     <Compile Include="BusinessEntities\Product\ProductModel.cs" />
+    <Compile Include="BusinessEntities\Profile\PermissionModel.cs" />
     <Compile Include="BusinessEntities\Profile\ProfileModel.cs" />
     <Compile Include="BusinessEntities\Season\SeasonModel.cs" />
     <Compile Include="BusinessEntities\Token\TokenProviderModel.cs" />
@@ -64,11 +65,11 @@
     <Compile Include="Entitites\User\UserModel.cs" />
     <Compile Include="Entitites\User\UserProductStatusModel.cs" />
     <Compile Include="Entitites\User\UserStatusModel.cs" />
-    <Compile Include="Interfaces\IAssociation.cs" />
     <Compile Include="Interfaces\IExcluded.cs" />
     <Compile Include="Interfaces\Repositories\Episode\IEpisodeRepository.cs" />
     <Compile Include="Interfaces\Repositories\Episode\IEpisodeStatusRepository.cs" />
     <Compile Include="Interfaces\Repositories\IConfigurationRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IQueryRepository.cs" />
     <Compile Include="Interfaces\Repositories\Product\IProductCategoryRepository.cs" />
     <Compile Include="Interfaces\Repositories\Product\IProductRepository.cs" />
     <Compile Include="Interfaces\Repositories\Product\IProductStatusRepository.cs" />

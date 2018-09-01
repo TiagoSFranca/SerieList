@@ -2,7 +2,7 @@
 
 namespace SerieList.Domain.Interfaces.Repositories.Season
 {
-    public interface ISeasonRepository : IRepositoryBase<SeasonModel>
+    public interface ISeasonRepository : IRepositoryBase<SeasonModel>, IQueryRepository<SeasonModel>
     {
     }
 }

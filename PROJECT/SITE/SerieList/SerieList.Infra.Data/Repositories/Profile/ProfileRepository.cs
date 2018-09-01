@@ -1,5 +1,6 @@
 ﻿using SerieList.Domain.Entitites.Profile;
 using SerieList.Domain.Interfaces.Repositories.Profile;
+using SerieList.Infra.Data.Data.Context;
 using System.Data.Entity;
 using System.Linq;
 
@@ -7,6 +8,11 @@ namespace SerieList.Infra.Data.Repositories.Profile
 {
     public class ProfileRepository : RepositoryBase<ProfileModel>, IProfileRepository
     {
+        public ProfileRepository(SerieListContext context)
+            : base(context)
+        {
+        }
+
         public void Add(ProfileModel obj)
         {
             _context.Profile.Add(obj);

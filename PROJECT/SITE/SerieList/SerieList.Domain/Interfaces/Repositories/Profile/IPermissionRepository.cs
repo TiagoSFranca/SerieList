@@ -2,7 +2,7 @@
 
 namespace SerieList.Domain.Interfaces.Repositories.Profile
 {
-    public interface IPermissionRepository : IRepositoryBase<PermissionModel>
+    public interface IPermissionRepository : IRepositoryBase<PermissionModel>, IQueryRepository<PermissionModel>
     {
     }
 }

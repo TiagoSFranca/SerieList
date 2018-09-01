@@ -1,12 +1,11 @@
 ﻿using SerieList.Domain.Entitites.Product;
 using SerieList.Domain.Entitites.Season;
 using SerieList.Domain.Entitites.User;
-using SerieList.Domain.Interfaces;
 using System;
 
 namespace SerieList.Domain.Entitites.Episode
 {
-    public partial class EpisodeModel : IAssociation<EpisodeModel>
+    public partial class EpisodeModel
     {
         public int IdEpisode { get; set; }
         public int IdVisibility { get; set; }
@@ -27,18 +26,5 @@ namespace SerieList.Domain.Entitites.Episode
         public virtual UserModel User { get; set; }
         public virtual SeasonModel Season { get; set; }
 
-        public virtual EpisodeModel AssociationExcluded(bool excluded)
-        {
-            if (Visibility.Excluded == excluded
-                && EpisodeStatus.Excluded == excluded
-                && Product.AssociationExcluded(excluded) != null && User.AssociationExcluded(excluded) != null)
-                if (Season != null)
-                {
-                    if (Season.Excluded == excluded && Season.AssociationExcluded(excluded) != null)
-                        return this;
-                }
-                else return this;
-            return null;
-        }
     }
 }

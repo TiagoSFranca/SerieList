@@ -65,12 +65,13 @@ namespace SerieList.Domain.Services.Product
             if (!String.IsNullOrEmpty(title))
                 query = query.Where(p => p.ProductInfo.Title.ToLower().Contains(title.ToLower()));
 
-            var dataResult = query.ToList();
-
             if (associatedExcluded != null)
-                dataResult = dataResult.Where(p => p.AssociationExcluded((bool)associatedExcluded) != null).ToList();
+            {
+                var assocQuery = _productRepo.AssociationExcluded((bool)associatedExcluded);
+                query = query.Where(e => assocQuery.Contains(e));
+            }
 
-            return Paginate(dataResult, paging);
+            return Paginate(query, paging);
         }
 
         public void Add(ProductModel obj, UserModel userCredentials)

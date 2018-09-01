@@ -61,12 +61,13 @@ namespace SerieList.Domain.Services.Season
             if (!String.IsNullOrEmpty(title))
                 query = query.Where(s => s.Title.ToLower().Contains(title.ToLower()));
 
-            var dataResult = query.ToList();
-
             if (associatedExcluded != null)
-                dataResult = dataResult.Where(s => s.AssociationExcluded((bool)associatedExcluded) != null).ToList();
+            {
+                var assocQuery = _seasonRepo.AssociationExcluded((bool)associatedExcluded);
+                query = query.Where(e => assocQuery.Contains(e));
+            }
 
-            return Paginate(dataResult, paging);
+            return Paginate(query, paging);
         }
 
         public void Add(SeasonModel obj, UserModel userCredentials)

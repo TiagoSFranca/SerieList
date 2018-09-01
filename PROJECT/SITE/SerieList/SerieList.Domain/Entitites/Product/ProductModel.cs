@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace SerieList.Domain.Entitites.Product
 {
-    public partial class ProductModel : IAssociation<ProductModel>
+    public partial class ProductModel
     {
         public int IdProduct { get; set; }
         public int IdProductStatus { get; set; }
@@ -28,15 +28,5 @@ namespace SerieList.Domain.Entitites.Product
         public virtual ICollection<SeasonModel> Seasons { get; set; }
         public virtual ICollection<EpisodeModel> Episodes { get; set; }
 
-        public virtual ProductModel AssociationExcluded(bool excluded)
-        {
-            if (Visibility.Excluded == excluded
-                && ProductStatus.Excluded == excluded
-                && ProductType.Excluded == excluded
-                && User.Excluded == excluded
-                && User.AssociationExcluded(excluded) != null)
-                return this;
-            return null;
-        }
     }
 }

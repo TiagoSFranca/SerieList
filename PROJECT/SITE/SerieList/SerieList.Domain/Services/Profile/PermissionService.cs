@@ -45,12 +45,13 @@ namespace SerieList.Domain.Services.Profile
             if (idPermissionGroupList?.Count() > 0)
                 query = query.Where(p => idPermissionGroupList.Contains(p.IdPermissionGroup));
 
-            var dataResult = query.ToList();
-
             if (associatedExcluded != null)
-                dataResult = dataResult.Where(p => p.AssociationExcluded((bool)associatedExcluded) != null).ToList();
+            {
+                var assocQuery = _permissionRepo.AssociationExcluded((bool)associatedExcluded);
+                query = query.Where(e => assocQuery.Contains(e));
+            }
 
-            return Paginate(dataResult, paging);
+            return Paginate(query, paging);
         }
 
         public void Remove(PermissionModel obj, UserModel userCredentials)

@@ -8,7 +8,12 @@ namespace SerieList.Infra.Data.Repositories
 {
     public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
-        protected SerieListContext _context = new SerieListContext();
+        protected SerieListContext _context;
+
+        public RepositoryBase(SerieListContext context)
+        {
+            _context = context;
+        }
 
         public void Add(TEntity obj)
         {

@@ -91,12 +91,13 @@ namespace SerieList.Domain.Services.User
             if (!String.IsNullOrEmpty(userName))
                 query = query.Where(pt => pt.UserInfo.UserName.ToLower().Contains(userName.ToLower()));
 
-            var dataResult = query.ToList();
-
             if (associatedExcluded != null)
-                dataResult = dataResult.Where(s => s.AssociationExcluded((bool)associatedExcluded) != null).ToList();
+            {
+                var assocQuery = _userRepo.AssociationExcluded((bool)associatedExcluded);
+                query = query.Where(e => assocQuery.Contains(e));
+            }
 
-            return Paginate(dataResult, paging);
+            return Paginate(query, paging);
         }
 
         private void ValidateUser(UserModel userCredentials, int idPermission, UserModel obj)

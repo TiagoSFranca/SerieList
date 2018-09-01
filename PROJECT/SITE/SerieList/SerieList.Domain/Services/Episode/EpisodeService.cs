@@ -70,12 +70,13 @@ namespace SerieList.Domain.Services.Episode
             if (idUserList?.Count() > 0)
                 query = query.Where(e => idUserList.Contains(e.User.IdUser));
 
-            var dataResult = query.ToList();
-
             if (associatedExcluded != null)
-                dataResult = dataResult.Where(e => e.AssociationExcluded((bool)associatedExcluded) != null).ToList();
+            {
+                var assocQuery = _episodeRepo.AssociationExcluded((bool)associatedExcluded);
+                query = query.Where(e => assocQuery.Contains(e));
+            }
 
-            return Paginate(dataResult, paging);
+            return Paginate(query, paging);
         }
 
         public void Add(EpisodeModel obj, UserModel userCredentials)

@@ -2,7 +2,8 @@
 
 namespace SerieList.Domain.Interfaces.Repositories.Product
 {
-    public interface IProductRepository : IRepositoryBase<ProductModel>
+    public interface IProductRepository : IRepositoryBase<ProductModel>, IQueryRepository<ProductModel>
     {
+
     }
 }

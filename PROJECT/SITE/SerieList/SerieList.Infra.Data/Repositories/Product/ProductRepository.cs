@@ -1,5 +1,10 @@
 ﻿using SerieList.Domain.Entitites.Product;
+using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Repositories.Product;
+using SerieList.Domain.Interfaces.Repositories.User;
+using SerieList.Infra.Data.Data.Context;
+using SerieList.Infra.Data.Repositories.User;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
@@ -7,6 +12,11 @@ namespace SerieList.Infra.Data.Repositories.Product
 {
     public partial class ProductRepository : RepositoryBase<ProductModel>, IProductRepository
     {
+        public ProductRepository(SerieListContext context)
+            : base(context)
+        {
+        }
+
         public void Add(ProductModel obj)
         {
             _context.Product.Add(obj);
@@ -47,6 +57,21 @@ namespace SerieList.Infra.Data.Repositories.Product
                 e => e.IdProduct == obj.IdProduct &&
                 !categoryIdList.Contains(e.IdCategory));
             _context.ProductProductCategory.RemoveRange(categories);
+        }
+
+        public static IEnumerable<ProductModel> AssociationExcluded(bool excluded, SerieListContext context)
+        {
+            var query = context.Product.AsQueryable();
+            query = query.Where(ProductModel.AssociationExcludedExpression(excluded));
+            var users = UserRepository.AssociationExcluded(excluded, context);
+            query = query.Where(e => users.Contains(e.User));
+
+            return query;
+        }
+
+        public IEnumerable<ProductModel> AssociationExcluded(bool excluded)
+        {
+            return AssociationExcluded(excluded, _context);
         }
     }
 }

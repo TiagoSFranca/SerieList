@@ -1,9 +1,8 @@
-﻿using SerieList.Domain.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SerieList.Domain.Entitites.Profile
 {
-    public partial class PermissionModel : IAssociation<PermissionModel>
+    public partial class PermissionModel
     {
         public int IdPermission { get; set; }
         public int IdPermissionType { get; set; }
@@ -15,12 +14,5 @@ namespace SerieList.Domain.Entitites.Profile
 
         public virtual ICollection<ProfilePermissionModel> Profiles { get; set; }
 
-
-        public virtual PermissionModel AssociationExcluded(bool excluded)
-        {
-            if (PermissionType.Excluded == excluded && PermissionGroup.Excluded == excluded)
-                return this;
-            return null;
-        }
     }
 }
