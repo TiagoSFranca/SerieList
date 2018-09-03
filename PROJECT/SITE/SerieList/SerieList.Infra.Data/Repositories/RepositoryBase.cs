@@ -37,6 +37,8 @@ namespace SerieList.Infra.Data.Repositories
 
         public void Remove(TEntity obj)
         {
+            if (!_context.Set<TEntity>().Local.Any(e => e == obj))
+                _context.Set<TEntity>().Attach(obj);
             _context.Set<TEntity>().Remove(obj);
             _context.SaveChanges();
         }

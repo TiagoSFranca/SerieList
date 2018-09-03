@@ -59,6 +59,7 @@ namespace SerieList.Infra.Data.CrossCutting.IoC.Register
             container.Register<IUserRepository, UserRepository>(Lifestyle.Scoped);
             container.Register<IPasswordHistoryRepository, PasswordHistoryRepository>(Lifestyle.Scoped);
             container.Register<IUserProductStatusRepository, UserProductStatusRepository>(Lifestyle.Scoped);
+            container.Register<IUserProductRepository, UserProductRepository>(Lifestyle.Scoped);
 
             #endregion
 

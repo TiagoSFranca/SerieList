@@ -26,12 +26,6 @@ namespace SerieList.Domain.Entitites.User
         public virtual ICollection<SeasonModel> Seasons { get; set; }
         public virtual ICollection<EpisodeModel> Episodes { get; set; }
         public virtual ICollection<PasswordHistoryModel> PasswordResets { get; set; }
-
-        //public UserModel AssociationExcluded(bool excluded)
-        //{
-        //    if (UserStatus.Excluded == excluded && Profile.Excluded == excluded)
-        //        return this;
-        //    return null;
-        //}
+        public virtual ICollection<UserProductModel> UserProducts { get; set; }
     }
 }

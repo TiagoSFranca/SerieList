@@ -38,6 +38,7 @@
     <Compile Include="BusinessEntities\Season\SeasonModel.cs" />
     <Compile Include="BusinessEntities\Token\TokenProviderModel.cs" />
     <Compile Include="BusinessEntities\User\UserModel.cs" />
+    <Compile Include="BusinessEntities\User\UserProductModel.cs" />
     <Compile Include="CommonEntities\PagingModel.cs" />
     <Compile Include="CommonEntities\PagingResultModel.cs" />
     <Compile Include="Entitites\ConfigurationModel.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Entitites\User\PasswordHistoryModel.cs" />
     <Compile Include="Entitites\User\UserInfoModel.cs" />
     <Compile Include="Entitites\User\UserModel.cs" />
+    <Compile Include="Entitites\User\UserProductModel.cs" />
     <Compile Include="Entitites\User\UserProductStatusModel.cs" />
     <Compile Include="Entitites\User\UserStatusModel.cs" />
     <Compile Include="Interfaces\IExcluded.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Interfaces\Repositories\Profile\IPermissionTypeRepository.cs" />
     <Compile Include="Interfaces\Repositories\Token\ITokenProviderRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IPasswordHistoryRepository.cs" />
+    <Compile Include="Interfaces\Repositories\User\IUserProductRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserStatusRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserProductStatusRepository.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Interfaces\Services\Profile\IPermissionService.cs" />
     <Compile Include="Interfaces\Services\Profile\IPermissionTypeService.cs" />
     <Compile Include="Interfaces\Services\Token\ITokenProviderService.cs" />
+    <Compile Include="Interfaces\Services\User\IUserProductService.cs" />
     <Compile Include="Interfaces\Services\User\IUserProductStatusService.cs" />
     <Compile Include="Interfaces\Services\User\IUserService.cs" />
     <Compile Include="Interfaces\Services\User\IUserStatusService.cs" />
@@ -144,6 +148,7 @@
     <Compile Include="Services\Profile\PermissionTypeService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\Token\TokenProviderService.cs" />
+    <Compile Include="Services\User\UserProductService.cs" />
     <Compile Include="Services\User\UserProductStatusService.cs" />
     <Compile Include="Services\User\UserService.cs" />
     <Compile Include="Services\User\UserStatusService.cs" />

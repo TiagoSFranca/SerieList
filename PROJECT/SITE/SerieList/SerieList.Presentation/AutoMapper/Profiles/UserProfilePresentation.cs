@@ -21,6 +21,8 @@ namespace SerieList.Presentation.AutoMapper.Profiles
                         UserName = p.UserName,
                         PasswordHash = p.PasswordHash
                     }));
+
+            CreateMap<UserProductPostModel, UserProductAppModel>();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using SerieList.Domain.Entitites.Episode;
 using SerieList.Domain.Entitites.Season;
 using SerieList.Domain.Entitites.User;
-using SerieList.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -27,6 +26,7 @@ namespace SerieList.Domain.Entitites.Product
         public virtual ICollection<ProductProductCategoryModel> Categories { get; set; }
         public virtual ICollection<SeasonModel> Seasons { get; set; }
         public virtual ICollection<EpisodeModel> Episodes { get; set; }
+        public virtual ICollection<UserProductModel> UserProducts { get; set; }
 
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Messages\Profile\PermissionGroupMessage.cs" />
     <Compile Include="Messages\Profile\PermissionTypeMessage.cs" />
     <Compile Include="Messages\User\UserMessage.cs" />
+    <Compile Include="Messages\User\UserProductMessage.cs" />
     <Compile Include="Messages\User\UserProductStatusMessage.cs" />
     <Compile Include="Messages\User\UserStatusMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

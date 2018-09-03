@@ -19,9 +19,9 @@ namespace SerieList.Infra.Data.EntityConfig.User
             Property(us => us.Excluded)
                 .IsRequired();
 
-            //HasMany(us => us.Users)
-            //    .WithRequired(p => p.UserProductStatus)
-            //    .HasForeignKey(p => p.IdUserProductStatus);
+            HasMany(us => us.UserProducts)
+                .WithRequired(p => p.UserProductStatus)
+                .HasForeignKey(p => p.IdUserProductStatus);
 
             Property(us => us.IdUserProductStatus)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);

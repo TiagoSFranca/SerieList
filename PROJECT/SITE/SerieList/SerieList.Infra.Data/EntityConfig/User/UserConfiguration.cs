@@ -50,6 +50,10 @@ namespace SerieList.Infra.Data.EntityConfig.User
                 .WithRequired(s => s.User)
                 .HasForeignKey(s => s.IdUser);
 
+            HasMany(pt => pt.UserProducts)
+                .WithRequired(s => s.User)
+                .HasForeignKey(s => s.IdUser);
+
             Property(pt => pt.IdUser)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }

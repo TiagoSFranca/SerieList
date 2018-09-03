@@ -235,6 +235,7 @@
     <Compile Include="Controllers\Profile\PermissionGroupController.cs" />
     <Compile Include="Controllers\Profile\PermissionTypeController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
+    <Compile Include="Controllers\User\UserProductController.cs" />
     <Compile Include="Controllers\User\UserProductStatusController.cs" />
     <Compile Include="Controllers\User\UserStatusController.cs" />
     <Compile Include="Extensions\EpisodeExtension.cs" />
@@ -265,6 +266,7 @@
     <Compile Include="Models\Search\Profile\ProfileSearch.cs" />
     <Compile Include="Models\Search\Season\SeasonSearch.cs" />
     <Compile Include="Models\Search\Season\SeasonStatusSearch.cs" />
+    <Compile Include="Models\Search\User\UserProductSearch.cs" />
     <Compile Include="Models\Search\User\UserProductStatusSearch.cs" />
     <Compile Include="Models\Search\User\UserSearch.cs" />
     <Compile Include="Models\Search\User\UserStatusSearch.cs" />

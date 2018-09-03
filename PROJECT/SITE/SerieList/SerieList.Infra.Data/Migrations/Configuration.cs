@@ -3,7 +3,7 @@ namespace SerieList.Infra.Data.Migrations
     using Data.Context;
     using System.Data.Entity.Migrations;
     using SerieList.Domain.Seed.Product;
-    using SerieList.Domain.Seed.Season.Season;
+    using SerieList.Domain.Seed.Season;
     using SerieList.Domain.Seed.Episode;
     using SerieList.Domain.Seed.Profile;
     using SerieList.Domain.Seed.User;

@@ -14,4 +14,10 @@ namespace SerieList.Application.AppModels.User
         public string UserName { get; set; }
         public int AccessFaliedCount { get; set; }
     }
+
+    public class UserInfoSimplifiedAppModel
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
 }

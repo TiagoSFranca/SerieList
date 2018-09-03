@@ -28,4 +28,10 @@
         public string NewPassword { get; set; }
         public string ConfirmPassword { get; set; }
     }
+
+    public class UserProductPostModel
+    {
+        public int IdProduct { get; set; }
+        public int IdUserProductStatus { get; set; }
+    }
 }

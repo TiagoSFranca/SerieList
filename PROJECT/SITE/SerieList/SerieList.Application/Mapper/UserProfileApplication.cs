@@ -23,8 +23,15 @@ namespace SerieList.Application.Mapper
 
 
             CreateMap<UserModel, UserSimplifiedAppModel>().ReverseMap();
+            CreateMap<UserInfoModel, UserInfoSimplifiedAppModel>().ReverseMap();
 
             CreateMap<UserProductStatusModel, UserProductStatusAppModel>().ReverseMap();
+
+            CreateMap<UserProductModel, UserProductAppModel>();
+            CreateMap<UserProductAppModel, UserProductModel>()
+                .ForMember(dest => dest.User, src => src.Ignore())
+                .ForMember(dest => dest.Product, src => src.Ignore())
+                .ForMember(dest => dest.UserProductStatus, src => src.Ignore());
 
         }
     }

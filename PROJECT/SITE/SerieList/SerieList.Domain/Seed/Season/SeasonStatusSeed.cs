@@ -1,7 +1,7 @@
 ﻿using SerieList.Domain.Entitites.Season;
 using System.Collections.Generic;
 
-namespace SerieList.Domain.Seed.Season.Season
+namespace SerieList.Domain.Seed.Season
 {
     public class SeasonStatusSeed
     {
