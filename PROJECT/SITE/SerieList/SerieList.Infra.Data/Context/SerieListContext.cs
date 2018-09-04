@@ -70,6 +70,7 @@ namespace SerieList.Infra.Data.Data.Context
         public DbSet<PasswordHistoryModel> PasswordReset { get; set; }
         public DbSet<UserProductStatusModel> UserProductStatus { get; set; }
         public DbSet<UserProductModel> UserProduct { get; set; }
+        public DbSet<UserEpisodeStatusModel> UserEpisodeStatus { get; set; }
 
         #endregion
 
@@ -151,6 +152,7 @@ namespace SerieList.Infra.Data.Data.Context
             modelBuilder.Configurations.Add(new PasswordHistoryConfiguration());
             modelBuilder.Configurations.Add(new UserProductStatusConfiguration());
             modelBuilder.Configurations.Add(new UserProductConfiguration());
+            modelBuilder.Configurations.Add(new UserEpisodeStatusConfiguration());
 
             #endregion
 

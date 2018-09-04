@@ -102,6 +102,12 @@ namespace SerieList.Infra.Data.Migrations
             context.UserProductStatus.AddOrUpdate(UserProductStatusSeed.Seeds.ToArray());
 
             #endregion
+
+            #region UserEpisodeStatus
+
+            context.UserEpisodeStatus.AddOrUpdate(UserEpisodeStatusSeed.Seeds.ToArray());
+
+            #endregion
         }
     }
 }

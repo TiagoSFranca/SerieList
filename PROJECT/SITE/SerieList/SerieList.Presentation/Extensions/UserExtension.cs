@@ -42,5 +42,10 @@ namespace SerieList.Presentation.Extensions
         {
             return Mapper.Map<PagingResultSearchModel<UserProductAppModel>>(obj);
         }
+
+        public static PagingResultSearchModel<UserEpisodeStatusAppModel> MapperToView(this PagingResultAppModel<UserEpisodeStatusAppModel> obj)
+        {
+            return Mapper.Map<PagingResultSearchModel<UserEpisodeStatusAppModel>>(obj);
+        }
     }
 }

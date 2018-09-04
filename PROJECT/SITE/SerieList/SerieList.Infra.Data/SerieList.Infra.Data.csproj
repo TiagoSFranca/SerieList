@@ -92,6 +92,7 @@
     <Compile Include="EntityConfig\Token\TokenProviderTypeConfiguration.cs" />
     <Compile Include="EntityConfig\User\PasswordHistoryConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserConfiguration.cs" />
+    <Compile Include="EntityConfig\User\UserEpisodeStatusConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserInfoConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserProductConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserProductStatusConfiguration.cs" />
@@ -107,6 +108,10 @@
     <Compile Include="Migrations\201809031526248_ADD USERPRODUCT.cs" />
     <Compile Include="Migrations\201809031526248_ADD USERPRODUCT.Designer.cs">
       <DependentUpon>201809031526248_ADD USERPRODUCT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809041309400_ADD USEREPISODESTATUS.cs" />
+    <Compile Include="Migrations\201809041309400_ADD USEREPISODESTATUS.Designer.cs">
+      <DependentUpon>201809041309400_ADD USEREPISODESTATUS.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +132,7 @@
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\Token\TokenProviderRepository.cs" />
     <Compile Include="Repositories\User\PasswordHistoryRepository.cs" />
+    <Compile Include="Repositories\User\UserEpisodeStatusRepository.cs" />
     <Compile Include="Repositories\User\UserProductRepository.cs" />
     <Compile Include="Repositories\User\UserProductStatusRepository.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809031526248_ADD USERPRODUCT.resx">
       <DependentUpon>201809031526248_ADD USERPRODUCT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041309400_ADD USEREPISODESTATUS.resx">
+      <DependentUpon>201809041309400_ADD USEREPISODESTATUS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,7 +5,7 @@
         public UserProductStatusMessage()
         {
             this.PluralizedName = "Situações de Produtos do Usuário";
-            this.Name = "Situação de Produtos do Usuário";
+            this.Name = "Situação de Produto do Usuário";
         }
     }
 }

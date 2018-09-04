@@ -33,6 +33,8 @@ namespace SerieList.Application.Mapper
                 .ForMember(dest => dest.Product, src => src.Ignore())
                 .ForMember(dest => dest.UserProductStatus, src => src.Ignore());
 
+            CreateMap<UserEpisodeStatusModel, UserEpisodeStatusAppModel>().ReverseMap();
+
         }
     }
 }
