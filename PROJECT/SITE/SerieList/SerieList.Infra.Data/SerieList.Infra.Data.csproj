@@ -97,6 +97,7 @@
     <Compile Include="EntityConfig\User\UserInfoConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserProductConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserProductStatusConfiguration.cs" />
+    <Compile Include="EntityConfig\User\UserSeasonConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserSeasonStatusConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserStatusConfiguration.cs" />
     <Compile Include="Migrations\201808241612199_FIRST COMMIT.cs" />
@@ -123,6 +124,10 @@
     <Compile Include="Migrations\201809041609454_ADD USERSEASONSTATUS.Designer.cs">
       <DependentUpon>201809041609454_ADD USERSEASONSTATUS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809041632080_ADD USERSEASON.cs" />
+    <Compile Include="Migrations\201809041632080_ADD USERSEASON.Designer.cs">
+      <DependentUpon>201809041632080_ADD USERSEASON.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ConfigurationRepository.cs" />
@@ -141,6 +146,7 @@
     <Compile Include="Repositories\Profile\PermissionTypeRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\Token\TokenProviderRepository.cs" />
+    <Compile Include="Repositories\User\IUserSeasonRepository.cs" />
     <Compile Include="Repositories\User\PasswordHistoryRepository.cs" />
     <Compile Include="Repositories\User\UserEpisodeRepository.cs" />
     <Compile Include="Repositories\User\UserEpisodeStatusRepository.cs" />
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041609454_ADD USERSEASONSTATUS.resx">
       <DependentUpon>201809041609454_ADD USERSEASONSTATUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041632080_ADD USERSEASON.resx">
+      <DependentUpon>201809041632080_ADD USERSEASON.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

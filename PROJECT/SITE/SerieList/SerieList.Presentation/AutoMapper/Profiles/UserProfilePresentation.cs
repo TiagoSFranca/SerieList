@@ -23,6 +23,8 @@ namespace SerieList.Presentation.AutoMapper.Profiles
                     }));
 
             CreateMap<UserProductPostModel, UserProductAppModel>();
+            CreateMap<UserEpisodePostModel, UserEpisodeAppModel>();
+            CreateMap<UserSeasonPostModel, UserSeasonAppModel>();
         }
     }
 }

@@ -28,6 +28,11 @@ namespace SerieList.Presentation.Extensions
             return Mapper.Map<UserEpisodeAppModel>(obj);
         }
 
+        public static UserSeasonAppModel MapperToAppModel(this UserSeasonPostModel obj)
+        {
+            return Mapper.Map<UserSeasonAppModel>(obj);
+        }
+
         public static PagingResultSearchModel<UserAppModel> MapperToView(this PagingResultAppModel<UserAppModel> obj)
         {
             return Mapper.Map<PagingResultSearchModel<UserAppModel>>(obj);
@@ -61,6 +66,11 @@ namespace SerieList.Presentation.Extensions
         public static PagingResultSearchModel<UserSeasonStatusAppModel> MapperToView(this PagingResultAppModel<UserSeasonStatusAppModel> obj)
         {
             return Mapper.Map<PagingResultSearchModel<UserSeasonStatusAppModel>>(obj);
+        }
+
+        public static PagingResultSearchModel<UserSeasonAppModel> MapperToView(this PagingResultAppModel<UserSeasonAppModel> obj)
+        {
+            return Mapper.Map<PagingResultSearchModel<UserSeasonAppModel>>(obj);
         }
     }
 }

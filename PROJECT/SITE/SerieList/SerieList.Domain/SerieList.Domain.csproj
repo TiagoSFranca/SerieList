@@ -40,6 +40,7 @@
     <Compile Include="BusinessEntities\User\UserEpisodeModel.cs" />
     <Compile Include="BusinessEntities\User\UserModel.cs" />
     <Compile Include="BusinessEntities\User\UserProductModel.cs" />
+    <Compile Include="BusinessEntities\User\UserSeasonModel.cs" />
     <Compile Include="CommonEntities\PagingModel.cs" />
     <Compile Include="CommonEntities\PagingResultModel.cs" />
     <Compile Include="Entitites\ConfigurationModel.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Entitites\User\UserModel.cs" />
     <Compile Include="Entitites\User\UserProductModel.cs" />
     <Compile Include="Entitites\User\UserProductStatusModel.cs" />
+    <Compile Include="Entitites\User\UserSeasonModel.cs" />
     <Compile Include="Entitites\User\UserSeasonStatusModel.cs" />
     <Compile Include="Entitites\User\UserStatusModel.cs" />
     <Compile Include="Interfaces\IExcluded.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Interfaces\Repositories\User\IUserEpisodeStatusRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserProductRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserRepository.cs" />
+    <Compile Include="Interfaces\Repositories\User\IUserSeasonRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserSeasonStatusRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserStatusRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserProductStatusRepository.cs" />
@@ -118,6 +121,7 @@
     <Compile Include="Interfaces\Services\User\IUserEpisodeStatusService.cs" />
     <Compile Include="Interfaces\Services\User\IUserProductService.cs" />
     <Compile Include="Interfaces\Services\User\IUserProductStatusService.cs" />
+    <Compile Include="Interfaces\Services\User\IUserSeasonService.cs" />
     <Compile Include="Interfaces\Services\User\IUserSeasonStatusService.cs" />
     <Compile Include="Interfaces\Services\User\IUserService.cs" />
     <Compile Include="Interfaces\Services\User\IUserStatusService.cs" />
@@ -164,6 +168,7 @@
     <Compile Include="Services\User\UserEpisodeStatusService.cs" />
     <Compile Include="Services\User\UserProductService.cs" />
     <Compile Include="Services\User\UserProductStatusService.cs" />
+    <Compile Include="Services\User\UserSeasonService.cs" />
     <Compile Include="Services\User\UserSeasonStatusService.cs" />
     <Compile Include="Services\User\UserService.cs" />
     <Compile Include="Services\User\UserStatusService.cs" />

@@ -54,6 +54,10 @@ namespace SerieList.Infra.Data.EntityConfig.Season
                 .WithOptional(s => s.Season)
                 .HasForeignKey(s => s.IdSeason);
 
+            HasMany(pt => pt.UserSeasons)
+                .WithRequired(s => s.Season)
+                .HasForeignKey(s => s.IdSeason);
+
             Property(s => s.IdSeason)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }

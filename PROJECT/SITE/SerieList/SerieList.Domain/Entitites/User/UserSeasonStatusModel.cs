@@ -8,6 +8,6 @@ namespace SerieList.Domain.Entitites.User
         public string Description { get; set; }
         public bool Excluded { get; set; }
 
-        //public virtual ICollection<UserSeasonModel> UserSeasons { get; set; }
+        public virtual ICollection<UserSeasonModel> UserSeasons { get; set; }
     }
 }

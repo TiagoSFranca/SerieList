@@ -40,4 +40,10 @@
         public int IdEpisode { get; set; }
         public int IdUserEpisodeStatus { get; set; }
     }
+
+    public class UserSeasonPostModel
+    {
+        public int IdSeason { get; set; }
+        public int IdUserSeasonStatus { get; set; }
+    }
 }

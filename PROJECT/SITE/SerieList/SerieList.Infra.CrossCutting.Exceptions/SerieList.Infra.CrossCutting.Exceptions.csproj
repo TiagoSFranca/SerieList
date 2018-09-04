@@ -53,6 +53,7 @@
     <Compile Include="Messges\ServiceMessages\Token\TokenProviderServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\User\UserEpisodeServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\User\UserProductServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\User\UserSeasonServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\User\UserServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\User\UserStatusServiceMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

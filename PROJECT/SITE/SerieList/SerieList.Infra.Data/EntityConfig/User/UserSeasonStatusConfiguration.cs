@@ -19,9 +19,9 @@ namespace SerieList.Infra.Data.EntityConfig.User
             Property(us => us.Excluded)
                 .IsRequired();
 
-            //HasMany(us => us.UserSeasons)
-            //    .WithRequired(p => p.UserSeasonStatus)
-            //    .HasForeignKey(p => p.IdUserSeasonStatus);
+            HasMany(us => us.UserSeasons)
+                .WithRequired(p => p.UserSeasonStatus)
+                .HasForeignKey(p => p.IdUserSeasonStatus);
 
             Property(us => us.IdUserSeasonStatus)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);

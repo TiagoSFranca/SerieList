@@ -42,6 +42,7 @@ namespace SerieList.Application.Mapper
             CreateMap<PagingResultModel<UserEpisodeStatusModel>, PagingResultAppModel<UserEpisodeStatusAppModel>>();
             CreateMap<PagingResultModel<UserEpisodeModel>, PagingResultAppModel<UserEpisodeAppModel>>();
             CreateMap<PagingResultModel<UserSeasonStatusModel>, PagingResultAppModel<UserSeasonStatusAppModel>>();
+            CreateMap<PagingResultModel<UserSeasonModel>, PagingResultAppModel<UserSeasonAppModel>>();
         }
     }
 }

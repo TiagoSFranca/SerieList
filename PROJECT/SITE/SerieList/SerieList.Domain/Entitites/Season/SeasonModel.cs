@@ -26,6 +26,7 @@ namespace SerieList.Domain.Entitites.Season
         public virtual UserModel User { get; set; }
 
         public virtual ICollection<EpisodeModel> Episodes { get; set; }
+        public virtual ICollection<UserSeasonModel> UserSeasons { get; set; }
 
     }
 }
