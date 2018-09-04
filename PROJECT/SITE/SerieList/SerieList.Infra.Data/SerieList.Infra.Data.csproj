@@ -97,6 +97,7 @@
     <Compile Include="EntityConfig\User\UserInfoConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserProductConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserProductStatusConfiguration.cs" />
+    <Compile Include="EntityConfig\User\UserSeasonStatusConfiguration.cs" />
     <Compile Include="EntityConfig\User\UserStatusConfiguration.cs" />
     <Compile Include="Migrations\201808241612199_FIRST COMMIT.cs" />
     <Compile Include="Migrations\201808241612199_FIRST COMMIT.Designer.cs">
@@ -117,6 +118,10 @@
     <Compile Include="Migrations\201809041505026_ADD USEREPISODE.cs" />
     <Compile Include="Migrations\201809041505026_ADD USEREPISODE.Designer.cs">
       <DependentUpon>201809041505026_ADD USEREPISODE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809041609454_ADD USERSEASONSTATUS.cs" />
+    <Compile Include="Migrations\201809041609454_ADD USERSEASONSTATUS.Designer.cs">
+      <DependentUpon>201809041609454_ADD USERSEASONSTATUS.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,6 +147,7 @@
     <Compile Include="Repositories\User\UserProductRepository.cs" />
     <Compile Include="Repositories\User\UserProductStatusRepository.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
+    <Compile Include="Repositories\User\UserSeasonStatusRepository.cs" />
     <Compile Include="Repositories\User\UserStatusRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041505026_ADD USEREPISODE.resx">
       <DependentUpon>201809041505026_ADD USEREPISODE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041609454_ADD USERSEASONSTATUS.resx">
+      <DependentUpon>201809041609454_ADD USERSEASONSTATUS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

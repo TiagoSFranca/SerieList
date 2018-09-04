@@ -239,6 +239,7 @@
     <Compile Include="Controllers\User\UserEpisodeStatusController.cs" />
     <Compile Include="Controllers\User\UserProductController.cs" />
     <Compile Include="Controllers\User\UserProductStatusController.cs" />
+    <Compile Include="Controllers\User\UserSeasonStatusController.cs" />
     <Compile Include="Controllers\User\UserStatusController.cs" />
     <Compile Include="Extensions\EpisodeExtension.cs" />
     <Compile Include="Extensions\ProductExtension.cs" />
@@ -273,6 +274,7 @@
     <Compile Include="Models\Search\User\UserProductSearch.cs" />
     <Compile Include="Models\Search\User\UserProductStatusSearch.cs" />
     <Compile Include="Models\Search\User\UserSearch.cs" />
+    <Compile Include="Models\Search\User\UserSeasonStatusSearch.cs" />
     <Compile Include="Models\Search\User\UserStatusSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

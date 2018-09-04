@@ -69,6 +69,7 @@
     <Compile Include="Entitites\User\UserModel.cs" />
     <Compile Include="Entitites\User\UserProductModel.cs" />
     <Compile Include="Entitites\User\UserProductStatusModel.cs" />
+    <Compile Include="Entitites\User\UserSeasonStatusModel.cs" />
     <Compile Include="Entitites\User\UserStatusModel.cs" />
     <Compile Include="Interfaces\IExcluded.cs" />
     <Compile Include="Interfaces\Repositories\Episode\IEpisodeRepository.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Interfaces\Repositories\User\IUserEpisodeStatusRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserProductRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserRepository.cs" />
+    <Compile Include="Interfaces\Repositories\User\IUserSeasonStatusRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserStatusRepository.cs" />
     <Compile Include="Interfaces\Repositories\User\IUserProductStatusRepository.cs" />
     <Compile Include="Interfaces\Services\IAccessControlService.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Interfaces\Services\User\IUserEpisodeStatusService.cs" />
     <Compile Include="Interfaces\Services\User\IUserProductService.cs" />
     <Compile Include="Interfaces\Services\User\IUserProductStatusService.cs" />
+    <Compile Include="Interfaces\Services\User\IUserSeasonStatusService.cs" />
     <Compile Include="Interfaces\Services\User\IUserService.cs" />
     <Compile Include="Interfaces\Services\User\IUserStatusService.cs" />
     <Compile Include="Mail\Entities\MailModel.cs" />
@@ -138,6 +141,7 @@
     <Compile Include="Seed\Token\TokenProviderTypeSeed.cs" />
     <Compile Include="Seed\User\UserEpisodeStatusSeed.cs" />
     <Compile Include="Seed\User\UserProductStatusSeed.cs" />
+    <Compile Include="Seed\User\UserSeasonStatusSeed.cs" />
     <Compile Include="Seed\User\UserStatusSeed.cs" />
     <Compile Include="Services\AccessControlService.cs" />
     <Compile Include="Services\ConfigurationService.cs" />
@@ -160,6 +164,7 @@
     <Compile Include="Services\User\UserEpisodeStatusService.cs" />
     <Compile Include="Services\User\UserProductService.cs" />
     <Compile Include="Services\User\UserProductStatusService.cs" />
+    <Compile Include="Services\User\UserSeasonStatusService.cs" />
     <Compile Include="Services\User\UserService.cs" />
     <Compile Include="Services\User\UserStatusService.cs" />
   </ItemGroup>

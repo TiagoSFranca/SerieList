@@ -72,6 +72,7 @@
     <Compile Include="AppModels\User\UserInfoAppModel.cs" />
     <Compile Include="AppModels\User\UserProductAppModel.cs" />
     <Compile Include="AppModels\User\UserProductStatusAppModel.cs" />
+    <Compile Include="AppModels\User\UserSeasonStatusAppModel.cs" />
     <Compile Include="AppModels\User\UserStatusAppModel.cs" />
     <Compile Include="CommonAppModels\PagingAppModel.cs" />
     <Compile Include="CommonAppModels\PagingResultAppModel.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Concrete\User\UserEpisodeStatusAppService.cs" />
     <Compile Include="Concrete\User\UserProductAppService.cs" />
     <Compile Include="Concrete\User\UserProductStatusAppModel.cs" />
+    <Compile Include="Concrete\User\UserSeasonStatusAppService.cs" />
     <Compile Include="Concrete\User\UserStatusAppService.cs" />
     <Compile Include="Extensions\Episode\EpisodeExtension.cs" />
     <Compile Include="Extensions\Episode\EpisodeStatusExtension.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Extensions\User\UserInfoExtension.cs" />
     <Compile Include="Extensions\User\UserProductExtension.cs" />
     <Compile Include="Extensions\User\UserProductStatusExtension.cs" />
+    <Compile Include="Extensions\User\UserSeasonStatusExtension.cs" />
     <Compile Include="Extensions\User\UserStatusExtension.cs" />
     <Compile Include="Interfaces\IAccessControlAppService.cs" />
     <Compile Include="Interfaces\IAppServiceBase.cs" />
@@ -139,6 +142,7 @@
     <Compile Include="Interfaces\User\IUserEpisodeStatusAppService.cs" />
     <Compile Include="Interfaces\User\IUserProductAppService.cs" />
     <Compile Include="Interfaces\User\IUserProductStatusAppService.cs" />
+    <Compile Include="Interfaces\User\IUserSeasonStatusAppService.cs" />
     <Compile Include="Interfaces\User\IUserStatusAppService.cs" />
     <Compile Include="Mail\Interfaces\IMailTemplate.cs" />
     <Compile Include="Mail\MailTemplate\MailTemplate.cs" />

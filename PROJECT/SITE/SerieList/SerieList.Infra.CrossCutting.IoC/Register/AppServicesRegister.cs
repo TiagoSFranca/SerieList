@@ -61,6 +61,7 @@ namespace SerieList.Infra.Data.CrossCutting.IoC.Register
             container.Register<IUserProductAppService, UserProductAppService>(Lifestyle.Scoped);
             container.Register<IUserEpisodeStatusAppService, UserEpisodeStatusAppService>(Lifestyle.Scoped);
             container.Register<IUserEpisodeAppService, UserEpisodeAppService>(Lifestyle.Scoped);
+            container.Register<IUserSeasonStatusAppService, UserSeasonStatusAppService>(Lifestyle.Scoped);
 
             #endregion
 
