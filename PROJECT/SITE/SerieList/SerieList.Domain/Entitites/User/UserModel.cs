@@ -27,5 +27,6 @@ namespace SerieList.Domain.Entitites.User
         public virtual ICollection<EpisodeModel> Episodes { get; set; }
         public virtual ICollection<PasswordHistoryModel> PasswordResets { get; set; }
         public virtual ICollection<UserProductModel> UserProducts { get; set; }
+        public virtual ICollection<UserEpisodeModel> UserEpisodes { get; set; }
     }
 }

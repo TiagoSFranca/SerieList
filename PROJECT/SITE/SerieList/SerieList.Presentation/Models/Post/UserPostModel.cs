@@ -34,4 +34,10 @@
         public int IdProduct { get; set; }
         public int IdUserProductStatus { get; set; }
     }
+
+    public class UserEpisodePostModel
+    {
+        public int IdEpisode { get; set; }
+        public int IdUserEpisodeStatus { get; set; }
+    }
 }

@@ -71,6 +71,7 @@ namespace SerieList.Infra.Data.Data.Context
         public DbSet<UserProductStatusModel> UserProductStatus { get; set; }
         public DbSet<UserProductModel> UserProduct { get; set; }
         public DbSet<UserEpisodeStatusModel> UserEpisodeStatus { get; set; }
+        public DbSet<UserEpisodeModel> UserEpisode { get; set; }
 
         #endregion
 
@@ -153,6 +154,7 @@ namespace SerieList.Infra.Data.Data.Context
             modelBuilder.Configurations.Add(new UserProductStatusConfiguration());
             modelBuilder.Configurations.Add(new UserProductConfiguration());
             modelBuilder.Configurations.Add(new UserEpisodeStatusConfiguration());
+            modelBuilder.Configurations.Add(new UserEpisodeConfiguration());
 
             #endregion
 

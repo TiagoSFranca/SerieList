@@ -54,6 +54,10 @@ namespace SerieList.Infra.Data.EntityConfig.User
                 .WithRequired(s => s.User)
                 .HasForeignKey(s => s.IdUser);
 
+            HasMany(us => us.UserEpisodes)
+                .WithRequired(p => p.User)
+                .HasForeignKey(p => p.IdUser);
+
             Property(pt => pt.IdUser)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }

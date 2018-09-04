@@ -6,20 +6,20 @@ using System.Linq.Expressions;
 
 namespace SerieList.Domain.Entitites.User
 {
-    public partial class UserProductModel : IExcluded
+    public partial class UserEpisodeModel : IExcluded
     {
         public virtual void ValidateExcluded()
         {
-            UserProductServiceMessage usm = new UserProductServiceMessage();
+            UserEpisodeServiceMessage usm = new UserEpisodeServiceMessage();
             if (Excluded)
                 throw new ServiceException(usm.Excluded);
         }
 
-        public static Expression<Func<UserProductModel, bool>> AssociationExcludedExpression(bool excluded)
+        public static Expression<Func<UserEpisodeModel, bool>> AssociationExcludedExpression(bool excluded)
         {
-            Expression<Func<UserProductModel, bool>> ex = u => u.UserProductStatus.Excluded == excluded
+            Expression<Func<UserEpisodeModel, bool>> ex = u => u.UserEpisodeStatus.Excluded == excluded
             && u.User.Excluded == excluded
-            && u.Product.Excluded == excluded;
+            && u.Episode.Excluded == excluded;
 
             return ex;
         }

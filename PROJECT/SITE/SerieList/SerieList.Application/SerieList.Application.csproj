@@ -67,6 +67,7 @@
     <Compile Include="AppModels\Profile\PermissionGroupAppModel.cs" />
     <Compile Include="AppModels\Profile\PermissionTypeAppModel.cs" />
     <Compile Include="AppModels\User\UserAppModel.cs" />
+    <Compile Include="AppModels\User\UserEpisodeAppModel.cs" />
     <Compile Include="AppModels\User\UserEpisodeStatusAppModel.cs" />
     <Compile Include="AppModels\User\UserInfoAppModel.cs" />
     <Compile Include="AppModels\User\UserProductAppModel.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Concrete\Profile\PermissionTypeAppService.cs" />
     <Compile Include="Concrete\Profile\PermissionGroupAppService.cs" />
     <Compile Include="Concrete\User\UserAppService.cs" />
+    <Compile Include="Concrete\User\UserEpisodeAppService.cs" />
     <Compile Include="Concrete\User\UserEpisodeStatusAppService.cs" />
     <Compile Include="Concrete\User\UserProductAppService.cs" />
     <Compile Include="Concrete\User\UserProductStatusAppModel.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Extensions\Profile\PermissionExtension.cs" />
     <Compile Include="Extensions\Profile\PermissionGroupExtension.cs" />
     <Compile Include="Extensions\Profile\PermissionTypeExtension.cs" />
+    <Compile Include="Extensions\User\UserEpisodeExtension.cs" />
     <Compile Include="Extensions\User\UserEpisodeStatusExtension.cs" />
     <Compile Include="Extensions\User\UserExtension.cs" />
     <Compile Include="Extensions\User\UserInfoExtension.cs" />
@@ -132,6 +135,7 @@
     <Compile Include="Interfaces\Profile\IPermissionGroupAppService.cs" />
     <Compile Include="Interfaces\Profile\IPermissionTypeAppService.cs" />
     <Compile Include="Interfaces\User\IUserAppService.cs" />
+    <Compile Include="Interfaces\User\IUserEpisodeAppService.cs" />
     <Compile Include="Interfaces\User\IUserEpisodeStatusAppService.cs" />
     <Compile Include="Interfaces\User\IUserProductAppService.cs" />
     <Compile Include="Interfaces\User\IUserProductStatusAppService.cs" />

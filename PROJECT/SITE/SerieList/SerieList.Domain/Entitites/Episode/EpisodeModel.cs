@@ -2,6 +2,7 @@
 using SerieList.Domain.Entitites.Season;
 using SerieList.Domain.Entitites.User;
 using System;
+using System.Collections.Generic;
 
 namespace SerieList.Domain.Entitites.Episode
 {
@@ -26,5 +27,6 @@ namespace SerieList.Domain.Entitites.Episode
         public virtual UserModel User { get; set; }
         public virtual SeasonModel Season { get; set; }
 
+        public virtual ICollection<UserEpisodeModel> UserEpisodes { get; set; }
     }
 }

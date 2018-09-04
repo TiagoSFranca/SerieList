@@ -51,6 +51,7 @@
     <Compile Include="Messges\ServiceMessages\Profile\ProfileServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\Season\SeasonServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\Token\TokenProviderServiceMessage.cs" />
+    <Compile Include="Messges\ServiceMessages\User\UserEpisodeServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\User\UserProductServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\User\UserServiceMessage.cs" />
     <Compile Include="Messges\ServiceMessages\User\UserStatusServiceMessage.cs" />

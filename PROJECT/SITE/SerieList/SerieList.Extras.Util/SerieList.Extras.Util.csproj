@@ -48,6 +48,7 @@
     <Compile Include="Messages\Product\VisibilityMessage.cs" />
     <Compile Include="Messages\Profile\PermissionGroupMessage.cs" />
     <Compile Include="Messages\Profile\PermissionTypeMessage.cs" />
+    <Compile Include="Messages\User\UserEpisodeMessage.cs" />
     <Compile Include="Messages\User\UserEpisodeStatusMessage.cs" />
     <Compile Include="Messages\User\UserMessage.cs" />
     <Compile Include="Messages\User\UserProductMessage.cs" />

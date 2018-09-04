@@ -23,24 +23,6 @@ namespace SerieList.Presentation.Controllers.User
             userProductMessage = new UserProductMessage();
         }
 
-        //public ResponseSingleResult<UserProductAppModel> Get(int id)
-        //{
-        //    var response = new ResponseSingleResult<UserProductAppModel>(userProductMessage.MethodGet);
-        //    try
-        //    {
-        //        response.Result = _pAppService.GetById(GetToken(), id);
-        //        response.Success = true;
-        //        response.Message = userProductMessage.SuccessSearch;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        response.Success = false;
-        //        response.Message = userProductMessage.ErrorSearch;
-        //        response.Exception = new ResponseException(e);
-        //    }
-        //    return response;
-        //}
-
         public ResponseSingleResult<UserProductAppModel> Delete(int id)
         {
             bool? excluded = false;
