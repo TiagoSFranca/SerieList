@@ -4,33 +4,14 @@ using System.Web.Mvc;
 
 namespace SerieList.Presentation.Attributes
 {
-    public class CustomAuthorizeAttribute : AuthorizeAttribute
+    public class CustomAuthorizeAttribute : FilterAttribute, IAuthorizationFilter
     {
-        protected override bool AuthorizeCore(HttpContextBase httpContext)
+        public void OnAuthorization(AuthorizationContext filterContext)
         {
-
-            // Regra para Autorização: 
-            // Um usuário está autorizado se o seu perfil condiz com 
-            // um dos perfis autorizado da função, ou se ele for um Admin 
-            if (String.IsNullOrEmpty(Roles))
-                Roles = "Admin";
-            else
-                Roles += ", Admin";
-
-            var isAuthorized = base.AuthorizeCore(httpContext);
-
-            return isAuthorized;
-        }
-
-        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
-        {
-            if (filterContext.HttpContext.User.Identity.IsAuthenticated)
+            if (filterContext.HttpContext.Session["UserID"] == null)
             {
-                filterContext.Result = new RedirectResult("~/account/login");
-            }
-            else
-            {
-                base.HandleUnauthorizedRequest(filterContext);
+                var p = filterContext.HttpContext.Request.Url;
+                filterContext.Result = new RedirectResult("~/Account/Login");
             }
         }
     }
