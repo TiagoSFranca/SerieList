@@ -10,32 +10,46 @@
         ViewBag.DocumentationProvider.GetDocumentation(Model.Key) : 
         null;
 }
-
-<h2 id="@Model.Key.ControllerName">@Model.Key.ControllerName</h2>
-@if (!String.IsNullOrEmpty(controllerDocumentation))
-{
-    <p>@controllerDocumentation</p>
-}
-<table class="help-page-table">
-    <thead>
-        <tr><th>API</th><th>Description</th></tr>
-    </thead>
-    <tbody>
-    @foreach (var api in Model)
-    {
-        <tr>
-            <td class="api-name"><a href="@Url.Action("Api", "Help", new { apiId = api.GetFriendlyId() })">@api.HttpMethod.Method @api.RelativePath</a></td>
-            <td class="api-documentation">
-            @if (api.Documentation != null)
-            {
-                <p>@api.Documentation</p>
-            }
-            else
-            {
-                <p>No documentation available.</p>
-            }
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+<div class="row">
+    <div class="col s12 m12">
+        <div class="card brown darken-3">
+            <div class="card-content white-text">
+                <span class="card-title" id="@Model.Key.ControllerName">@Model.Key.ControllerName</span>
+                @if (!String.IsNullOrEmpty(controllerDocumentation))
+                {
+                    <p>@controllerDocumentation</p>
+                }
+                <table class="highlight responsive-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Método
+                            </th>
+                            <th>
+                                Documentação
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var api in Model)
+                        {
+                            <tr>
+                                <td><a href="@Url.Action("Api", "Help", new { apiId = api.GetFriendlyId() })">@api.HttpMethod.Method @api.RelativePath</a></td>
+                                <td>
+                                    @if (api.Documentation != null)
+                                    {
+                                        <p>@api.Documentation</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Sem documentação.</p>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
