@@ -13,8 +13,8 @@ namespace SerieList.Presentation.Controllers.MVC
         public ActionResult Index()
         {
             ValidToken();
-            ViewBag.Title = "Início";
 
+            ViewBag.Title = "Início";
             return View();
         }
     }

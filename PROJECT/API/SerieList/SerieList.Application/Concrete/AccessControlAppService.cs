@@ -206,5 +206,22 @@ namespace SerieList.Application.Concrete
             }
             return false;
         }
+
+        public UserSimplifiedAppModel GetUserByToken(string token)
+        {
+            try
+            {
+                ValidateToken(token);
+                var tokenProvider = _tokenProviderService.GetByToken(token);
+                var user = tokenProvider?.User;
+                return user.MapperToSimplifiedAppModel();
+            }
+            catch (Exception ex)
+            {
+                LogExceptions(ex);
+                throw;
+            }
+            return null;
+        }
     }
 }

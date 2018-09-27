@@ -27,5 +27,7 @@ namespace SerieList.Application.Interfaces
         void ResetPassword(string token, string newPassword, string confirmPassword);
 
         bool ValidToken(string token);
+
+        UserSimplifiedAppModel GetUserByToken(string token);
     }
 }

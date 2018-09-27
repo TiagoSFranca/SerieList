@@ -1,4 +1,5 @@
-﻿using SerieList.Application.Interfaces;
+﻿using SerieList.Application.AppModels.User;
+using SerieList.Application.Interfaces;
 using SerieList.Extras.Util.Messages;
 using System;
 using System.Web;
@@ -93,6 +94,12 @@ namespace SerieList.Presentation.Controllers.MVC
         {
             _accessControlAppService.Unauthenticate(GetToken());
             RemoveToken();
+        }
+
+        public UserSimplifiedAppModel GetUser()
+        {
+            var user = _accessControlAppService.GetUserByToken(GetToken());
+            return user;
         }
     }
 }

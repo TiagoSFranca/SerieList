@@ -17,6 +17,11 @@ namespace SerieList.Application.Extensions.User
             return AutoMapper.Mapper.Map<UserAppModel>(obj);
         }
 
+        public static UserSimplifiedAppModel MapperToSimplifiedAppModel(this UserModel obj)
+        {
+            return AutoMapper.Mapper.Map<UserSimplifiedAppModel>(obj);
+        }
+
         public static PagingResultAppModel<UserAppModel> MapperToAppModel(this PagingResultModel<UserModel> obj)
         {
             return AutoMapper.Mapper.Map<PagingResultAppModel<UserAppModel>>(obj);

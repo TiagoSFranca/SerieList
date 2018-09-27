@@ -34,6 +34,9 @@ namespace SerieList.Presentation.Controllers.MVC
                 {
                     var token = _accessControlAppService.Authenticate(model.UserNameOrEmail, model.Password, model.KeepConnected, ApplicationTypeEnum.API);
                     AddToken(token);
+                    var user = GetUser();
+                    string message = string.Format("Bem vindo(a), {0} {1}", user.UserInfo.FirstName, user.UserInfo.LastName);
+                    SuccessMessage(message);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (Exception e)
