@@ -88,6 +88,7 @@
     <Compile Include="EntityConfig\Profile\PermissionConfiguration.cs" />
     <Compile Include="EntityConfig\Profile\PermissionGroupConfiguration.cs" />
     <Compile Include="EntityConfig\Profile\PermissionTypeConfiguration.cs" />
+    <Compile Include="EntityConfig\Token\ApplicationTypeConfiguration.cs" />
     <Compile Include="EntityConfig\Token\TokenProviderConfiguration.cs" />
     <Compile Include="EntityConfig\Token\TokenProviderTypeConfiguration.cs" />
     <Compile Include="EntityConfig\User\PasswordHistoryConfiguration.cs" />
@@ -127,6 +128,10 @@
     <Compile Include="Migrations\201809041632080_ADD USERSEASON.cs" />
     <Compile Include="Migrations\201809041632080_ADD USERSEASON.Designer.cs">
       <DependentUpon>201809041632080_ADD USERSEASON.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809271253518_ADD APPLICATIONTYPE, CHANGE TOKENPROVIDER.cs" />
+    <Compile Include="Migrations\201809271253518_ADD APPLICATIONTYPE, CHANGE TOKENPROVIDER.Designer.cs">
+      <DependentUpon>201809271253518_ADD APPLICATIONTYPE, CHANGE TOKENPROVIDER.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041632080_ADD USERSEASON.resx">
       <DependentUpon>201809041632080_ADD USERSEASON.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809271253518_ADD APPLICATIONTYPE, CHANGE TOKENPROVIDER.resx">
+      <DependentUpon>201809271253518_ADD APPLICATIONTYPE, CHANGE TOKENPROVIDER.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

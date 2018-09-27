@@ -8,6 +8,7 @@ using System.Linq;
 using SerieList.Domain.Seed.Token;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Repositories;
+using SerieList.Infra.Data.CrossCutting.Exceptions.ServiceException;
 
 namespace SerieList.Domain.Services.Token
 {
@@ -48,8 +49,9 @@ namespace SerieList.Domain.Services.Token
             }
         }
 
-        public string CreateToken(int tokenType, UserModel user = null, bool? keep = null)
+        public string CreateToken(int tokenType, int idApplicationType, UserModel user = null, bool? keep = null)
         {
+            ValidateApplicationType(idApplicationType);
             var token = TokenCrypt.GenerateTokenUser(
                 new TokenUserModel()
                 {
@@ -64,7 +66,8 @@ namespace SerieList.Domain.Services.Token
                 IdUser = user.IdUser,
                 IdTokenProviderType = tokenType,
                 Valid = true,
-                Token = token
+                Token = token,
+                IdApplicationType = idApplicationType
             };
 
             if (user != null && tokenType != TokenProviderTypeSeed.Authentication.IdTokenProviderType)
@@ -79,5 +82,11 @@ namespace SerieList.Domain.Services.Token
             return _tokenProviderRepo.Query().FirstOrDefault(e => e.Token.Equals(token));
         }
 
+        private void ValidateApplicationType(int idApplicationType)
+        {
+            var ids = ApplicationTypeSeed.Seeds.Select(e => e.IdApplicationType).ToList();
+            if (!ids.Contains(idApplicationType))
+                throw new ServiceException(tokenProviderMessage.ApplicationTypeInvalid);
+        }
     }
 }

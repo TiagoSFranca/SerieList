@@ -61,6 +61,7 @@
     <Compile Include="Entitites\Profile\PermissionGroupModel.cs" />
     <Compile Include="Entitites\Profile\PermissionModel.cs" />
     <Compile Include="Entitites\Profile\PermissionTypeModel.cs" />
+    <Compile Include="Entitites\Token\ApplicationTypeModel.cs" />
     <Compile Include="Entitites\Token\TokenProviderModel.cs" />
     <Compile Include="Entitites\Token\TokenProviderTypeModel.cs" />
     <Compile Include="Entitites\User\PasswordHistoryModel.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Seed\Profile\PermissionGroupSeed.cs" />
     <Compile Include="Seed\Profile\PermissionSeed.cs" />
     <Compile Include="Seed\Profile\PermissionTypeSeed.cs" />
+    <Compile Include="Seed\Token\ApplicationTypeSeed.cs" />
     <Compile Include="Seed\Token\TokenProviderTypeSeed.cs" />
     <Compile Include="Seed\User\UserEpisodeStatusSeed.cs" />
     <Compile Include="Seed\User\UserProductStatusSeed.cs" />

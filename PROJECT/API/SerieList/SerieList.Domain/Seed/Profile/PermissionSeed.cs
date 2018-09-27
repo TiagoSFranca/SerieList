@@ -359,6 +359,20 @@ namespace SerieList.Domain.Seed.Profile
             }
         }
 
+        public static PermissionModel UseAPI
+        {
+            get
+            {
+                return new PermissionModel()
+                {
+                    IdPermission = 333,
+                    IdPermissionGroup = PermissionGroupSeed.Admin.IdPermissionGroup,
+                    IdPermissionType = PermissionTypeSeed.Admin.IdPermissionType,
+                    Excluded = false
+                };
+            }
+        }
+
         public static List<PermissionModel> Seeds
         {
             get
@@ -371,6 +385,7 @@ namespace SerieList.Domain.Seed.Profile
                 list.AddRange(ProfilePermissions);
                 list.AddRange(UserPermissions);
                 list.Add(Admin);
+                list.Add(UseAPI);
                 return list;
             }
         }

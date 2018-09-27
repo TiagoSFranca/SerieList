@@ -4,7 +4,7 @@ namespace SerieList.Application.Interfaces
 {
     public interface IAccessControlAppService
     {
-        void Register(UserAppModel obj);
+        void Register(UserAppModel obj, int idApplicationType);
 
         bool EmailExists(string email);
 
@@ -18,12 +18,14 @@ namespace SerieList.Application.Interfaces
 
         void ConfirmMail(string token);
 
-        string Authenticate(string login, string password, bool keep);
+        string Authenticate(string login, string password, bool keep, int applicationType);
 
         void Unauthenticate(string token);
 
-        void ForgotPassword(string email);
+        void ForgotPassword(string email, int idApplicationType);
 
         void ResetPassword(string token, string newPassword, string confirmPassword);
+
+        bool ValidToken(string token);
     }
 }

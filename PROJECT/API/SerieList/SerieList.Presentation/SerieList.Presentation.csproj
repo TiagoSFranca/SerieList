@@ -222,12 +222,12 @@
     <Compile Include="AutoMapper\Profiles\SeasonProfilePresentation.cs" />
     <Compile Include="AutoMapper\Profiles\UserProfilePresentation.cs" />
     <Compile Include="Controllers\AccessControlController.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MVC\AccountController.cs" />
     <Compile Include="Controllers\APIControllerBase.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MVC\HomeController.cs" />
     <Compile Include="Controllers\Episode\EpisodeController.cs" />
     <Compile Include="Controllers\Episode\EpisodeStatusController.cs" />
-    <Compile Include="Controllers\MVCControllerBase.cs" />
+    <Compile Include="Controllers\MVC\MVCControllerBase.cs" />
     <Compile Include="Controllers\Product\ProductCategoryController.cs" />
     <Compile Include="Controllers\Product\ProductController.cs" />
     <Compile Include="Controllers\Product\ProductStatusController.cs" />
@@ -365,6 +365,10 @@
     <ProjectReference Include="..\SerieList.Application\SerieList.Application.csproj">
       <Project>{d0ae7b7f-d22c-4e87-bf9c-01b2a2fb0960}</Project>
       <Name>SerieList.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerieList.Extras.Enums\SerieList.Extras.Enums.csproj">
+      <Project>{74D277FC-3976-4428-9149-1CA24D09F30A}</Project>
+      <Name>SerieList.Extras.Enums</Name>
     </ProjectReference>
     <ProjectReference Include="..\SerieList.Infra.CrossCutting.IoC\SerieList.Infra.CrossCutting.IoC.csproj">
       <Project>{3D15238B-477B-41BD-9CA6-114702B5E543}</Project>

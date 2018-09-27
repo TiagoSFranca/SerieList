@@ -81,6 +81,7 @@ namespace SerieList.Infra.Data.Data.Context
 
         public DbSet<TokenProviderTypeModel> TokenProviderType { get; set; }
         public DbSet<TokenProviderModel> TokenProvider { get; set; }
+        public DbSet<ApplicationTypeModel> ApplicationType { get; set; }
 
         #endregion
 
@@ -166,6 +167,7 @@ namespace SerieList.Infra.Data.Data.Context
 
             modelBuilder.Configurations.Add(new TokenProviderTypeConfiguration());
             modelBuilder.Configurations.Add(new TokenProviderConfiguration());
+            modelBuilder.Configurations.Add(new ApplicationTypeConfiguration());
 
             #endregion
 

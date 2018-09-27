@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerieList.Extras.Util", "Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerieList.Infra.CrossCutting.Exceptions", "SerieList.Infra.CrossCutting.Exceptions\SerieList.Infra.CrossCutting.Exceptions.csproj", "{03A5B046-18FA-414D-8EC3-99C897CD5271}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerieList.Extras.Enums", "SerieList.Extras.Enums\SerieList.Extras.Enums.csproj", "{74D277FC-3976-4428-9149-1CA24D09F30A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{03A5B046-18FA-414D-8EC3-99C897CD5271}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03A5B046-18FA-414D-8EC3-99C897CD5271}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03A5B046-18FA-414D-8EC3-99C897CD5271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D277FC-3976-4428-9149-1CA24D09F30A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D277FC-3976-4428-9149-1CA24D09F30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D277FC-3976-4428-9149-1CA24D09F30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D277FC-3976-4428-9149-1CA24D09F30A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{3D15238B-477B-41BD-9CA6-114702B5E543} = {6EA9E2A4-FF75-4097-9F1B-82DCF0103DD3}
 		{9736A406-5165-4D92-831F-E4B9945B2E77} = {D5B1C6A1-D060-4198-AFE0-EBE2C74CA2AA}
 		{03A5B046-18FA-414D-8EC3-99C897CD5271} = {6EA9E2A4-FF75-4097-9F1B-82DCF0103DD3}
+		{74D277FC-3976-4428-9149-1CA24D09F30A} = {D5B1C6A1-D060-4198-AFE0-EBE2C74CA2AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1647A96A-B2A9-4458-A318-0BAB677802D9}

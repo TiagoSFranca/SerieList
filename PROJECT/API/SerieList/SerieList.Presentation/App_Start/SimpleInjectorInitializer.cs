@@ -4,11 +4,7 @@ using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -25,13 +21,9 @@ namespace SerieList.Presentation.App_Start
 
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
-            //container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
-
             GlobalConfiguration.Configuration.DependencyResolver =
                 new SimpleInjectorWebApiDependencyResolver(container);
-
-            //DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
-
+            
             container.Verify();
         }
 

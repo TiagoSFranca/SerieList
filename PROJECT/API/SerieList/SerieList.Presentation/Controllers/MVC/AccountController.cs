@@ -1,20 +1,22 @@
 ﻿using SerieList.Application.Interfaces;
+using SerieList.Extras.Enums;
 using SerieList.Presentation.Models.ViewModels;
 using System;
 using System.Web.Mvc;
 
-namespace SerieList.Presentation.Controllers
+namespace SerieList.Presentation.Controllers.MVC
 {
     public class AccountController : MVCControllerBase
     {
-        private readonly IAccessControlAppService _accessControlAppService;
+
         public AccountController(IAccessControlAppService accessControlAppService)
+            : base(accessControlAppService)
         {
-            _accessControlAppService = accessControlAppService;
         }
 
         public ActionResult Login(string returnUrl)
         {
+            ValidToken(true);
             ViewBag.Title = "Entrar";
             ViewBag.ReturnUrl = returnUrl;
 
@@ -30,7 +32,9 @@ namespace SerieList.Presentation.Controllers
             {
                 try
                 {
-                    var token = _accessControlAppService.Authenticate(model.UserNameOrEmail, model.Password, model.KeepConnected);
+                    var token = _accessControlAppService.Authenticate(model.UserNameOrEmail, model.Password, model.KeepConnected, ApplicationTypeEnum.API);
+                    AddToken(token);
+                    return RedirectToAction("Index", "Home");
                 }
                 catch (Exception e)
                 {
@@ -40,6 +44,14 @@ namespace SerieList.Presentation.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            Unauthenticate();
+            return RedirectToAction("Login", "Account");
         }
     }
 }

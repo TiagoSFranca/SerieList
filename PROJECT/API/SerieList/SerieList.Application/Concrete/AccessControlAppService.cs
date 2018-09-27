@@ -8,7 +8,6 @@ using SerieList.Domain.Mail.Interfaces;
 using SerieList.Domain.Seed;
 using System;
 using System.Threading.Tasks;
-using SerieList.Extras.Util.Crypt;
 using SerieList.Application.Extensions.User;
 using SerieList.Domain.Entitites.User;
 using SerieList.Domain.Interfaces.Services.User;
@@ -89,13 +88,13 @@ namespace SerieList.Application.Concrete
             }
         }
 
-        public void Register(UserAppModel obj)
+        public void Register(UserAppModel obj, int idApplicationType)
         {
             try
             {
                 var user = obj.MapperToDomain();
 
-                string token = _accessControlService.Register(user);
+                string token = _accessControlService.Register(user, idApplicationType);
 
                 SingleDestinationMailModel mailModel = new SingleDestinationMailModel(obj.UserInfo.Email);
                 mailModel.Body = _mailTemplate.GetRegisterTemplate(obj.UserInfo.FirstName, obj.UserInfo.UserName, Uri.EscapeDataString(token));
@@ -135,11 +134,11 @@ namespace SerieList.Application.Concrete
             }
         }
 
-        public string Authenticate(string login, string password, bool keep)
+        public string Authenticate(string login, string password, bool keep, int applicationType)
         {
             try
             {
-                return _accessControlService.Authenticate(login, password, keep);
+                return _accessControlService.Authenticate(login, password, keep, applicationType);
             }
             catch (Exception ex)
             {
@@ -161,11 +160,11 @@ namespace SerieList.Application.Concrete
             }
         }
 
-        public void ForgotPassword(string email)
+        public void ForgotPassword(string email, int idApplicationType)
         {
             try
             {
-                var token = _accessControlService.ForgotPassword(email);
+                var token = _accessControlService.ForgotPassword(email, idApplicationType);
                 var tokenProvider = _tokenProviderService.GetByToken(token);
                 var user = _userService.GetById((int)tokenProvider.IdUser);
                 SingleDestinationMailModel mailModel = new SingleDestinationMailModel(email);
@@ -192,6 +191,20 @@ namespace SerieList.Application.Concrete
                 LogExceptions(ex);
                 throw;
             }
+        }
+
+        public bool ValidToken(string token)
+        {
+            try
+            {
+                var tokenProvider = ValidateToken(token);
+                return token != null;
+            }
+            catch (Exception ex)
+            {
+                LogExceptions(ex);
+            }
+            return false;
         }
     }
 }

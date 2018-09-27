@@ -8,6 +8,7 @@ namespace SerieList.Domain.Entitites.Token
         public int IdTokenProvider { get; set; }
         public int? IdUser { get; set; }
         public int IdTokenProviderType { get; set; }
+        public int IdApplicationType { get; set; }
         public string Token { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
@@ -15,6 +16,7 @@ namespace SerieList.Domain.Entitites.Token
         public bool Excluded { get; set; }
 
         public virtual UserModel User { get; set; }
+        public virtual ApplicationTypeModel ApplicationType { get; set; }
         public virtual TokenProviderTypeModel TokenProviderType { get; set; }
 
     }

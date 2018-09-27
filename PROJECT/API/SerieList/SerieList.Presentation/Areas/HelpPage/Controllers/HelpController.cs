@@ -3,6 +3,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using SerieList.Presentation.Areas.HelpPage.ModelDescriptions;
 using SerieList.Presentation.Areas.HelpPage.Models;
+using SerieList.Presentation.Controllers.MVC;
+using SerieList.Application.Interfaces;
 using SerieList.Presentation.Attributes;
 
 namespace SerieList.Presentation.Areas.HelpPage.Controllers
@@ -11,16 +13,12 @@ namespace SerieList.Presentation.Areas.HelpPage.Controllers
     /// The controller that will handle requests for the help page.
     /// </summary>
     [CustomAuthorize]
-    public class HelpController : Controller
+    public class HelpController : MVCControllerBase
     {
         private const string ErrorViewName = "Error";
 
-        //public HelpController()
-        //    : this(GlobalConfiguration.Configuration)
-        //{
-        //}
-
-        public HelpController()
+        public HelpController(IAccessControlAppService accessControlAppService)
+            : base(accessControlAppService)
         {
             Configuration = GlobalConfiguration.Configuration;
         }

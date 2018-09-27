@@ -13,6 +13,7 @@
         public string Email { get; set; }
         public string UserName { get; set; }
         public string PasswordHash { get; set; }
+        public int IdApplicationType { get; set; }
     }
 
     public class UserLoginModel
@@ -20,6 +21,7 @@
         public string Login { get; set; }
         public string Password { get; set; }
         public bool KeepConnected { get; set; }
+        public int ApplicationType { get; set; }
     }
 
     public class ResetPasswordModel

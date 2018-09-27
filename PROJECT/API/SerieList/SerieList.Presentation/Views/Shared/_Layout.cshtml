@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SerieList.Presentation.Controllers.MVC
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,16 +20,30 @@
                         <img src="@Url.Content("~/Content/img/logo.png")" class="logo" />
                     </a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li>@Html.ActionLink("Início", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                    </ul>
+                    @if (!string.IsNullOrEmpty((string)Request.Cookies[MVCControllerBase.CookieTokenName]?.Value))
+                    {
+                        <ul class="right hide-on-med-and-down">
+                            <li>@Html.ActionLink("Início", "Index", "Home", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                            <li>
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
+                                }
+                            </li>
+                        </ul>
+                    }
                 </div>
             </nav>
         </div>
         <ul class="sidenav indigo darken-3 " id="mobile-demo">
             <li>@Html.ActionLink("Início", "Index", "Home", new { area = "" }, new { @class = "grey-text text-lighten-5" })</li>
             <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, new { @class = "grey-text text-lighten-5" })</li>
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="grey-text text-lighten-5">Sair</a>
+            </li>
+
         </ul>
 
         <div class="container body-content">

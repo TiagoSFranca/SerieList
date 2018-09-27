@@ -30,7 +30,7 @@ namespace SerieList.Presentation.Controllers
             try
             {
                 var userMapped = register.MapperToAppModel();
-                _acAppService.Register(userMapped);
+                _acAppService.Register(userMapped, register.IdApplicationType);
                 response.Success = true;
                 response.Message = accessControlMessage.SuccessRegister;
             }
@@ -70,7 +70,7 @@ namespace SerieList.Presentation.Controllers
             var response = new ResponseSingleResult<string>(accessControlMessage.MethodAuthenticate);
             try
             {
-                response.Result = _acAppService.Authenticate(login.Login, login.Password, login.KeepConnected);
+                response.Result = _acAppService.Authenticate(login.Login, login.Password, login.KeepConnected, login.ApplicationType);
                 response.Success = true;
                 response.Message = accessControlMessage.SuccessAuthenticate;
             }
@@ -105,12 +105,12 @@ namespace SerieList.Presentation.Controllers
 
         [HttpGet]
         [Route("ForgotPassword")]
-        public ResponseSingleResult<string> ForgotPassword([FromUri]string email)
+        public ResponseSingleResult<string> ForgotPassword([FromUri]string email, [FromUri]int idApplicationType)
         {
             var response = new ResponseSingleResult<string>(accessControlMessage.MethodForgotPassword);
             try
             {
-                _acAppService.ForgotPassword(email);
+                _acAppService.ForgotPassword(email, idApplicationType);
                 response.Success = true;
                 response.Message = accessControlMessage.SuccessForgotPassword;
             }

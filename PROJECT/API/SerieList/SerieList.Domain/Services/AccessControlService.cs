@@ -14,6 +14,7 @@ using SerieList.Extras.Util.Crypt;
 using SerieList.Infra.Data.CrossCutting.Exceptions.Messges.ServiceMessages;
 using SerieList.Domain.Entitites.Token;
 using System.Net.Mail;
+using SerieList.Domain.Seed.Profile;
 
 namespace SerieList.Domain.Services
 {
@@ -97,7 +98,7 @@ namespace SerieList.Domain.Services
             return error;
         }
 
-        public string Register(UserModel user)
+        public string Register(UserModel user, int idApplicationType)
         {
             string error = string.Empty;
 
@@ -124,7 +125,7 @@ namespace SerieList.Domain.Services
                 IdUser = user.IdUser
             });
 
-            return _tokenProviderService.CreateToken(TokenProviderTypeSeed.ConfirmEmail.IdTokenProviderType, user, false);
+            return _tokenProviderService.CreateToken(TokenProviderTypeSeed.ConfirmEmail.IdTokenProviderType, idApplicationType, user, false);
         }
 
         public void ConfirmMail(string token)
@@ -143,14 +144,17 @@ namespace SerieList.Domain.Services
             _userRepo.Update(user);
         }
 
-        public string Authenticate(string login, string password, bool keep)
+        public string Authenticate(string login, string password, bool keep, int idApplicationType)
         {
             var passwordEncrypted = SHA1Crypt.Encrypt(password);
             var user = _userRepo.Query().FirstOrDefault(e => (e.UserInfo.UserName.Equals(login) || e.UserInfo.Email.Equals(login)) && e.UserInfo.PasswordHash.Equals(passwordEncrypted));
             if (user == null)
                 throw new ServiceException(accessControlServiceMessage.LoginInvalid);
+
+            ValidateApplicationType(user, idApplicationType);
+
             user.IsGranted(true);
-            var token = _tokenProviderService.CreateToken(TokenProviderTypeSeed.Authentication.IdTokenProviderType, user, keep);
+            var token = _tokenProviderService.CreateToken(TokenProviderTypeSeed.Authentication.IdTokenProviderType, idApplicationType, user, keep);
             return token;
         }
 
@@ -172,13 +176,15 @@ namespace SerieList.Domain.Services
             _tokenProviderService.Update(tokenProvider, tokenProvider.User);
         }
 
-        public string ForgotPassword(string email)
+        public string ForgotPassword(string email, int idApplicationType)
         {
             var user = _userRepo.Query().FirstOrDefault(u => u.UserInfo.Email == email);
             if (user == null)
                 throw new ServiceException(accessControlServiceMessage.EmailExists(email));
 
-            return _tokenProviderService.CreateToken(TokenProviderTypeSeed.ResetPassword.IdTokenProviderType, user, false);
+            ValidateApplicationType(user, idApplicationType);
+
+            return _tokenProviderService.CreateToken(TokenProviderTypeSeed.ResetPassword.IdTokenProviderType, idApplicationType, user, false);
         }
 
         public void ResetPassword(TokenProviderModel tokenProvider, string newPassword, string confirmPassword)
@@ -215,6 +221,12 @@ namespace SerieList.Domain.Services
             var result = _passwordHistoryRepository.Query().Where(e => e.IdUser == idUser && e.Password.Equals(password)).ToList();
             if (result.Count > 0)
                 throw new ServiceException(accessControlServiceMessage.PasswordHasUsed);
+        }
+
+        private void ValidateApplicationType(UserModel user, int idApplicationType, bool? login = false)
+        {
+            if (idApplicationType == ApplicationTypeSeed.API.IdApplicationType)
+                user.HasPermission(_permissionRepository.GetById(PermissionSeed.UseAPI.IdPermission));
         }
     }
 }

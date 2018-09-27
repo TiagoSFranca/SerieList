@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web;
+﻿using SerieList.Presentation.Controllers.MVC;
 using System.Web.Mvc;
 
 namespace SerieList.Presentation.Attributes
@@ -8,9 +7,8 @@ namespace SerieList.Presentation.Attributes
     {
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (filterContext.HttpContext.Session["UserID"] == null)
+            if (filterContext.HttpContext.Request.Cookies[MVCControllerBase.CookieTokenName]?.Value == null)
             {
-                var p = filterContext.HttpContext.Request.Url;
                 filterContext.Result = new RedirectResult("~/Account/Login");
             }
         }

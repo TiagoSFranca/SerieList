@@ -23,7 +23,7 @@ namespace SerieList.Infra.Data.EntityConfig.Token
             Property(s => s.UpdatedAt)
                 .IsRequired()
                 .HasColumnType("DATETIME");
-            
+
             Property(s => s.Excluded)
                 .IsRequired();
 
@@ -33,6 +33,10 @@ namespace SerieList.Infra.Data.EntityConfig.Token
             HasRequired(s => s.TokenProviderType)
                 .WithMany(v => v.TokenProviders)
                 .HasForeignKey(s => s.IdTokenProviderType);
+
+            HasRequired(s => s.ApplicationType)
+                .WithMany(v => v.TokenProviders)
+                .HasForeignKey(s => s.IdApplicationType);
 
             HasOptional(s => s.User)
                 .WithMany(ss => ss.TokenProviders)
