@@ -10,7 +10,7 @@ using SerieList.Presentation.Extensions;
 namespace SerieList.Presentation.Controllers.Product
 {
     [RoutePrefix("api/Visibility")]
-    public class VisibilityController : ControllerBase
+    public class VisibilityController : APIControllerBase
     {
         public IVisibilityAppService _vAppService;
 

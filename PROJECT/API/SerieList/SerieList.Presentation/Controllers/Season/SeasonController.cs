@@ -11,7 +11,7 @@ using SerieList.Presentation.Models.Search.Season;
 namespace SerieList.Presentation.Controllers.Season
 {
     [RoutePrefix("api/Season")]
-    public class SeasonController : ControllerBase
+    public class SeasonController : APIControllerBase
     {
         public ISeasonAppService _sAppService;
 

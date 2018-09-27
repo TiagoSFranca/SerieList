@@ -10,7 +10,7 @@ using SerieList.Presentation.Extensions;
 namespace SerieList.Presentation.Controllers.Episode
 {
     [RoutePrefix("api/EpisodeStatus")]
-    public class EpisodeStatusController : ControllerBase
+    public class EpisodeStatusController : APIControllerBase
     {
         public IEpisodeStatusAppService _esAppService;
 

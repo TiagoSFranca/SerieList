@@ -11,7 +11,7 @@ using SerieList.Presentation.Models.Search.Profile;
 namespace SerieList.Presentation.Controllers.Profile
 {
     [RoutePrefix("api/Profile")]
-    public class ProfileController : ControllerBase
+    public class ProfileController : APIControllerBase
     {
         public IProfileAppService _pAppService;
 

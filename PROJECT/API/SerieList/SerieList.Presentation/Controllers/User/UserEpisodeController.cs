@@ -11,7 +11,7 @@ using SerieList.Presentation.Models.Search.User;
 namespace SerieList.Presentation.Controllers.User
 {
     [RoutePrefix("api/UserEpisode")]
-    public class UserEpisodeController : ControllerBase
+    public class UserEpisodeController : APIControllerBase
     {
         public IUserEpisodeAppService _ueAppService;
 

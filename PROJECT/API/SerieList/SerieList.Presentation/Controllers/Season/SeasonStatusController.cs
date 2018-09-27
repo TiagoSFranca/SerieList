@@ -10,7 +10,7 @@ using SerieList.Presentation.Extensions;
 namespace SerieList.Presentation.Controllers.Season
 {
     [RoutePrefix("api/SeasonStatus")]
-    public class SeasonStatusController : ControllerBase
+    public class SeasonStatusController : APIControllerBase
     {
         public ISeasonStatusAppService _ssAppService;
 

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Http;
 
 namespace SerieList.Presentation.Controllers
 {
-    public class ControllerBase : ApiController
+    public class APIControllerBase : ApiController
     {
         protected string GetToken()
         {

@@ -22,7 +22,8 @@ namespace SerieList.Presentation
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.RegisterMappings();
-            SimpleInjectorInitializer.Initialize();
+            SimpleInjectorInitializer.InitializeAPI();
+            SimpleInjectorInitializer.InitializaMVC();
         }
     }
 }

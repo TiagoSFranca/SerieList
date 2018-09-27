@@ -11,7 +11,7 @@ using SerieList.Presentation.Models.Search.Episode;
 namespace SerieList.Presentation.Controllers.Episode
 {
     [RoutePrefix("api/Episode")]
-    public class EpisodeController : ControllerBase
+    public class EpisodeController : APIControllerBase
     {
         public IEpisodeAppService _eAppService;
 

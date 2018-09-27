@@ -11,7 +11,7 @@ using SerieList.Presentation.Models.Search.Product;
 namespace SerieList.Presentation.Controllers.Product
 {
     [RoutePrefix("api/Product")]
-    public class ProductController : ControllerBase
+    public class ProductController : APIControllerBase
     {
         public IProductAppService _pAppService;
 

@@ -10,7 +10,7 @@ using SerieList.Presentation.Extensions;
 namespace SerieList.Presentation.Controllers.Product
 {
     [RoutePrefix("api/ProductStatus")]
-    public class ProductStatusController : ControllerBase
+    public class ProductStatusController : APIControllerBase
     {
         public IProductStatusAppService _psAppService;
 

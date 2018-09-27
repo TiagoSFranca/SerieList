@@ -25,6 +25,8 @@ namespace SerieList.Extras.Util.Messages
 
         #region Error
 
+        public string GenericError { get { return "Ocorreu um erro"; } }
+
         public string ErrorSearch { get { return String.Format("Ocorreu um erro ao buscar {0}", PluralizedName); } }
 
         public string ErrorDelete { get { return String.Format("Ocorreu um erro ao excluir {0}", Name); } }
@@ -34,9 +36,12 @@ namespace SerieList.Extras.Util.Messages
         public string ErrorPut { get { return String.Format("Ocorreu um erro ao atualizar {0}", Name); } }
 
         public string ErrorReactivate { get { return String.Format("Ocorreu um erro ao reativar {0}", Name); } }
+
         #endregion
 
         #region Success
+
+        public string GenericSuccess { get { return "Operação realizada com sucesso"; } }
 
         public string SuccessSearch { get { return String.Format("Busca de {0} realizada com sucesso", PluralizedName); } }
 

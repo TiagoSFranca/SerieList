@@ -11,7 +11,7 @@ using SerieList.Presentation.Models.Search.User;
 namespace SerieList.Presentation.Controllers.User
 {
     [RoutePrefix("api/UserSeason")]
-    public class UserSeasonController : ControllerBase
+    public class UserSeasonController : APIControllerBase
     {
         public IUserSeasonAppService _usAppService;
 

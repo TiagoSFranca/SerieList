@@ -10,7 +10,7 @@ using SerieList.Presentation.Extensions;
 namespace SerieList.Presentation.Controllers.User
 {
     [RoutePrefix("api/UserProductStatus")]
-    public class UserProductStatusController : ControllerBase
+    public class UserProductStatusController : APIControllerBase
     {
         public IUserProductStatusAppService _usAppService;
 

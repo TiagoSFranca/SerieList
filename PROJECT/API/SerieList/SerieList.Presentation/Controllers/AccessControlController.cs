@@ -10,7 +10,7 @@ using SerieList.Extras.Util.Messages;
 namespace SerieList.Presentation.Controllers
 {
     [RoutePrefix("api/AccessControl")]
-    public class AccessControlController : ControllerBase
+    public class AccessControlController : APIControllerBase
     {
         public IAccessControlAppService _acAppService;
 

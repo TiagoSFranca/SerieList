@@ -10,7 +10,7 @@ using SerieList.Presentation.Extensions;
 namespace SerieList.Presentation.Controllers.Profile
 {
     [RoutePrefix("api/PermissionType")]
-    public class PermissionTypeController : ControllerBase
+    public class PermissionTypeController : APIControllerBase
     {
         public IPermissionTypeAppService _ptAppService;
 

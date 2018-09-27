@@ -10,7 +10,7 @@ using SerieList.Presentation.Extensions;
 namespace SerieList.Presentation.Controllers.Profile
 {
     [RoutePrefix("api/PermissionGroup")]
-    public class PermissionGroupController : ControllerBase
+    public class PermissionGroupController : APIControllerBase
     {
         public IPermissionGroupAppService _pgAppService;
 

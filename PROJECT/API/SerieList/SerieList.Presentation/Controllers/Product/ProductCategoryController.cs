@@ -11,7 +11,7 @@ using SerieList.Presentation.Extensions;
 namespace SerieList.Presentation.Controllers.Product
 {
     [RoutePrefix("api/ProductCategory")]
-    public class ProductCategoryController : ControllerBase
+    public class ProductCategoryController : APIControllerBase
     {
         public IProductCategoryAppService _pcAppService;
 

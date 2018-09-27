@@ -1,33 +1,52 @@
 ﻿using SerieList.Infra.Data.CrossCutting.IoC;
 using SimpleInjector;
+using SimpleInjector.Integration.Web;
+using SimpleInjector.Integration.Web.Mvc;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace SerieList.Presentation.App_Start
 {
     public static class SimpleInjectorInitializer
     {
-        public static void Initialize()
+        public static void InitializeAPI()
         {
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-            // Register your types, for instance using the scoped lifestyle:
             InitializeContainer(container);
 
-            // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
-
-            container.Verify();
+            //container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
 
             GlobalConfiguration.Configuration.DependencyResolver =
                 new SimpleInjectorWebApiDependencyResolver(container);
+
+            //DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+
+            container.Verify();
+        }
+
+        public static void InitializaMVC()
+        {
+            var container = new Container();
+            container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+            
+            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+
+            InitializeContainer(container);
+
+            container.Verify();
+
+            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
         }
 
         private static void InitializeContainer(Container container)
