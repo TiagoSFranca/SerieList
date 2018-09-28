@@ -98,7 +98,7 @@ namespace SerieList.Presentation.Controllers.MVC
 
         public UserSimplifiedAppModel GetUser()
         {
-            var user = _accessControlAppService.GetUserByToken(GetToken());
+            var user = _accessControlAppService.GetUserSimplifiedByToken(GetToken());
             return user;
         }
     }

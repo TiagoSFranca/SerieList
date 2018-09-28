@@ -207,7 +207,7 @@ namespace SerieList.Application.Concrete
             return false;
         }
 
-        public UserSimplifiedAppModel GetUserByToken(string token)
+        public UserSimplifiedAppModel GetUserSimplifiedByToken(string token)
         {
             try
             {
