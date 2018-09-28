@@ -18,6 +18,9 @@ namespace SerieList.Presentation.App_Start.Bundles
 
             bundles.Add(new ScriptBundle("~/Toastr/js").Include(
                 "~/Scripts/toastr.min.js"));
+
+            bundles.Add(new ScriptBundle("~/Site/js").Include(
+                "~/Scripts/materialize.min.js"));
         }
     }
 }
