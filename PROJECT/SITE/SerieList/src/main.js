@@ -3,7 +3,34 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
+import CxltToastr from 'cxlt-vue2-toastr'
+import Axios from 'axios'
+Vue.use(CxltToastr, {
+  position: 'bottom right',
+  showDuration: 500,
+  hideDuration: 2000,
+  timeOut: 2000,
+  progressBar: true,
+  showMethod: 'zoomIn',
+  hideMethod: 'bounceOutLeft',
+  colseButton: true
+})
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#283593',
+    secondary: '#303F9F',
+    accent: '#0277BD',
+    error: '#D50000',
+    warning: '#ffeb3b',
+    info: '#2196f3',
+    success: '#4caf50'
+  }
+})
+Axios.defaults.baseURL = process.env.API_ENDPOINT
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
