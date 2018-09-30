@@ -41,7 +41,8 @@
       <v-container fluid fill-height>
         <v-layout>
           <v-flex shrink xs12 sm12 md12>
-            <router-view @on-page-title-change="updatePageTitle"/>
+            <loader ref="loader"/>
+            <router-view @on-page-title-change="updatePageTitle" @on-show-loader="showLoader"/>
           </v-flex>
         </v-layout>
       </v-container>
@@ -55,6 +56,7 @@
 </template>
 
 <script>
+import Loader from '@/components/General/Loader'
 export default {
   data: () => ({
     drawer: false,
@@ -63,9 +65,15 @@ export default {
   props: {
     source: String
   },
+  components: {
+    Loader
+  },
   methods: {
     updatePageTitle (title) {
       this.pageTitle = title
+    },
+    showLoader (value) {
+      this.$refs.loader.showLoader(value)
     }
   }
 }

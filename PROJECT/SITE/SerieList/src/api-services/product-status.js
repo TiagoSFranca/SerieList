@@ -6,12 +6,6 @@ export default {
   },
   get (id) {
     return Axios.get(RESOURCE_NAME + '/' + id)
-      .then((response) => {
-        console.log(response.data.Success)
-        console.log(response.data)
-      }).catch((error) => {
-        console.log(error.response.data)
-      })
   }
 //   create (data) { return Axios.post(RESOURCE_NAME, data) },
 //   update (id, data) { return Axios.put(RESOURCE_NAME/id, data) },
