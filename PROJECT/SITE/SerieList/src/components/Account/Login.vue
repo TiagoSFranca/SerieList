@@ -40,6 +40,7 @@
 
 <script>
 import AccessControlService from '@/api-services/access-control'
+import NotificationMessages from '@/helpers/notification-messages'
 export default {
   name: 'Login',
   data: () => ({
@@ -58,15 +59,32 @@ export default {
     this.$emit('on-page-title-change', 'Entrar')
   },
   methods: {
+    showLoader (value) {
+      this.$emit('on-show-loader', value)
+    },
     submit () {
       if (this.$refs.form.validate()) {
-        this.$emit('on-show-loader', 'true')
-        var json = {
-          username: this.login,
-          password: this.password
-        }
-        console.log(json)
-      // AccessControlService.Auth()
+        this.showLoader(true)
+        AccessControlService.Auth(this.login, this.password)
+          .then((response) => {
+            var data = response.data
+            this.showLoader(false)
+            console.log(data)
+            if (data.Success === true) {
+              this.$toast.success({
+                title: data.Method,
+                message: data.Message
+              })
+            } else {
+              this.$toast.error({
+                title: data.Method,
+                message: data.Message
+              })
+            }
+          }).catch(error => {
+            this.showLoader(false)
+            this.$toast.error(NotificationMessages.Error())
+          })
       }
     }
   }
