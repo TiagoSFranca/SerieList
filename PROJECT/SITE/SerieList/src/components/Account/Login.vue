@@ -41,6 +41,7 @@
 <script>
 import AccessControlService from '@/api-services/access-control'
 import NotificationMessages from '@/helpers/notification-messages'
+import AuthHelper from '@/helpers/auth'
 export default {
   name: 'Login',
   data: () => ({
@@ -56,7 +57,7 @@ export default {
     ]
   }),
   created: function () {
-    this.$emit('on-page-title-change', 'Entrar')
+    this.$emit('on-page-title-change', '')
   },
   methods: {
     showLoader (value) {
@@ -71,17 +72,20 @@ export default {
             this.showLoader(false)
             console.log(data)
             if (data.Success === true) {
+              AuthHelper.setToken(data.Result)
               this.$toast.success({
                 title: data.Method,
                 message: data.Message
               })
+              this.$router.push('Home')
             } else {
               this.$toast.error({
                 title: data.Method,
-                message: data.Message
+                message: data.Exception.ErrorMessage
               })
             }
           }).catch(error => {
+            console.log(error)
             this.showLoader(false)
             this.$toast.error(NotificationMessages.Error())
           })

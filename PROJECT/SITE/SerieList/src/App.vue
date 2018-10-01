@@ -20,23 +20,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app fixed clipped-left class="primary">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <router-link to="/">
-      <img src="./assets/logo.png" class="img-logo">
-      </router-link>
-      <v-toolbar-title>
-        {{pageTitle}}
-        </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-text-field dark append-icon="search" clearable></v-text-field>
-        <v-divider vertical></v-divider>
-        <v-btn flat>Registrar</v-btn>
-        <v-divider vertical></v-divider>
-        <v-btn flat to="/Login">Entrar</v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
+    <toolbar />
     <v-content>
       <v-container fluid fill-height>
         <v-layout>
@@ -57,20 +41,21 @@
 
 <script>
 import Loader from '@/components/General/Loader'
+import Toolbar from '@/components/General/Toolbar'
 export default {
   data: () => ({
-    drawer: false,
-    pageTitle: 'Início'
+    drawer: false
   }),
   props: {
     source: String
   },
   components: {
-    Loader
+    Loader,
+    Toolbar
   },
   methods: {
     updatePageTitle (title) {
-      this.pageTitle = title
+      this.$refs.Toolbar.updatePageTitle(title)
     },
     showLoader (value) {
       this.$refs.loader.showLoader(value)
