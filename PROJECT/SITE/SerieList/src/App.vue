@@ -20,7 +20,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <toolbar />
+    <toolbar @on-show-drawer="showDrawer"/>
     <v-content>
       <v-container fluid fill-height>
         <v-layout>
@@ -59,6 +59,9 @@ export default {
     },
     showLoader (value) {
       this.$refs.loader.showLoader(value)
+    },
+    showDrawer (value) {
+      this.drawer = value
     }
   }
 }

@@ -10,5 +10,8 @@ export default {
       ApplicationType: Constants.ApplicationType
     }
     return Axios.post(RESOURCE_NAME + '/authenticate', qs.stringify(obj))
+  },
+  Unauth () {
+    return Axios.post(RESOURCE_NAME + '/unauthenticate', {})
   }
 }
