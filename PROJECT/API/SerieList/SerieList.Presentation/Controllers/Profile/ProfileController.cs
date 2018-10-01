@@ -7,10 +7,12 @@ using SerieList.Extras.Util.Messages.Profile;
 using SerieList.Presentation.Extensions;
 using SerieList.Presentation.Models.Post;
 using SerieList.Presentation.Models.Search.Profile;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Profile
 {
     [RoutePrefix("api/Profile")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProfileController : APIControllerBase
     {
         public IProfileAppService _pAppService;

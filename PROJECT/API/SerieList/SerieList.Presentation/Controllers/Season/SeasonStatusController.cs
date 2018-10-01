@@ -6,10 +6,12 @@ using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Season;
 using SerieList.Presentation.Models.Search.Season;
 using SerieList.Presentation.Extensions;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Season
 {
     [RoutePrefix("api/SeasonStatus")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class SeasonStatusController : APIControllerBase
     {
         public ISeasonStatusAppService _ssAppService;

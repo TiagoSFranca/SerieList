@@ -7,10 +7,12 @@ using SerieList.Extras.Util.Messages.User;
 using SerieList.Presentation.Extensions;
 using SerieList.Presentation.Models.Post;
 using SerieList.Presentation.Models.Search.User;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.User
 {
     [RoutePrefix("api/UserEpisode")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserEpisodeController : APIControllerBase
     {
         public IUserEpisodeAppService _ueAppService;

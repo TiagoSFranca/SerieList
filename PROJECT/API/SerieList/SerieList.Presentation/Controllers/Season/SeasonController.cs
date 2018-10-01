@@ -7,10 +7,12 @@ using SerieList.Extras.Util.Messages.Season;
 using SerieList.Presentation.Extensions;
 using SerieList.Presentation.Models.Post;
 using SerieList.Presentation.Models.Search.Season;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Season
 {
     [RoutePrefix("api/Season")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class SeasonController : APIControllerBase
     {
         public ISeasonAppService _sAppService;

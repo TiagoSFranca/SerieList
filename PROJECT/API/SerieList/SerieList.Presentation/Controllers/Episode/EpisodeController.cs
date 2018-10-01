@@ -7,10 +7,12 @@ using SerieList.Extras.Util.Messages.Episode;
 using SerieList.Presentation.Extensions;
 using SerieList.Presentation.Models.Post;
 using SerieList.Presentation.Models.Search.Episode;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Episode
 {
     [RoutePrefix("api/Episode")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class EpisodeController : APIControllerBase
     {
         public IEpisodeAppService _eAppService;

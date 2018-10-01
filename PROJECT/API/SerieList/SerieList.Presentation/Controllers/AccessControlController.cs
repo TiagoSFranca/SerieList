@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Web.Http;
 using SerieList.Extras.Util;
-using SerieList.Extras.Util.Messages.User;
 using SerieList.Presentation.Models.Post;
 using SerieList.Presentation.Extensions;
 using SerieList.Application.Interfaces;
 using SerieList.Extras.Util.Messages;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers
 {
     [RoutePrefix("api/AccessControl")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AccessControlController : APIControllerBase
     {
         public IAccessControlAppService _acAppService;

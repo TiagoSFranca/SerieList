@@ -6,10 +6,12 @@ using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Product;
 using SerieList.Presentation.Models.Search.Product;
 using SerieList.Presentation.Extensions;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Product
 {
     [RoutePrefix("api/ProductStatus")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductStatusController : APIControllerBase
     {
         public IProductStatusAppService _psAppService;

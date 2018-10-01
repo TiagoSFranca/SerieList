@@ -7,10 +7,12 @@ using SerieList.Extras.Util.Messages.Product;
 using SerieList.Presentation.Extensions;
 using SerieList.Presentation.Models.Post;
 using SerieList.Presentation.Models.Search.Product;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Product
 {
     [RoutePrefix("api/Product")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductController : APIControllerBase
     {
         public IProductAppService _pAppService;

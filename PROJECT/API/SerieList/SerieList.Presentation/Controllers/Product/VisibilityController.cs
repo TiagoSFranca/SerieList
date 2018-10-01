@@ -6,10 +6,12 @@ using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Product;
 using SerieList.Presentation.Models.Search.Product;
 using SerieList.Presentation.Extensions;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Product
 {
     [RoutePrefix("api/Visibility")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class VisibilityController : APIControllerBase
     {
         public IVisibilityAppService _vAppService;

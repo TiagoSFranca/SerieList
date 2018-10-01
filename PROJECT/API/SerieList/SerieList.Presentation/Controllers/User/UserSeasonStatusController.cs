@@ -6,10 +6,12 @@ using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.User;
 using SerieList.Presentation.Models.Search.User;
 using SerieList.Presentation.Extensions;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.User
 {
     [RoutePrefix("api/UserSeasonStatus")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserSeasonStatusController : APIControllerBase
     {
         public IUserSeasonStatusAppService _ussAppService;

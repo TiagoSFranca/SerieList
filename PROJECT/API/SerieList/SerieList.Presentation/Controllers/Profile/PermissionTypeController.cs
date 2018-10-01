@@ -6,10 +6,12 @@ using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Profile;
 using SerieList.Presentation.Models.Search.Profile;
 using SerieList.Presentation.Extensions;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Profile
 {
     [RoutePrefix("api/PermissionType")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PermissionTypeController : APIControllerBase
     {
         public IPermissionTypeAppService _ptAppService;

@@ -6,10 +6,12 @@ using SerieList.Extras.Util;
 using SerieList.Extras.Util.Messages.Episode;
 using SerieList.Presentation.Models.Search.Episode;
 using SerieList.Presentation.Extensions;
+using System.Web.Http.Cors;
 
 namespace SerieList.Presentation.Controllers.Episode
 {
     [RoutePrefix("api/EpisodeStatus")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class EpisodeStatusController : APIControllerBase
     {
         public IEpisodeStatusAppService _esAppService;
