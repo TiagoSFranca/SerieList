@@ -40,7 +40,6 @@
 
 <script>
 import AccessControlService from '@/api-services/access-control'
-import NotificationMessages from '@/helpers/notification-messages'
 import StoreGeneralConstants from '@/store/constants/general'
 import { mapActions } from 'vuex'
 export default {
@@ -62,35 +61,11 @@ export default {
   },
   methods: {
     ...mapActions({
-      changeShowLoader: StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER,
       changePageTitle: StoreGeneralConstants.ACTIONS.CHANGE_PAGE_TITLE
     }),
     submit () {
       if (this.$refs.form.validate()) {
-        this.changeShowLoader(true)
         AccessControlService.Auth(this.login, this.password)
-          .then((response) => {
-            var data = response.data
-            this.changeShowLoader(false)
-            console.log(data)
-            // if (data.Success === true) {
-            //   this.SET_TOKEN(data.Result)
-            //   this.$toast.success({
-            //     title: data.Method,
-            //     message: data.Message
-            //   })
-            //   this.$router.push('Home')
-            // } else {
-            //   this.$toast.error({
-            //     title: data.Method,
-            //     message: data.Exception.ErrorMessage
-            //   })
-            // }
-          }).catch(error => {
-            console.log(error)
-            this.changeShowLoader(false)
-            this.$toast.error(NotificationMessages.Error())
-          })
       }
     }
   }

@@ -41,10 +41,12 @@ Axios.defaults.baseURL = process.env.API_ENDPOINT
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+let instance = new Vue({
   el: '#app',
   router,
   store,
   components: { App },
   template: '<App/>'
 })
+
+window.Toast = instance.$toast

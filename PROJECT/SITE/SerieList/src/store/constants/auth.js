@@ -10,7 +10,7 @@ const AUTH = {
   },
   STATES: {
     TOKEN: 'token',
-    IS_AUTH: false
+    IS_AUTH: 'isAuth'
   },
   ACTIONS: {
     SET_TOKEN: 'setToken',

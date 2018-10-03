@@ -13,11 +13,22 @@ const module = {
     }
   },
   mutations: {
-    [AUTH.MUTATIONS.SET_TOKEN] (state, pageTitle) {
-      state.pageTitle = pageTitle
+    [AUTH.MUTATIONS.SET_TOKEN] (state, token) {
+      state[AUTH.STATES.TOKEN] = token
+      state[AUTH.STATES.IS_AUTH] = true
+      console.log(state[AUTH.STATES.TOKEN])
     },
     [AUTH.MUTATIONS.REMOVE_TOKEN]: (state) => {
-      state.token = ''
+      state[AUTH.STATES.REMOVE_TOKEN] = ''
+      state[AUTH.STATES.IS_AUTH] = false
+    }
+  },
+  actions: {
+    [AUTH.ACTIONS.SET_TOKEN] (context, token) {
+      context.commit(AUTH.MUTATIONS.SET_TOKEN, token)
+    },
+    [AUTH.ACTIONS.REMOVE_TOKEN] (context) {
+      context.commit(AUTH.MUTATIONS.REMOVE_TOKEN)
     }
   }
 }
