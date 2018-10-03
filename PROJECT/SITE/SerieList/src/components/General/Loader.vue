@@ -1,6 +1,6 @@
 <template>
     <v-dialog
-      v-model="dialog"
+      v-model="showLoader"
       persistent
       width="300"
     >
@@ -19,16 +19,18 @@
     </v-dialog>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+import StoreGeneralConstants from '@/store/constants/general'
 export default {
   data () {
     return {
       dialog: false
     }
   },
-  methods: {
-    showLoader (value) {
-      this.dialog = value
-    }
+  computed: {
+    ...mapGetters({
+      showLoader: StoreGeneralConstants.GETTERS.SHOW_LOADER
+    })
   }
 }
 </script>

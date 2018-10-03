@@ -1,7 +1,7 @@
 <template>
 <div>
     <v-toolbar app fixed clipped-left class="primary">
-      <v-toolbar-side-icon @click.stop="showDrawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click="showMenu"></v-toolbar-side-icon>
       <router-link to="/">
       <img src="@/assets/logo.png" class="img-logo">
       </router-link>
@@ -27,12 +27,11 @@
 </template>
 
 <script>
-import AuthHelper from '@/helpers/auth'
 import LogoutModal from '@/components/General/LogoutModal'
+import { mapGetters, mapActions } from 'vuex'
+import StoreGeneralConstants from '@/store/constants/general'
 export default {
   data: () => ({
-    drawer: false,
-    pageTitle: 'Início',
     logged: false
   }),
   props: {
@@ -41,20 +40,22 @@ export default {
   components: {
     LogoutModal
   },
+  computed: {
+    ...mapGetters({
+      pageTitle: StoreGeneralConstants.GETTERS.PAGE_TITLE,
+      showDrawer: StoreGeneralConstants.GETTERS.SHOW_DRAWER
+    })
+  },
   methods: {
-    updatePageTitle (title) {
-      this.pageTitle = title
-    },
-    showModal () {
-      this.$refs.logoutModal.showModal(true)
-    },
-    showDrawer () {
-      this.drawer = !this.drawer
-      this.$emit('on-show-drawer', this.drawer)
+    ...mapActions({
+      changeShowDrawer: StoreGeneralConstants.ACTIONS.CHANGE_SHOW_DRAWER
+    }),
+    showMenu () {
+      this.changeShowDrawer(!this.showDrawer)
     }
   },
   mounted: function () {
-    if (AuthHelper.getToken()) {
+    if (this.token) {
       this.logged = true
     }
   }

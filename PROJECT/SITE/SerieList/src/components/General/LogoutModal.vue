@@ -24,9 +24,8 @@
 </template>
 
 <script>
-import AccessControlService from '@/api-services/access-control'
-import NotificationMessages from '@/helpers/notification-messages'
-import AuthHelper from '@/helpers/auth'
+// import AccessControlService from '@/api-services/access-control'
+// import NotificationMessages from '@/helpers/notification-messages'
 export default {
   data () {
     return {
@@ -39,27 +38,27 @@ export default {
     },
     logout () {
       this.showModal(false)
-      AccessControlService.Unauth()
-        .then((response) => {
-          var data = response.data
-          console.log(data)
-          if (data.Success === true) {
-            AuthHelper.removeToken()
-            this.$toast.success({
-              title: data.Method,
-              message: data.Message
-            })
-            this.$router.push('Home')
-          } else {
-            this.$toast.error({
-              title: data.Method,
-              message: data.Exception.ErrorMessage
-            })
-          }
-        }).catch(error => {
-          console.log(error)
-          this.$toast.error(NotificationMessages.Error())
-        })
+      // AccessControlService.Unauth()
+      //   .then((response) => {
+      //     var data = response.data
+      //     console.log(data)
+      //     if (data.Success === true) {
+      //       AuthHelper.removeToken()
+      //       this.$toast.success({
+      //         title: data.Method,
+      //         message: data.Message
+      //       })
+      //       this.$router.push('Home')
+      //     } else {
+      //       this.$toast.error({
+      //         title: data.Method,
+      //         message: data.Exception.ErrorMessage
+      //       })
+      //     }
+      //   }).catch(error => {
+      //     console.log(error)
+      //     this.$toast.error(NotificationMessages.Error())
+      //   })
     }
   }
 }

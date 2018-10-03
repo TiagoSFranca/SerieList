@@ -41,10 +41,11 @@
 <script>
 import AccessControlService from '@/api-services/access-control'
 import NotificationMessages from '@/helpers/notification-messages'
-import AuthHelper from '@/helpers/auth'
+import StoreGeneralConstants from '@/store/constants/general'
+import { mapActions } from 'vuex'
 export default {
-  name: 'Login',
   data: () => ({
+    name: 'Login',
     drawer: null,
     valid: true,
     login: '',
@@ -57,36 +58,37 @@ export default {
     ]
   }),
   created: function () {
-    this.$emit('on-page-title-change', '')
+    this.changePageTitle(this.name)
   },
   methods: {
-    showLoader (value) {
-      this.$emit('on-show-loader', value)
-    },
+    ...mapActions({
+      changeShowLoader: StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER,
+      changePageTitle: StoreGeneralConstants.ACTIONS.CHANGE_PAGE_TITLE
+    }),
     submit () {
       if (this.$refs.form.validate()) {
-        this.showLoader(true)
+        this.changeShowLoader(true)
         AccessControlService.Auth(this.login, this.password)
           .then((response) => {
             var data = response.data
-            this.showLoader(false)
+            this.changeShowLoader(false)
             console.log(data)
-            if (data.Success === true) {
-              AuthHelper.setToken(data.Result)
-              this.$toast.success({
-                title: data.Method,
-                message: data.Message
-              })
-              this.$router.push('Home')
-            } else {
-              this.$toast.error({
-                title: data.Method,
-                message: data.Exception.ErrorMessage
-              })
-            }
+            // if (data.Success === true) {
+            //   this.SET_TOKEN(data.Result)
+            //   this.$toast.success({
+            //     title: data.Method,
+            //     message: data.Message
+            //   })
+            //   this.$router.push('Home')
+            // } else {
+            //   this.$toast.error({
+            //     title: data.Method,
+            //     message: data.Exception.ErrorMessage
+            //   })
+            // }
           }).catch(error => {
             console.log(error)
-            this.showLoader(false)
+            this.changeShowLoader(false)
             this.$toast.error(NotificationMessages.Error())
           })
       }

@@ -9,7 +9,9 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
 import CxltToastr from 'cxlt-vue2-toastr'
 import Axios from 'axios'
-import AuthHelper from '@/helpers/auth'
+// import AuthHelper from '@/helpers/auth'
+import store from '@/store/store'
+
 Vue.use(CxltToastr, {
   position: 'bottom right',
   showDuration: 500,
@@ -32,16 +34,17 @@ Vue.use(Vuetify, {
   }
 })
 Axios.defaults.baseURL = process.env.API_ENDPOINT
-let token = AuthHelper.getToken()
-if (token) {
-  Axios.defaults.headers.common[AuthHelper.constants.tokenName] = token
-}
+// let token = AuthHelper.getToken()
+// if (token) {
+//   Axios.defaults.headers.common[AuthHelper.constants.tokenName] = token
+// }
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
