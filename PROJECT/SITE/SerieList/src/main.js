@@ -9,7 +9,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
 import CxltToastr from 'cxlt-vue2-toastr'
 import Axios from 'axios'
-// import AuthHelper from '@/helpers/auth'
+import StoreAuthConstants from '@/store/constants/auth'
 import store from '@/store/store'
 
 Vue.use(CxltToastr, {
@@ -34,10 +34,9 @@ Vue.use(Vuetify, {
   }
 })
 Axios.defaults.baseURL = process.env.API_ENDPOINT
-// let token = AuthHelper.getToken()
-// if (token) {
-//   Axios.defaults.headers.common[AuthHelper.constants.tokenName] = token
-// }
+if (store.getters[StoreAuthConstants.GETTERS.IS_AUTH]) {
+  Axios.defaults.headers.common[StoreAuthConstants.STATES.TOKEN] = store.getters[StoreAuthConstants.GETTERS.TOKEN]
+}
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

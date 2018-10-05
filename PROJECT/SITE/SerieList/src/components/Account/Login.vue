@@ -40,8 +40,6 @@
 
 <script>
 import AccessControlService from '@/api-services/access-control'
-import StoreGeneralConstants from '@/store/constants/general'
-import { mapActions } from 'vuex'
 export default {
   data: () => ({
     name: 'Login',
@@ -56,13 +54,7 @@ export default {
       v => !!v || 'Senha é obrigatório'
     ]
   }),
-  created: function () {
-    this.changePageTitle(this.name)
-  },
   methods: {
-    ...mapActions({
-      changePageTitle: StoreGeneralConstants.ACTIONS.CHANGE_PAGE_TITLE
-    }),
     submit () {
       if (this.$refs.form.validate()) {
         AccessControlService.Auth(this.login, this.password)

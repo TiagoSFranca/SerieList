@@ -44,7 +44,6 @@ export default {
     ProductItem
   },
   created () {
-    this.$emit('on-page-title-change', 'Produtos')
     ProductStatus.search()
       .then((response) => {
         var data = response.data

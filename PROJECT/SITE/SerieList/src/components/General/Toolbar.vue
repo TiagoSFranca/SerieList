@@ -6,7 +6,6 @@
       <img src="@/assets/logo.png" class="img-logo">
       </router-link>
       <v-toolbar-title>
-        {{pageTitle}}
         </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -30,9 +29,9 @@
 import LogoutModal from '@/components/General/LogoutModal'
 import { mapGetters, mapActions } from 'vuex'
 import StoreGeneralConstants from '@/store/constants/general'
+import StoreAuthConstants from '@/store/constants/auth'
 export default {
   data: () => ({
-    logged: false
   }),
   props: {
     source: String
@@ -42,8 +41,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      pageTitle: StoreGeneralConstants.GETTERS.PAGE_TITLE,
-      showDrawer: StoreGeneralConstants.GETTERS.SHOW_DRAWER
+      showDrawer: StoreGeneralConstants.GETTERS.SHOW_DRAWER,
+      logged: StoreAuthConstants.GETTERS.IS_AUTH
     })
   },
   methods: {
@@ -52,11 +51,9 @@ export default {
     }),
     showMenu () {
       this.changeShowDrawer(!this.showDrawer)
-    }
-  },
-  mounted: function () {
-    if (this.token) {
-      this.logged = true
+    },
+    showModal () {
+      this.$refs.logoutModal.showModal(true)
     }
   }
 }

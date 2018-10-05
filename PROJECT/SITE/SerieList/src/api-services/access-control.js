@@ -5,6 +5,7 @@ import Constants from '@/helpers/constants'
 import StoreGeneralConstants from '@/store/constants/general'
 import StoreAuthConstants from '@/store/constants/auth'
 import NotificationMessages from '@/helpers/notification-messages'
+import router from '@/router'
 
 const RESOURCE_NAME = '/AccessControl'
 
@@ -20,14 +21,13 @@ export default {
       .then((response) => {
         var data = response.data
         store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
-        console.log(data)
         if (data.Success === true) {
           store.dispatch(StoreAuthConstants.ACTIONS.SET_TOKEN, data.Result)
           window.Toast.success({
             title: data.Method,
             message: data.Message
           })
-          // this.$router.push('Home')
+          router.push('Home')
         } else {
           window.Toast.error({
             title: data.Method,
@@ -41,6 +41,34 @@ export default {
       })
   },
   Unauth () {
-    return Axios.post(RESOURCE_NAME + '/unauthenticate', {})
+    let token = store.getters[StoreAuthConstants.GETTERS.TOKEN]
+    store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
+    console.log(token)
+    Axios.post(RESOURCE_NAME + '/unauthenticate', {token})
+      .then((response) => {
+        var data = response.data
+        console.log(data)
+        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+        if (data.Success === true) {
+          store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
+          window.Toast.success({
+            title: data.Method,
+            message: data.Message
+          })
+          router.push('Home')
+        } else {
+          window.Toast.error({
+            title: data.Method,
+            message: data.Exception.ErrorMessage
+          })
+        }
+      }).catch(error => {
+        console.log(error)
+        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+        window.Toast.error(NotificationMessages.Error())
+      })
+  },
+  CheckToken () {
+    console.log('CHECAR TOKEN')
   }
 }

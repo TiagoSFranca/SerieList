@@ -11,28 +11,28 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     {
-      path: '/Home',
-      name: 'HomeIndex',
-      component: HomeIndex
+      path: '/',
+      name: 'home.index',
+      component: HomeIndex,
+      meta: {
+        title: 'Início'
+      }
     },
     {
       path: '/Product',
-      name: 'ProductIndex',
+      name: 'product.index',
       component: ProductIndex,
       meta: {
+        title: 'Produtos',
         middleware: auth
       }
     },
     {
-      path: '/ProductStatus',
-      redirect: 'http://localhost:2055/api/productstatus/search',
-      name: 'ProductStatus'
-    },
-    {
       path: '/Login',
-      name: 'Login',
+      name: 'account.login',
       component: Login,
       meta: {
+        title: 'Entrar',
         middleware: guest
       }
     }
@@ -51,6 +51,8 @@ function nextFactory (context, middleware, index) {
 }
 
 router.beforeEach((to, from, next) => {
+  document.title = to.meta.title + ' - SerieList'
+  next()
   if (to.meta.middleware) {
     const middleware = Array.isArray(to.meta.middleware)
       ? to.meta.middleware

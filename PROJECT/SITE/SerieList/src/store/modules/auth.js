@@ -16,10 +16,9 @@ const module = {
     [AUTH.MUTATIONS.SET_TOKEN] (state, token) {
       state[AUTH.STATES.TOKEN] = token
       state[AUTH.STATES.IS_AUTH] = true
-      console.log(state[AUTH.STATES.TOKEN])
     },
     [AUTH.MUTATIONS.REMOVE_TOKEN]: (state) => {
-      state[AUTH.STATES.REMOVE_TOKEN] = ''
+      state[AUTH.STATES.TOKEN] = ''
       state[AUTH.STATES.IS_AUTH] = false
     }
   },

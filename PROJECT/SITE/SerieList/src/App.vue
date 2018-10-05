@@ -2,7 +2,7 @@
   <v-app id="inspire" dark>
     <v-navigation-drawer v-model="showDrawer" clipped fixed app class="primary">
       <v-list dense class="accent">
-        <v-list-tile :to="{name:'HomeIndex'}">
+        <v-list-tile :to="{name:'home.index'}">
           <v-list-tile-action>
             <v-icon>home</v-icon>
           </v-list-tile-action>
@@ -10,7 +10,7 @@
             <v-list-tile-title>Início</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile :to="{name:'ProductIndex'}">
+        <v-list-tile :to="{name:'product.index'}">
           <v-list-tile-action>
             <v-icon>settings</v-icon>
           </v-list-tile-action>

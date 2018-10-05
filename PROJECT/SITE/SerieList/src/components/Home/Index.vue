@@ -9,9 +9,6 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  },
-  created () {
-    this.$emit('on-page-title-change', 'Início')
   }
 }
 </script>
