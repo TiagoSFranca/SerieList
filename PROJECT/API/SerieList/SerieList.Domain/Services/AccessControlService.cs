@@ -167,13 +167,12 @@ namespace SerieList.Domain.Services
         public void Unauthenticate(string token)
         {
             var tokenProvider = _tokenProviderService.GetByToken(token);
-            if (tokenProvider == null)
-                throw new ServiceException(tokenProviderMessage.TokenNotFound);
-
-            tokenProvider.Validate();
-
-            tokenProvider.Valid = false;
-            _tokenProviderService.Update(tokenProvider, tokenProvider.User);
+            if (tokenProvider != null)
+                if (tokenProvider.Valid && !tokenProvider.Excluded)
+                {
+                    tokenProvider.Valid = false;
+                    _tokenProviderService.Update(tokenProvider, tokenProvider.User);
+                }
         }
 
         public string ForgotPassword(string email, int idApplicationType)
