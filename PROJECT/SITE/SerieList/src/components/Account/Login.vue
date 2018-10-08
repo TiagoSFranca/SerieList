@@ -23,6 +23,10 @@
                     type="password"
                     v-model="password"
                     :rules="passwordRules"></v-text-field>
+                    <v-checkbox
+                    label="Manter conectado"
+                    v-model="keep"
+                    ></v-checkbox>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -46,6 +50,7 @@ export default {
     drawer: null,
     valid: true,
     login: '',
+    keep: false,
     loginRules: [
       v => !!v || 'Usuário ou Email é obrigatório'
     ],
@@ -57,7 +62,7 @@ export default {
   methods: {
     submit () {
       if (this.$refs.form.validate()) {
-        AccessControlService.Auth(this.login, this.password)
+        AccessControlService.Auth(this.login, this.password, this.keep)
       }
     }
   }

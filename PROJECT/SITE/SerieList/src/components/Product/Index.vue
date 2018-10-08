@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import ProductStatus from '@/api-services/product'
+// import ProductStatus from '@/api-services/product'
 import ProductItem from '@/components/Product/ProductItem'
 export default {
   name: 'Index',
@@ -44,25 +44,25 @@ export default {
     ProductItem
   },
   created () {
-    ProductStatus.search()
-      .then((response) => {
-        var data = response.data
-        console.log(data)
-        if (data.Success === true) {
-          this.data = data.ResultPaged
-          this.$toast.success({
-            title: data.Method,
-            message: data.Message
-          })
-        } else {
-          this.$toast.error({
-            title: data.Method,
-            message: data.Message
-          })
-        }
-      }).catch((error) => {
-        return error.response.data
-      })
+    // ProductStatus.search()
+    //   .then((response) => {
+    //     var data = response.data
+    //     console.log(data)
+    //     if (data.Success === true) {
+    //       this.data = data.ResultPaged
+    //       this.$toast.success({
+    //         title: data.Method,
+    //         message: data.Message
+    //       })
+    //     } else {
+    //       this.$toast.error({
+    //         title: data.Method,
+    //         message: data.Message
+    //       })
+    //     }
+    //   }).catch((error) => {
+    //     return error.response.data
+    //   })
   }
 }
 </script>

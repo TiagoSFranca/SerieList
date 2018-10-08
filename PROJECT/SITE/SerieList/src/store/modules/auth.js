@@ -1,8 +1,8 @@
 import AUTH from '@/store/constants/auth'
 const module = {
   state: {
-    [AUTH.STATES.TOKEN]: '',
-    [AUTH.STATES.IS_AUTH]: false
+    [AUTH.STATES.TOKEN]: 'nv8OTbkr1oit3BXngxq8Q63m33UyDf5XCwAAAAEAMQAAAJ7/Dk25K9aIrKmwRzoAY0SiASMwS3G2ug==',
+    [AUTH.STATES.IS_AUTH]: true
   },
   getters: {
     [AUTH.GETTERS.TOKEN]: state => {

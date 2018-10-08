@@ -10,10 +10,11 @@ import router from '@/router'
 const RESOURCE_NAME = '/AccessControl'
 
 export default {
-  Auth (username, password) {
+  Auth (username, password, keep) {
     let obj = {
       Login: username,
       Password: password,
+      KeepConnected: keep,
       ApplicationType: Constants.ApplicationType
     }
     store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
@@ -41,13 +42,10 @@ export default {
       })
   },
   Unauth () {
-    let token = store.getters[StoreAuthConstants.GETTERS.TOKEN]
     store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
-    console.log(token)
-    Axios.post(RESOURCE_NAME + '/unauthenticate', {token})
+    Axios.post(RESOURCE_NAME + '/unauthenticate', {})
       .then((response) => {
         var data = response.data
-        console.log(data)
         store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
         if (data.Success === true) {
           store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
@@ -68,7 +66,63 @@ export default {
         window.Toast.error(NotificationMessages.Error())
       })
   },
-  CheckToken () {
-    console.log('CHECAR TOKEN')
+  CheckIsGuest (from, next) {
+    if (store.getters[StoreAuthConstants.GETTERS.IS_AUTH] === false) {
+      store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
+      Axios.post(RESOURCE_NAME + '/validtoken', {})
+        .then((response) => {
+          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+          var data = response.data
+          if (data.Success === true) {
+            if (data.Result.Valid === false) {
+              store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
+              next()
+            }
+          } else {
+            let redirect = from.name
+            if (!redirect) {
+              redirect = 'home.index'
+            }
+            return router.push({name: redirect})
+          }
+        }).catch(error => {
+          console.log(error)
+          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+          store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
+          next()
+        })
+    } else {
+      let redirect = from.name
+      if (!redirect) {
+        redirect = 'home.index'
+      }
+      return router.push({name: redirect})
+    }
+  },
+  CheckIsAuth (next) {
+    let redirect = 'account.login'
+    if (store.getters[StoreAuthConstants.GETTERS.IS_AUTH] === true) {
+      store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
+      Axios.post(RESOURCE_NAME + '/validtoken', {})
+        .then((response) => {
+          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+          var data = response.data
+          if (data.Success === true) {
+            if (data.Result.Valid === true) {
+              next()
+            }
+          } else {
+            store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
+            return router.push({name: redirect})
+          }
+        }).catch(error => {
+          console.log(error)
+          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+          store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
+          return router.push({name: redirect})
+        })
+    } else {
+      return router.push({name: redirect})
+    }
   }
 }
