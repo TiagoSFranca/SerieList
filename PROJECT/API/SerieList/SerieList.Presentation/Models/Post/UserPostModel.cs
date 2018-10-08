@@ -48,4 +48,13 @@
         public int IdSeason { get; set; }
         public int IdUserSeasonStatus { get; set; }
     }
+
+    public class ValidTokenModel
+    {
+        public ValidTokenModel(bool valid)
+        {
+            Valid = valid;
+        }
+        public bool Valid { get; set; }
+    }
 }

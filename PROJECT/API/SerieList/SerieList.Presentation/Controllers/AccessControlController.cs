@@ -143,5 +143,26 @@ namespace SerieList.Presentation.Controllers
             }
             return response;
         }
+
+        [HttpPost]
+        [Route("ValidToken")]
+        public ResponseSingleResult<ValidTokenModel> ValidToken()
+        {
+            var response = new ResponseSingleResult<ValidTokenModel>(accessControlMessage.MethodValidToken);
+            try
+            {
+                bool valid = _acAppService.ValidToken(GetToken());
+                response.Result = new ValidTokenModel(valid);
+                response.Success = true;
+                response.Message = accessControlMessage.SuccessValidToken;
+            }
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.Message = accessControlMessage.ErrorValidToken;
+                response.Exception = new ResponseException(e);
+            }
+            return response;
+        }
     }
 }
