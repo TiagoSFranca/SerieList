@@ -1,5 +1,5 @@
 <template v-if="dialog">
-  <v-layout row justify-center>
+  <v-layout row justify-center class="no-display">
     <v-dialog v-model="dialog" max-width="320">
       <v-card>
         <v-card-title class="headline">Sair</v-card-title>
@@ -10,7 +10,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn class="error" flat="flat" outline @click="dialog = false">
+          <v-btn class="error" flat="flat" outline @click="closeModal">
             Cancelar
           </v-btn>
 
@@ -25,20 +25,24 @@
 
 <script>
 import AccessControlService from '@/api-services/access-control'
-// import NotificationMessages from '@/helpers/notification-messages'
+import StoreAuthConstants from '@/store/constants/auth'
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  data () {
-    return {
-      dialog: false
-    }
+  computed: {
+    ...mapGetters({
+      dialog: StoreAuthConstants.GETTERS.SHOW_LOGOUT_MODAL
+    })
   },
   methods: {
-    showModal (value) {
-      this.dialog = value
-    },
+    ...mapActions({
+      showModal: StoreAuthConstants.ACTIONS.SHOW_LOGOUT_MODAL
+    }),
     logout () {
       this.showModal(false)
       AccessControlService.Unauth()
+    },
+    closeModal () {
+      this.showModal(false)
     }
   }
 }

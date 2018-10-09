@@ -63,6 +63,7 @@ export default {
       }).catch(error => {
         console.log(error)
         store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+        store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
         window.Toast.error(NotificationMessages.Error())
       })
   },
