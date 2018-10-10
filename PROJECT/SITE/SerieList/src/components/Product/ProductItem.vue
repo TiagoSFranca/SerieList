@@ -43,7 +43,6 @@
         </v-slide-y-transition>
       </v-card>
     </v-flex>
-    {{product}}
   </v-layout>
 </template>
 

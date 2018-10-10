@@ -17,11 +17,11 @@ export default {
       KeepConnected: keep,
       ApplicationType: Constants.ApplicationType
     }
-    store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
+    store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, true)
     Axios.post(RESOURCE_NAME + '/authenticate', qs.stringify(obj))
       .then((response) => {
         var data = response.data
-        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
         if (data.Success === true) {
           store.dispatch(StoreAuthConstants.ACTIONS.SET_TOKEN, data.Result)
           window.Toast.success({
@@ -37,16 +37,16 @@ export default {
         }
       }).catch(error => {
         console.log(error)
-        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
         window.Toast.error(NotificationMessages.Error())
       })
   },
   Unauth () {
-    store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
+    store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, true)
     Axios.post(RESOURCE_NAME + '/unauthenticate', {})
       .then((response) => {
         var data = response.data
-        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
         if (data.Success === true) {
           store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
           window.Toast.success({
@@ -62,17 +62,17 @@ export default {
         }
       }).catch(error => {
         console.log(error)
-        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+        store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
         store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
         window.Toast.error(NotificationMessages.Error())
       })
   },
   CheckIsGuest (from, next) {
     if (store.getters[StoreAuthConstants.GETTERS.IS_AUTH] === false) {
-      store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
+      store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, true)
       Axios.post(RESOURCE_NAME + '/validtoken', {})
         .then((response) => {
-          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
           var data = response.data
           if (data.Success === true) {
             if (data.Result.Valid === false) {
@@ -88,7 +88,7 @@ export default {
           }
         }).catch(error => {
           console.log(error)
-          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
           store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
           next()
         })
@@ -103,10 +103,10 @@ export default {
   CheckIsAuth (next) {
     let redirect = 'account.login'
     if (store.getters[StoreAuthConstants.GETTERS.IS_AUTH] === true) {
-      store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, true)
+      store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, true)
       Axios.post(RESOURCE_NAME + '/validtoken', {})
         .then((response) => {
-          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
           var data = response.data
           if (data.Success === true) {
             if (data.Result.Valid === true) {
@@ -118,7 +118,7 @@ export default {
           }
         }).catch(error => {
           console.log(error)
-          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_LOADER, false)
+          store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
           store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
           return router.push({name: redirect})
         })

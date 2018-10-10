@@ -1,13 +1,11 @@
+import qs from 'qs'
 import Axios from 'axios'
 const RESOURCE_NAME = '/product'
 export default {
-  search () {
-    return Axios.post(RESOURCE_NAME + '/search')
+  search (params) {
+    return Axios.post(RESOURCE_NAME + '/search', qs.stringify(params))
   },
   get (id) {
     return Axios.get(RESOURCE_NAME + '/' + id)
   }
-//   create (data) { return Axios.post(RESOURCE_NAME, data) },
-//   update (id, data) { return Axios.put(RESOURCE_NAME/id, data) },
-//   delete (id) { return Axios.delete(RESOURCE_NAME/id) }
 }

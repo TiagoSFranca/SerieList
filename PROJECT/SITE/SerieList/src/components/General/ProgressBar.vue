@@ -1,6 +1,6 @@
 <template>
     <v-dialog
-      v-model="showLoader"
+      v-model="showProgressBar"
       persistent
       width="300"
     >
@@ -24,12 +24,11 @@ import StoreGeneralConstants from '@/store/constants/general'
 export default {
   data () {
     return {
-      dialog: false
     }
   },
   computed: {
     ...mapGetters({
-      showLoader: StoreGeneralConstants.GETTERS.SHOW_LOADER
+      showProgressBar: StoreGeneralConstants.GETTERS.SHOW_PROGRESS_BAR
     })
   }
 }

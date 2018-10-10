@@ -13,13 +13,13 @@ import StoreAuthConstants from '@/store/constants/auth'
 import store from '@/store/store'
 
 Vue.use(CxltToastr, {
-  position: 'bottom right',
+  position: 'bottom left',
   showDuration: 500,
   hideDuration: 2000,
   timeOut: 2000,
   progressBar: true,
   showMethod: 'zoomIn',
-  hideMethod: 'bounceOutLeft',
+  hideMethod: 'zoomOut',
   colseButton: true
 })
 Vue.use(Vuetify, {

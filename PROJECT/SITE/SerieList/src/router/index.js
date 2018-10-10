@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import auth from '@/middleware/auth'
+// import auth from '@/middleware/auth'
 import guest from '@/middleware/guest'
 import HomeIndex from '@/components/Home/Index'
-import ProductIndex from '@/components/Product/Index'
+import SerieAll from '@/components/Serie/All'
 import Login from '@/components/Account/Login'
 
 Vue.use(Router)
@@ -19,21 +19,20 @@ const router = new Router({
       }
     },
     {
-      path: '/Product',
-      name: 'product.index',
-      component: ProductIndex,
-      meta: {
-        title: 'Produtos',
-        middleware: auth
-      }
-    },
-    {
       path: '/Login',
       name: 'account.login',
       component: Login,
       meta: {
         title: 'Entrar',
         middleware: guest
+      }
+    },
+    {
+      path: '/Serie/All',
+      name: 'serie.all',
+      component: SerieAll,
+      meta: {
+        title: 'Listar Séries'
       }
     }
   ]

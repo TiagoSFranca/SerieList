@@ -26,7 +26,7 @@
         </v-list-tile>
         <v-list-tile
           v-for="(child, i) in item.children"
-          :key="i" @click="redirect(child.route)">
+          :key="i" :to="{name: child.route}" exact>
           <v-list-tile-action v-if="child.icon">
             <v-icon>{{ child.icon }}</v-icon>
           </v-list-tile-action>
@@ -37,7 +37,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list-group>
-      <v-list-tile v-else :key="item.text" @click="redirect(item.route)">
+      <v-list-tile v-else :key="item.text" :to="{name: item.route}" exact>
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-tile-action>
@@ -75,8 +75,8 @@
         </v-list-tile>
         <v-list-tile
           v-for="(child, i) in item.children"
-          :key="i" @click="redirect(child.route)">
-          <v-list-tile-action v-if="child.icon" >
+          :key="i" :to="{name: child.route}" exact>
+          <v-list-tile-action v-if="child.icon">
             <v-icon>{{ child.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
@@ -86,7 +86,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list-group>
-      <v-list-tile v-else :key="item.text" @click="redirect(item.route)">
+      <v-list-tile v-else :key="item.text" :to="{name: item.route}" exact>
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-tile-action>
@@ -124,7 +124,7 @@
         </v-list-tile>
         <v-list-tile
           v-for="(child, i) in item.children"
-          :key="i" @click="redirect(child.route)">
+          :key="i" :to="{name: child.route}" exact>
           <v-list-tile-action v-if="child.icon">
             <v-icon>{{ child.icon }}</v-icon>
           </v-list-tile-action>
@@ -135,7 +135,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list-group>
-      <v-list-tile v-else :key="item.text" @click="redirect(item.route)">
+      <v-list-tile v-else :key="item.text" :to="{name: item.route}" exact>
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-tile-action>
@@ -160,7 +160,7 @@ export default {
         text: 'Séries',
         model: false,
         children: [
-          { icon: 'list', text: 'Listar', route: 'serie.index' },
+          { icon: 'list', text: 'Listar', route: 'serie.all' },
           { icon: 'add', text: 'Adicionar', route: 'serie.add' }
         ]
       },
