@@ -1,41 +1,36 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import auth from '@/middleware/auth'
 import guest from '@/middleware/guest'
 import HomeIndex from '@/components/Home/Index'
-import SerieAll from '@/components/Serie/All'
 import Login from '@/components/Account/Login'
+import serieRouter from '@/router/serie-router'
 
 Vue.use(Router)
 
-const router = new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home.index',
-      component: HomeIndex,
-      meta: {
-        title: 'Início'
-      }
-    },
-    {
-      path: '/Login',
-      name: 'account.login',
-      component: Login,
-      meta: {
-        title: 'Entrar',
-        middleware: guest
-      }
-    },
-    {
-      path: '/Serie/All',
-      name: 'serie.all',
-      component: SerieAll,
-      meta: {
-        title: 'Listar Séries'
-      }
+const baseRoutes = [
+  {
+    path: '/',
+    name: 'home.index',
+    component: HomeIndex,
+    meta: {
+      title: 'Início'
     }
-  ]
+  },
+  {
+    path: '/Login',
+    name: 'account.login',
+    component: Login,
+    meta: {
+      title: 'Entrar',
+      middleware: guest
+    }
+  }
+]
+
+let routes = baseRoutes.concat(serieRouter)
+
+const router = new Router({
+  routes
 })
 
 function nextFactory (context, middleware, index) {

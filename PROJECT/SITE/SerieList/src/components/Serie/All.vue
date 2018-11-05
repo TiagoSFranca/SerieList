@@ -11,12 +11,13 @@
             <v-btn fab color="primary">
                 <v-icon>filter_list</v-icon>
             </v-btn>
-            <v-btn fab color="primary">
+            <v-btn fab color="primary" @click="Add">
                 <v-icon>add</v-icon>
             </v-btn>
         </div>
     </v-flex>
 </template>
+
 <script>
 import SerieService from '@/api-services/serie'
 import ProductItem from '@/components/Product/ProductItem'
@@ -38,6 +39,12 @@ export default {
     ...mapGetters({
       result: StoreSerieConstants.GETTERS.GET_RESULT
     })
+  },
+  methods: {
+    Add () {
+      console.log('aadw')
+      this.$router.push({name: 'serie.add'})
+    }
   }
 }
 </script>

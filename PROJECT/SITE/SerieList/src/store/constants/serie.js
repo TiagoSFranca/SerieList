@@ -1,15 +1,15 @@
 const SERIE = {
   MUTATIONS: {
-    ADD_RESULT: 'ADD_RESULT'
+    ADD_RESULT: 'ADD_SERIE_RESULT'
   },
   GETTERS: {
-    GET_RESULT: 'getResult'
+    GET_RESULT: 'getSerieResult'
   },
   STATES: {
-    RESULT: 'result'
+    RESULT: 'serieResult'
   },
   ACTIONS: {
-    ADD_RESULT: 'addResult'
+    ADD_RESULT: 'addSerieResult'
   }
 }
 export default SERIE
