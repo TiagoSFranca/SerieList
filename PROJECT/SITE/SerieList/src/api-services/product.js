@@ -7,5 +7,8 @@ export default {
   },
   get (id) {
     return Axios.get(RESOURCE_NAME + '/' + id)
+  },
+  add (data) {
+    return Axios.post(RESOURCE_NAME, qs.stringify(data))
   }
 }

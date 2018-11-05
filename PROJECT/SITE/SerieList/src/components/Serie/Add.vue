@@ -31,17 +31,17 @@
                                     </v-flex>
                                     <v-flex xs6>
                                         <v-select
-                                        v-model="idProductStatus"
+                                        v-model="idVisibility"
                                         item-text="Description"
-                                        item-value="IdProductStatus"
-                                        :items="productStatusResult.Items"
+                                        item-value="IdVisibility"
+                                        :items="visibilityResult.Items"
                                         :rules="[v => !!v || generalMessage]"
                                         label="Visibilidade"
                                         required/>
                                     </v-flex>
                                     <v-flex xs12>
                                         <v-textarea name="description" label="Descrição"
-                                        value="" :counter="512"/>
+                                        value="" :counter="512" :rules="descriptionRules"/>
                                     </v-flex>
                                     <v-flex xs6>
                                         <v-menu v-model="menuBeginAt" :close-on-content-click="false" full-width max-width="290">
@@ -95,6 +95,9 @@
 <script>
 import ProductStatusService from '@/api-services/product-status'
 import StoreProductStatusConstants from '@/store/constants/product-status'
+import VisibilityService from '@/api-services/visibility'
+import StoreVisibilityConstants from '@/store/constants/visibility'
+import SerieService from '@/api-services/serie'
 import GeneralMessages from '@/helpers/general-messages'
 import Formatters from '@/helpers/formatters'
 import { mapGetters } from 'vuex'
@@ -105,9 +108,13 @@ export default {
     title: '',
     titleRules: [
       v => !!v || GeneralMessages.required,
-      v => (v && v.length <= 128) || GeneralMessages.required
+      v => (v && v.length <= 128) || GeneralMessages.maxLengthError
+    ],
+    descriptionRules: [
+      v => (v && v.length <= 512) || GeneralMessages.maxLengthError
     ],
     idProductStatus: null,
+    idVisibility: null,
     generalMessage: GeneralMessages.required,
     beginAt: null,
     menuBeginAt: false,
@@ -118,6 +125,15 @@ export default {
   methods: {
     submit () {
       if (this.$refs.form.validate()) {
+        let obj = {
+          IdProductStatus: this.idProductStatus,
+          IdVisibility: this.idVisibility,
+          Title: this.title,
+          Description: this.Description,
+          BeginAt: this.beginAt,
+          EndAt: this.endAt
+        }
+        SerieService.add(obj)
       }
     },
     clear () {
@@ -126,10 +142,12 @@ export default {
   },
   created () {
     ProductStatusService.search({excluded: false})
+    VisibilityService.search({excluded: false})
   },
   computed: {
     ...mapGetters({
-      productStatusResult: StoreProductStatusConstants.GETTERS.GET_RESULT
+      productStatusResult: StoreProductStatusConstants.GETTERS.GET_RESULT,
+      visibilityResult: StoreVisibilityConstants.GETTERS.GET_RESULT
     }),
     computedBeginAt () {
       return Formatters.FormatDate(this.beginAt)
