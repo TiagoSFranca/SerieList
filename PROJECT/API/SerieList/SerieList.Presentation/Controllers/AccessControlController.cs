@@ -6,6 +6,7 @@ using SerieList.Presentation.Extensions;
 using SerieList.Application.Interfaces;
 using SerieList.Extras.Util.Messages;
 using System.Web.Http.Cors;
+using SerieList.Application.AppModels.User;
 
 namespace SerieList.Presentation.Controllers
 {
@@ -66,12 +67,14 @@ namespace SerieList.Presentation.Controllers
 
         [HttpPost]
         [Route("Authenticate")]
-        public ResponseSingleResult<string> Authenticate([FromBody]UserLoginModel login)
+        public ResponseSingleResult<UserAuthenticatedModel> Authenticate([FromBody]UserLoginModel login)
         {
-            var response = new ResponseSingleResult<string>(accessControlMessage.MethodAuthenticate);
+            var response = new ResponseSingleResult<UserAuthenticatedModel>(accessControlMessage.MethodAuthenticate);
             try
             {
-                response.Result = _acAppService.Authenticate(login.Login, login.Password, login.KeepConnected, login.ApplicationType);
+                var token = _acAppService.Authenticate(login.Login, login.Password, login.KeepConnected, login.ApplicationType);
+                var user = _acAppService.GetUserByToken(token);
+                response.Result = new UserAuthenticatedModel(token, user);
                 response.Success = true;
                 response.Message = accessControlMessage.SuccessAuthenticate;
             }
@@ -160,6 +163,26 @@ namespace SerieList.Presentation.Controllers
             {
                 response.Success = false;
                 response.Message = accessControlMessage.ErrorValidToken;
+                response.Exception = new ResponseException(e);
+            }
+            return response;
+        }
+
+        [HttpPost]
+        [Route("UserByToken")]
+        public ResponseSingleResult<UserAppModel> UserByToken()
+        {
+            var response = new ResponseSingleResult<UserAppModel>(accessControlMessage.MethodUserByToken);
+            try
+            {
+                response.Result = _acAppService.GetUserByToken(GetToken());
+                response.Success = true;
+                response.Message = accessControlMessage.SuccessUserByToken;
+            }
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.Message = accessControlMessage.ErrorUserByToken;
                 response.Exception = new ResponseException(e);
             }
             return response;

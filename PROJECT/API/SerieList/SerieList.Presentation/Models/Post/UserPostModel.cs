@@ -1,4 +1,6 @@
-﻿namespace SerieList.Presentation.Models.Post
+﻿using SerieList.Application.AppModels.User;
+
+namespace SerieList.Presentation.Models.Post
 {
     public class UserPostModel
     {
@@ -56,5 +58,17 @@
             Valid = valid;
         }
         public bool Valid { get; set; }
+    }
+
+    public class UserAuthenticatedModel
+    {
+        public string Token { get; set; }
+        public UserAppModel User { get; set; }
+
+        public UserAuthenticatedModel(string token, UserAppModel user)
+        {
+            Token = token;
+            User = user;
+        }
     }
 }

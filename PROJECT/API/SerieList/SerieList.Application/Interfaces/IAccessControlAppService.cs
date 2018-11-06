@@ -28,6 +28,6 @@ namespace SerieList.Application.Interfaces
 
         bool ValidToken(string token);
 
-        UserSimplifiedAppModel GetUserSimplifiedByToken(string token);
+        UserAppModel GetUserByToken(string token);
     }
 }
