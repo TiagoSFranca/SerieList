@@ -23,12 +23,13 @@ export default {
         var data = response.data
         store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
         if (data.Success === true) {
-          store.dispatch(StoreAuthConstants.ACTIONS.SET_TOKEN, data.Result)
+          console.log(data)
+          store.dispatch(StoreAuthConstants.ACTIONS.SET_TOKEN, {Token: data.Result.Token, User: data.Result.User})
           window.Toast.success({
             title: data.Method,
             message: data.Message
           })
-          router.push('Home')
+          router.push({name: 'home.index'})
         } else {
           window.Toast.error({
             title: data.Method,
@@ -108,10 +109,8 @@ export default {
         .then((response) => {
           store.dispatch(StoreGeneralConstants.ACTIONS.CHANGE_SHOW_PROGRESS_BAR, false)
           var data = response.data
-          if (data.Success === true) {
-            if (data.Result.Valid === true) {
-              next()
-            }
+          if (data.Success === true && data.Result.Valid === true) {
+            next()
           } else {
             store.dispatch(StoreAuthConstants.ACTIONS.REMOVE_TOKEN)
             return router.push({name: redirect})

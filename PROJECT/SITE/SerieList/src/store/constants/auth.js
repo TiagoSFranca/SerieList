@@ -7,11 +7,13 @@ const AUTH = {
   },
   GETTERS: {
     TOKEN: 'getToken',
+    USER_DATA: 'getUserData',
     IS_AUTH: 'isAuth',
     SHOW_LOGOUT_MODAL: 'getShowLogoutModal'
   },
   STATES: {
     TOKEN: 'token',
+    USER_DATA: 'userData',
     IS_AUTH: 'isAuth',
     SHOW_LOGOUT_MODAL: 'showLogoutModal'
   },

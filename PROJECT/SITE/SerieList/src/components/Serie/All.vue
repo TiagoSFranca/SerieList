@@ -3,7 +3,7 @@
         <v-container fluid grid-list-sm>
             <v-layout row wrap>
                 <v-flex v-for="i in result.Items" :key="i.IdProduct" xs4>
-                    <product-item :product="i"/>
+                    <serie-item :product="i"/>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -20,7 +20,7 @@
 
 <script>
 import SerieService from '@/api-services/serie'
-import ProductItem from '@/components/Product/ProductItem'
+import SerieItem from '@/components/Serie/ListItem'
 import StoreSerieConstants from '@/store/constants/serie'
 import { mapGetters } from 'vuex'
 export default {
@@ -30,7 +30,7 @@ export default {
     }
   },
   components: {
-    ProductItem
+    SerieItem
   },
   created () {
     SerieService.search()

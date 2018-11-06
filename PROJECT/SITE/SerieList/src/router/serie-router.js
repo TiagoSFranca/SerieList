@@ -1,5 +1,6 @@
 import SerieAll from '@/components/Serie/All'
 import SerieAdd from '@/components/Serie/Add'
+import auth from '@/middleware/auth'
 
 export default [
   {
@@ -15,7 +16,8 @@ export default [
     name: 'serie.add',
     component: SerieAdd,
     meta: {
-      title: 'Adicionar Série'
+      title: 'Adicionar Série',
+      middleware: auth
     }
   }
 ]
